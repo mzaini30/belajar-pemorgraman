@@ -1,7 +1,7 @@
 ---
 title: "Tentang Penulis"
 date: 2020-12-09T02:24:44Z
-draft: true
+draft: false
 description: Tentang penulis blog ini
 tags:
   - profil

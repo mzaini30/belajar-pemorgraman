@@ -53,6 +53,11 @@ name = "Tags"
 url = "/tags"
 weight = 4
 
+[[menu.main]]
+name = "Cari"
+url = "/cari"
+weight = 5
+
 [[params.social]]
 name = "Github"
 icon = "github"
