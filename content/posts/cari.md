@@ -15,8 +15,8 @@ tags:
    box-sizing: border-box;
   }
  </style>
- <form>
-  <input class="cari" placeholder="Cari apa?">
+ <form class="formCari">
+  <input class="cari" placeholder="Cari apa?" required>
  </form>
  <div class="hasil">
   <ol>
@@ -27,4 +27,10 @@ tags:
    -->
   </ol>
  </div>
+ <script>
+  document.querySelector(".formCari").addEventListener("submit", (x) => {
+   x.preventDefault()
+   alert("Halo")
+  })
+ </script>
 {{</html>}}
