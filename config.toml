@@ -1,8 +1,8 @@
-baseURL = "http://example.org/"
+baseURL = "https://belajarpemrograman.my.id/"
 languageCode = "en-us"
-title = "Ink"
+title = "<BP/>"
 theme = "hugo-ink"
-paginate = 5 
+paginate = 10
 
 copyright = "© Copyright notice"
 
