@@ -42,7 +42,7 @@ weight = 2
 
 [[menu.main]]
 name = "About"
-url = "/about"
+url = "/tentang-penulis"
 weight = 3
 
 [[menu.main]]
