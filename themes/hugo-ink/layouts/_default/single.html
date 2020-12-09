@@ -24,7 +24,12 @@
 			 {{ if not hugo.IsProduction }}
   		 <div class="tags">
   		  <ul class="flat">
-  		   <li><a href="/">{{ .Content | countwords }} kata</a></li>
+  		   <li>
+  		   	<a href="/">{{ .Content | countwords }} kata</a>
+  		   	{{ if .Draft }}
+  		   		<a href="/">Draft</a>
+  		   	{{ end }}
+  		   </li>
   		  </ul>
   		 </div>
 			 {{ end }}
