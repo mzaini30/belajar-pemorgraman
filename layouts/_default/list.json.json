@@ -2,9 +2,9 @@
     {{ range $index, $e := .Data.Pages }}
      {{ if $index }}, {{ end }}
      {
-        "judul": "{{ .Title }}",
-        "isi": "{{ .Plain }}",
-        "link" : "{{ .Permalink }}"
+        "judul": {{ .Title | jsonify }},
+        "isi": {{ .Plain | jsonify }},
+        "link" : {{ .Permalink | jsonify }}
      }
     {{ end }}
 ]

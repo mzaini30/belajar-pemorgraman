@@ -30,7 +30,30 @@ tags:
  <script>
   document.querySelector(".formCari").addEventListener("submit", (x) => {
    x.preventDefault()
-   alert("Halo")
+   async function mulaiCari(){
+    let hasil = await fetch('/posts/index.json').then(x => x.json())
+    hasil = await hasil
+    let yangDicari = document.querySelector('.cari').value.toLowerCase()
+    hasil.map(x => {
+      x.judulKecil = x.judul.toLowerCase()
+      x.isiKecil = x.isi.toLowerCase()
+    })
+    hasil = hasil.sort((x, y) => x.judul > y.judul)
+    let ketemu = []
+    for (let y of hasil){
+      if (y.judulKecil.includes(yangDicari) || y.isiKecil.includes(yangDicari)) {
+        ketemu = [...ketemu, y]
+      }
+    }
+    if (ketemu.length > 0) {
+      document.querySelector('.hasil ol').innerHTML = ketemu.map(x => `<li><a href='${x.link}'>${x.judul}</a></li>`).join('')
+    } else {
+      document.querySelector('.hasil ol').innerHTML = `
+        <li><a href='/cari'>Nggak Ketemu</a></li>
+      `
+    }
+   }
+   mulaiCari()
   })
  </script>
 {{</html>}}
