@@ -10,7 +10,7 @@ pygmentsstyle = "vs"
 pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
 
-googleAnalytics = "UA-123-45"
+# oogleAnalyticss = "G-0EVHX122V8"
 disqusShortname = "belajarpemrogramanzen"
 
 [params]
