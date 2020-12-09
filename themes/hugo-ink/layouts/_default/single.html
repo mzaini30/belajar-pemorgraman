@@ -21,6 +21,13 @@
 			</div>
 					
 			<div class="markdown">
+			 {{ if not hugo.IsProduction }}
+  		 <div class="tags">
+  		  <ul class="flat">
+  		   <li><a href="/">{{ .Content | countwords }} kata</a></li>
+  		  </ul>
+  		 </div>
+			 {{ end }}
 				{{ .Content }}
 			</div>
 

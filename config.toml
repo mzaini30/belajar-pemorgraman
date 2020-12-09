@@ -13,6 +13,9 @@ pygmentscodefencesguesssyntax = true
 # oogleAnalyticss = "G-0EVHX122V8"
 disqusShortname = "belajarpemrogramanzen"
 
+[outputs]
+  section = ["html", "rss", "json"]
+ 
 [params]
 	subtitle = "Yuk belajar pemrograman"
 

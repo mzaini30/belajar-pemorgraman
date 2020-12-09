@@ -1,0 +1,10 @@
+[
+    {{ range $index, $e := .Data.Pages }}
+     {{ if $index }}, {{ end }}
+     {
+        "judul": "{{ .Title }}",
+        "isi": "{{ .Plain }}",
+        "link" : "{{ .Permalink }}"
+     }
+    {{ end }}
+]
