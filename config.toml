@@ -11,7 +11,7 @@ pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
 
 googleAnalytics = "UA-123-45"
-disqusShortname = "ink-demo"
+disqusShortname = "belajarpemrogramanzen"
 
 [params]
 	subtitle = "Yuk belajar pemrograman"
@@ -62,3 +62,6 @@ url = "/index.xml"
 
 [taxonomies]
    tag = "tags"
+
+[permalinks]
+  posts = "/:title/"
