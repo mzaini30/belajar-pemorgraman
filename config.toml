@@ -2,7 +2,7 @@ baseURL = "http://example.org/"
 languageCode = "en-us"
 title = "Ink"
 theme = "hugo-ink"
-paginate = 5
+paginate = 5 
 
 copyright = "© Copyright notice"
 
