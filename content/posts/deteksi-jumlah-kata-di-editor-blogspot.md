@@ -2,7 +2,7 @@
 title: "Deteksi Jumlah Kata Di Editor Blogspot"
 date: 2020-12-10T19:53:27+08:00
 draft: false
-description: 
+description: Fitur yang sangat bermanfaat bagi blogger yang berfokus pada SEO
 tags:
   - blogspot
 ---
