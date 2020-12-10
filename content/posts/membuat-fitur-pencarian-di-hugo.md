@@ -1,7 +1,7 @@
 ---
 title: "Membuat Fitur Pencarian Di Hugo"
 date: 2020-12-09T21:52:15Z
-draft: true
+draft: false
 description: Fitur pencarian di HTML statis
 tags:
   - hugo
@@ -180,5 +180,63 @@ async function jalankanFetch(){
   let datanya = await fetch('http://situs.com/data.json').then(x => x.json())
   datanya = await datanya
   console.log(datanya)
+}
+jalankanFetch()
+```
+
+Logika fetch dengan async/await tampak pada kode bagian ini:
+
+```javascript
+async function mulaiCari(){
+    let hasil = await fetch('/posts/index.json').then(x => x.json())
+    hasil = await hasil
+    // dst
+}
+mulaiCari()
+```
+
+Maka, hasil dari `/posts/index.json` disimpan pada variabel `hasil`.
+
+Lalu, kita buat variabel `yangDicari` yang isinya adalah kata kunci yang kita cari, lalu dikecilkan hurufnya (lowercase):
+
+```javascript
+let yangDicari = document.querySelector('.cari').value.toLowerCase()
+```
+
+Terus, yang `hasil` tadi, kita buat key baru bernama `judulKecil` yang merupakan nilai dari key `judul` yang dikecilkan. Dan juga, kita membuat key `isiKecil` yang merupakan nilai dari `isi` yang dikecilkan. Lalu, semua nilai dari `hasil`, kita urutkan berdasarkan key `judul`:
+
+```javascript
+hasil.map(x => {
+  x.judulKecil = x.judul.toLowerCase()
+  x.isiKecil = x.isi.toLowerCase()
+})
+hasil = hasil.sort((x, y) => x.judul > y.judul)
+```
+
+Kemudian, kita buat variabel `ketemu` yang akan menampung semua nilai yang cocok dengan kata kunci:
+
+```javascript
+let ketemu = []
+```
+
+Lalu, kita cocok-cocokkan deh. Kalau sesuai, masukkan ke array `ketemu`:
+
+```javascript
+for (let y of hasil){
+  if (y.judulKecil.includes(yangDicari) || y.isiKecil.includes(yangDicari)) {
+    ketemu = [...ketemu, y]
+  }
+}
+```
+
+Kemudian, kita tampilkan hasilnya:
+
+```javascript
+if (ketemu.length > 0) {
+  document.querySelector('.hasil ol').innerHTML = ketemu.map(x => `<li><a href='${x.link}'>${x.judul}</a></li>`).join('')
+} else {
+  document.querySelector('.hasil ol').innerHTML = `
+    <li><a href='/cari'>Nggak Ketemu</a></li>
+  `
 }
 ```
