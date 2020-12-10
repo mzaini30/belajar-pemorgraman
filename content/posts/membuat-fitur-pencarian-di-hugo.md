@@ -11,6 +11,8 @@ Menu pencarian di suatu blog adalah fitur yang sangat penting. Karena, fitur pen
 
 Nah, sekarang kita akan membuat fitur pencarian di Hugo. Hugo adalah salah satu Static Site Generator yang cukup terkenal selain Jekyll. Yang membuat Hugo terkenal adalah karena dibuat dengan bahasa pemrograman Go yang laju sehingga compile halaman Markdown menjadi HTML pun lebih cepat. Juga, Hugo mendukung Fast Render yang mirip kayak Hot Module Reload di bundler. Sehingga, tidak perlu meng-compile semua halaman untuk mendapatkan update HTML dari Markdown yang sedang kita edit. Jadi, cuma file-file tertentu saja yang di-update di sisi server Hugo.
 
+## Logika Program
+
 Logika dalam membuat fitur pencarian ini adalah seperti ini:
 
 1. Kumpulkan semua postingan (judul, isi, link) dalam satu file JSON (situs.com/posts/index.json)
@@ -18,6 +20,8 @@ Logika dalam membuat fitur pencarian ini adalah seperti ini:
 3. Di halaman pencarian itu, kita buat program untuk mendapatkan file JSON lalu mecocokkannya sesuai dengan kata kunci yang kita cari
 
 Sekarang kita mulai buat programnya.
+
+## Mulai Coding
 
 Pertama, kita setting dulu di `config.toml` untuk mengaktifkan templating di JSON:
 
@@ -155,4 +159,26 @@ tags:
 
 Pada script di atas, aku menggunakan sedikit teknik JavaScript untuk mempermudah aku mengaplikasikan logika yang telah kususun sebelumnya. Di situ, aku nggak menggunakan framework JavaScript seperti Vue dan Angular JS, library JavaScript seperti React dan Alpine JS, juga nggak menggunakan compiler JavaScript seperti Svelte.
 
-Kenapa sih aju mesti repot-repot menggunakan Vanilla JS dibandingkan menggunakan framework JavaScript yang sudah terkenal? Ya karena mau sederhana aja sih. Nggak ribet-ribet fungsinya. Cuma untuk mendapatkan data JSON, mengolahnya, lalu menampilkannya. Nah, sekarang coba deh kita bahas.
+Kenapa sih aku mesti repot-repot menggunakan Vanilla JS dibandingkan menggunakan framework JavaScript yang sudah terkenal? Ya karena mau sederhana aja sih. Nggak ribet-ribet fungsinya. Cuma untuk mendapatkan data JSON, mengolahnya, lalu menampilkannya. Nah, sekarang coba deh kita bahas.
+
+## Pembahasan Program
+
+Pertama, aku menggunakan `addEventListener` untuk mendapatkan event submit dari form. Kenapa sih aku nggak menggunakan attribute `onsubmit`? Karena aku ingin menghadirkan `preventDefault` yang nggak bisa jalan kalau di `onsubmit`.
+
+Nah, kodenya itu seperti ini plus dengan `preventDefault`:
+
+```javascript
+document.querySelector(".formCari").addEventListener("submit", (x) => {
+ x.preventDefault()
+})
+```
+
+Lalu, aku menggunakan async/await untuk melakukan `fetch` ke file JSON yang telah kita buat tadi. Secara umum, teknik async/await untuk `fetch` itu seperti ini:
+
+```javascript
+async function jalankanFetch(){
+  let datanya = await fetch('http://situs.com/data.json').then(x => x.json())
+  datanya = await datanya
+  console.log(datanya)
+}
+```
