@@ -154,3 +154,5 @@ tags:
 ```
 
 Pada script di atas, aku menggunakan sedikit teknik JavaScript untuk mempermudah aku mengaplikasikan logika yang telah kususun sebelumnya. Di situ, aku nggak menggunakan framework JavaScript seperti Vue dan Angular JS, library JavaScript seperti React dan Alpine JS, juga nggak menggunakan compiler JavaScript seperti Svelte.
+
+Kenapa sih aju mesti repot-repot menggunakan Vanilla JS dibandingkan menggunakan framework JavaScript yang sudah terkenal? Ya karena mau sederhana aja sih. Nggak ribet-ribet fungsinya. Cuma untuk mendapatkan data JSON, mengolahnya, lalu menampilkannya. Nah, sekarang coba deh kita bahas.
