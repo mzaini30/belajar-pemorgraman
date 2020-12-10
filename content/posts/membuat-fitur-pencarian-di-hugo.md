@@ -2,9 +2,9 @@
 title: "Membuat Fitur Pencarian Di Hugo"
 date: 2020-12-09T21:52:15Z
 draft: true
-description: 
+description: Fitur pencarian di HTML statis
 tags:
-  - 
+  - hugo
 ---
 
 Menu pencarian di suatu blog adalah fitur yang sangat penting. Karena, fitur pencarian akan membuat pengunjung akan betah di blog kita, nggak lari ke mana-mana. Soalnya kan kalau bisa dicari di blog ini, buat apa dicari di tempat lain kan ya? Apalagi kalau blog kita itu laju, nggak pakai loading. Bisa karena kita menerapkan Single Page Application atau menggunakan Turbolinks untuk Multiple Page Application seperti di blog ini.
@@ -19,16 +19,14 @@ Logika dalam membuat fitur pencarian ini adalah seperti ini:
 
 Sekarang kita mulai buat programnya.
 
-
-
-`config.toml`
+Pertama, kita setting dulu di `config.toml` untuk mengaktifkan templating di JSON:
 
 ```toml
 [outputs]
   section = ["html", "rss", "json"]
 ```
 
-`layouts/_default/list.json.json`
+Kemudian, kita buat template JSON di `layouts/_default/list.json.json` yang isinya:
 
 ```tpl
 [
@@ -79,13 +77,19 @@ Jadinya:
 ]
 ```
 
-`layouts/shortcodes/html.html`
+Kemudian kita buat shortcode supaya bisa menyisipkan HTML di dalam postingan. Nah, tuliskan kode berikut di `layouts/shortcodes/html.html`:
 
 ```tpl
 {{ .Inner }}
 ```
 
-`content/posts/cari.md`
+Baru kita buat postingan baru dengan perintah:
+
+```bash
+hugo new posts/cari.md
+```
+
+Maka akan terbentuk `content/posts/cari.md`. Nah, kemudian kita edit dan diisi dengan:
 
 ```html
 ---
@@ -148,3 +152,5 @@ tags:
  </script>
 {{<html>}}{{&lt;/html&gt;}}{{</html>}}
 ```
+
+Pada script di atas, aku menggunakan sedikit teknik JavaScript untuk mempermudah aku mengaplikasikan logika yang telah kususun sebelumnya. Di situ, aku nggak menggunakan framework JavaScript seperti Vue dan Angular JS, library JavaScript seperti React dan Alpine JS, juga nggak menggunakan compiler JavaScript seperti Svelte.
