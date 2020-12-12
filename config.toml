@@ -1,6 +1,6 @@
 baseURL = "https://belajarpemrograman.my.id/"
 languageCode = "en-us"
-title = "<BP/>"
+title = "Belajar Pemrograman"
 theme = "hugo-ink"
 paginate = 10
 
@@ -17,7 +17,7 @@ disqusShortname = "belajarpemrogramanzen"
   section = ["html", "rss", "json"]
  
 [params]
-	subtitle = "Yuk belajar pemrograman"
+	subtitle = "Lorem ipsum dolor sit amet"
 
 	# Optional 64x64 avatar image.
 	avatar = "https://image.freepik.com/free-vector/young-man-head-with-beard-avatar-character_24877-36786.jpg"
