@@ -26,5 +26,9 @@ tags:
 		function $(x){
 			return document.querySelector(x)
 		}
+		function mulai(x){
+			x.preventDefault()
+		}
+		$('.formTimer').addEventListener('submit', mulai)
 	</script>
 {{</html>}}
