@@ -100,3 +100,123 @@ Svelte:
 
 <p>This is a paragraph.</p>
 ```
+
+Kalau ini skip aja ya, soalnya nggak ada pakai Javascript. Oke, lanjut.
+
+## Nested Components
+
+Svelte:
+
+`App.svelte`
+
+```html
+<script>
+	import Nested from './Nested.svelte';
+</script>
+
+<style>
+	p {
+		color: purple;
+		font-family: 'Comic Sans MS', cursive;
+		font-size: 2em;
+	}
+</style>
+
+<p>This is a paragraph.</p>
+<Nested/>
+```
+
+`Nested.svelte`
+
+```html
+<p>This is another paragraph.</p>
+```
+
+## HTML Tags
+
+Svelte:
+
+```html
+<script>
+	let string = `this string contains some <strong>HTML!!!</strong>`;
+</script>
+
+<p>{@html string}</p>
+```
+
+Vanilla JS:
+
+```html
+<script type="module">
+	import {$} from './tools.js'
+	let string = `this string contains some <strong>HTML!!!</strong>`;
+	$('string').innerHTML = string
+</script>
+
+<p><string></string></p>
+```
+
+## Assignments
+
+Svelte:
+
+```html
+<script>
+	let count = 0;
+
+	function handleClick() {
+		count += 1;
+	}
+</script>
+
+<button on:click={handleClick}>
+	Clicked {count} {count === 1 ? 'time' : 'times'}
+</button>
+```
+
+Vanilla JS:
+
+```html
+<script type="module">
+	import {$} from './tools.js'
+	let count = 0;
+
+	function handleClick() {
+		count += 1;
+		let teks = 'time'
+		if (count > 1) {
+			teks = 'times'
+		}
+		$('banyak').innerText = `${count} ${teks}`
+	}
+	$('.handleClick').addEventListener('click', handleClick)
+</script>
+
+<button class="handleClick">
+	Clicked <banyak>0 times</banyak>
+</button>
+```
+
+## Declarations
+
+Svelte:
+
+```html
+<script>
+	let count = 0;
+	$: doubled = count * 2;
+
+	function handleClick() {
+		count += 1;
+	}
+</script>
+
+<button on:click={handleClick}>
+	Clicked {count} {count === 1 ? 'time' : 'times'}
+</button>
+
+<p>{count} doubled is {doubled}</p>
+```
+
+Vanilla JS:
+
