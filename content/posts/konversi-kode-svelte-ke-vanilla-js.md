@@ -59,3 +59,44 @@ Vanilla JS:
 
 <h1>Hello <name></name>!</h1>
 ```
+
+## Dynamic Attributes
+
+Svelte:
+
+```html
+<script>
+	let src = 'tutorial/image.gif';
+	let name = 'Rick Astley';
+</script>
+
+<img {src} alt="{name} dances.">
+```
+
+Vanilla JS:
+
+```html
+<script type="module">
+	import {$} from './tools.js'
+	$('.gambar').setAttribute('src', 'https://svelte.dev/tutorial/image.gif')
+	$('.gambar').setAttribute('alt', 'Rick Astley dances')
+</script>
+
+<img class="gambar">
+```
+
+## Styling
+
+Svelte:
+
+```html
+<style>
+	p {
+		color: purple;
+		font-family: 'Comic Sans MS', cursive;
+		font-size: 2em;
+	}
+</style>
+
+<p>This is a paragraph.</p>
+```
