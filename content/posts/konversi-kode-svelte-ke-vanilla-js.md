@@ -25,9 +25,6 @@ Untuk memudahkan dalam mengetik script, biar nggak terlalu banyak, buat file `to
 export function $(x){
 	return document.querySelector(x)
 }
-export function $$(x){
-	return document.querySelectorAll(x)
-}
 ```
 
 ## Basic
@@ -57,8 +54,8 @@ Vanilla JS:
 ```html
 <script type="module">
 	import {$} from './tools.js'
-	$('nama').innerText = 'world'.toUpperCase()
+	$('name').innerText = 'world'.toUpperCase()
 </script>
 
-<h1>Hello <nama></nama>!</h1>
+<h1>Hello <name></name>!</h1>
 ```
