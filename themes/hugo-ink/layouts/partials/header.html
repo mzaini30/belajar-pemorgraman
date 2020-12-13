@@ -1,16 +1,23 @@
 <head>
  <link rel="icon" href="{{ .Site.Params.Avatar }}"/>
  {{ if hugo.IsProduction }}
- <!-- Global site tag (gtag.js) - Google Analytics -->
- <script async src="https://www.googletagmanager.com/gtag/js?id=G-0EVHX122V8"></script>
- <script>
-   window.dataLayer = window.dataLayer || [];
-   function gtag(){dataLayer.push(arguments);}
-   gtag('js', new Date());
- 
-   gtag('config', 'G-0EVHX122V8');
- </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0EVHX122V8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-0EVHX122V8');
+  </script>
  {{ end }}
+ {{ if not hugo.IsProduction }}
+  <script src="/vconsole.min.js"></script>
+  <script>
+   new VConsole
+  </script>
+ {{ end }}
+ <script src="/vue.min.js"></script>
  <meta property="og:image" content="/undraw_programmer_imem.png"/>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
