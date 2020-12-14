@@ -1,7 +1,7 @@
 ---
 title: "Membuat File HTML, CSS, dan JS, Lalu Menguploadnya ke Internet"
 date: 2020-12-14T12:15:26+08:00
-draft: true
+draft: false
 description: Cara cepat upload website 
 tags:
   - frontend
