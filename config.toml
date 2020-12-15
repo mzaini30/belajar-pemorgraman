@@ -59,6 +59,11 @@ name = "Cari"
 url = "/cari"
 weight = 5
 
+[[menu.main]]
+name = "Mirror"
+url = "https://belajarpemrograman.surge.sh"
+weight = 6
+
 [[params.social]]
 name = "Github"
 icon = "github"
