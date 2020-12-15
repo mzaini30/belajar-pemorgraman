@@ -11,9 +11,13 @@ Halo kawan-kawan programmer... Ketemu lagi nih sama aku, Zen, yang akan berbagi 
 
 Surge, bukan Surga ya...
 
+## Keunggulan Surge
+
 Jadi, Surge itu semacam penyimpanan HTML, CSS, dan JS, tapi yang merupakan keunggulannya adalah kita nggak perlu meninggalkan Terminal (kalau di Windows, namanya Command Prompt). Tentu ini berbeda dengan Github yang membuat kita perlu membuka github.com atau Vercel yang membuat kita perlu membuka vercel.com untuk integrasi dengan Git. Sebenarnya bisa aja sih Vercel pakai CLI. Tapi aku belum ada nyoba. Nanti mungkin kapan-kapan akan aku coba.
 
 Nah, kalau kita mencoba menggunakan Surge ini, akan kelihatan banget deh bagaimana simpelnya dalam menggunakan Surge ini. Jadi, kita langsung _kotorin tangan_ aja yok.
+
+## Mulai Coding
 
 Kita buat dulu deh file `index.html` yang merupakan halaman pertama yang akan dilihat pengunjung saat datang ke website Surge kita. Nah, untuk permulaan ini, kita buat yang sederhana dulu aja. Anggap aja semacam Hello World-nya website lah. Atau mungkin juga bisa dibilang sebagai halaman portfolio kita. Hehehehehe.. (baru mulai juga, udah begayaan). Nah, isinya kayak gini:
 
@@ -36,6 +40,8 @@ Kita buat dulu deh file `index.html` yang merupakan halaman pertama yang akan di
 </body>
 </html>
 ```
+
+## Penjelasan
 
 Di situ, aku pakai Bootstrap versi 4 yang saat ini merupakai versi stable yang paling baru. Jadi, aku belum pakai versi 5 karena masih alpha atau sudah beta (aku nggak update infonya). Nah, di situ, tag HTML yang paling penting adalah:
 
@@ -74,11 +80,17 @@ Jadinya kayak gini:
 
 ![Screenshot website](https://i.postimg.cc/qqmpv5MS/image.png)
 
+## Buat CNAME
+
 Lalu, kita buat file bernama `CNAME` yang isinya:
 
 ```
-pakai-surge.surge.sh
+https://pakai-surge.surge.sh
 ```
+
+Mengapa pakai HTTPS? Supaya nanti kalau dibuka di HTTP, akan redirect otomatis ke HTTPS.
+
+## Menggunakan Surge
 
 Kita install Surge:
 
@@ -117,6 +129,8 @@ Oh iya, kalau kamu baru pertama pakai Surge di laptop atau di HP saat ini, nanti
 
 Sudah. Dalam hitungan detik aja itu, website kita sudah terupload (kalau isinya baru sedikit sih. Hehehehe...). Sekarang, kamu bisa lihat hasilnya di https://pakai-surge.surge.sh/.
 
+## Lihat Semua Subdomain Surge yang Kita Gunakan
+
 Untuk melihat semua domain Surge yang kita gunakan, cukup ketikkan perintah:
 
 ```bash
@@ -132,3 +146,19 @@ Hasilnya:
 ```
 
 Baru satu eh. Baru buat untuk tutorial ini. Hehehehe...
+
+## Untuk Website dengan Teknik Single Page Application
+
+Untuk website-website yang menerapkan Single Page Application, kita perlu file `200.html` yang isinya sama dengan `index.html`. Maka, untuk melakukan itu, kita memerlukan kode berikut:
+
+```bash
+cp index.html 200.html
+```
+
+## Untuk Project di Folder Tertentu
+
+Misalnya, yang mau kita upload itu di folder `public`, maka perintahnya seperti ini:
+
+```bash
+surge public
+```
