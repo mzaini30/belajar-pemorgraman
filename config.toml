@@ -1,4 +1,5 @@
-baseURL = "https://belajarpemrograman.my.id/"
+# baseURL = "https://belajarpemrograman.my.id/"
+baseURL = "/"
 languageCode = "en-us"
 title = "Belajar Pemrograman"
 theme = "hugo-ink"
