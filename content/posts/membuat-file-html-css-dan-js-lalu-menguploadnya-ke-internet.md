@@ -162,3 +162,7 @@ Misalnya, yang mau kita upload itu di folder `public`, maka perintahnya seperti 
 ```bash
 surge public
 ```
+
+## Kekurangan Surge
+
+Kekurangan Surge ini, dia nggam auto deploy. Jadi, kita deploy manual di HP atau laptop, misalnya aja `npm run build` jika menggunakan Node JS atau menggunakan `hugo --minify` jika pakai Hugo.
