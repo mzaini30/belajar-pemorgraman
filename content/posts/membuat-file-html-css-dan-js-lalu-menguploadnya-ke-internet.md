@@ -165,4 +165,19 @@ surge public
 
 ## Kekurangan Surge
 
-Kekurangan Surge ini, dia nggam auto deploy. Jadi, kita deploy manual di HP atau laptop, misalnya aja `npm run build` jika menggunakan Node JS atau menggunakan `hugo --minify` jika pakai Hugo.
+Kekurangan Surge ini, dia nggam auto deploy. Jadi, kita deploy manual di HP atau laptop, misalnya aja `npm run build` jika menggunakan Node JS atau menggunakan `hugo --minify` jika pakai Hugo. 
+
+Tapi nggak masalah sih. Yang jadi masalah adalah kekurangan lainnya. Yaitu nggak bisa rewrite `robots.txt`.
+
+File `robots.txt` di subdomain Surge sudah disetting untuk menangkal semua crawler:
+
+```
+user-agent: *
+Disallow: /
+```
+
+Sehingga, kita nggak bisa menggunakan Google Search Console yang salah satu fiturnya adalah input sitemap. Soalnya kan, dari file `robots.txt` nya sudah menghalang siapapun yang akan meng-crawl situs tersebut.
+
+Maka, subdomain Surge nggak cocok buat blog yang memang mengutamakan SEO.
+
+Lalu, bagaimana solusinya? Solusinya adalah hijrah ke Vercel atau Github Pages yang didukung oleh Github Action.
