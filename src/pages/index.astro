@@ -19,7 +19,7 @@ const semuaKategori = ambilKategori(semuaTulisan)
 		<h2>"Kamu bisa belajar pemrograman di manapun asalkan numpang wifi" (Zen, 2021)</h2>
 		<div class='list-kelas'>
 			{semuaKategori.map(x => <a href={`/kelas/${x}`}>
-				<img src={`/ikon/${x}.jpg`} alt="">
+				<img src={`/ikon/${x}.jpg`} alt={`Kelas ${x}`}>
 			</a>)}
 		</div>
 	</div>
