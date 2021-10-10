@@ -8,7 +8,8 @@ const {content} = Astro.props
 const site = Astro.site.origin
 
 let semuaTulisan = await fetch(`${site}/semua`).then(x => x.text())
-semuaTulisan = semuaTulisan.replace(`<html lang="\\&quot;en\\&quot;"><head></head><body>`, '').replace(`</policy></policy></body></html>`, '').replace(/"\\&quot;/g, '').replace(/\\&quot;"/g, '').replace(`" initial-scale="`, '')
+// semuaTulisan = semuaTulisan.replace(`<html lang="\\&quot;en\\&quot;"><head></head><body>`, '').replace(`</policy></policy></body></html>`, '').replace(/"\\&quot;/g, '').replace(/\\&quot;"/g, '').replace(`" initial-scale="`, '')
+semuaTulisan = semuaTulisan.replace(/.+(\[\{\")/, '$1').replace(/(\"\}\]).+/, '$1').replace(/"\\&quot;/g, '').replace(/\\&quot;"/g, '').replace(`" initial-scale="`, '')
 semuaTulisan = JSON.parse(semuaTulisan)
 semuaTulisan = semuaTulisan.filter(x => x.kategori == content.kategori)
 ---
