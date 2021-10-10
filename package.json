@@ -1,0 +1,27 @@
+{
+  "name": "next-belajar-pemrograman",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mzaini30/next-belajar-pemrograman.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mzaini30/next-belajar-pemrograman/issues"
+  },
+  "homepage": "https://github.com/mzaini30/next-belajar-pemrograman#readme",
+  "devDependencies": {
+    "@snowpack/plugin-postcss": "^1.4.3",
+    "astro": "^0.20.9",
+    "astro-meta": "^0.0.2",
+    "postcss-windicss": "^1.0.0"
+  }
+}

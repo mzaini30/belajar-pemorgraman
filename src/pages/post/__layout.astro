@@ -1,0 +1,97 @@
+---
+import Meta from 'astro-meta'
+import Layout from '../__layout.astro'
+import './_prism.css'
+
+const {content} = Astro.props
+
+const site = Astro.site.origin
+// // const site = 'http://localhost:3000'
+
+// let semuaTulisan = await fetch(`${site}/semua`).then(x => x.text())
+// semuaTulisan = JSON.parse(semuaTulisan)
+// semuaTulisan = semuaTulisan.filter(x => x.kategori == content.kategori)
+---
+
+<Layout>
+	<div slot='head'>
+		<Meta title={content.judul} description={`Membahas '${content.judul}' di kelas ${content.kategori}`}></Meta>
+	</div>
+	
+	<div slot='body' class='latar'>
+		<div class='materi'>
+			<p><a href="/">Belajar Pemrograman</a></p>
+			<ul>
+<!-- 				{semuaTulisan.map(x => <li>
+					<a href={x.url} class={`/${String(Astro.request.url).replace(Astro.site, '')}` == x.url ? 'active' : ''}>{x.judul}</a>
+				</li>)} -->
+			</ul>
+		</div>
+
+		<div class='kertas pertama'>
+			<h1>{content.judul}</h1>
+			<hr>
+			<slot></slot>
+		</div>
+
+		<div class='kertas lainnya'>
+			<h2>Tulisan Lainnya:</h2>
+			<hr>
+			<ul>
+				<li><a href="/">BERANDA</a></li>
+<!-- 				{semuaTulisan.map(x => <li>
+					<a href={x.url}>{x.judul}</a>
+				</li>)} -->
+			</ul>
+		</div>
+	</div>
+</Layout>
+
+<style>
+	.latar {
+		@apply min-h-screen bg-blue-200 flex <md:block;
+	}
+	.kertas {
+		@apply bg-white w-[50%] shadow-xl p-4 m-10 mx-auto <md:(w-[90%] my-0);
+	}
+	.pertama {
+		@apply mb-[5vw];
+	}
+	.lainnya {
+		@apply hidden <md:block;
+	}
+	.lainnya a {
+		@apply <md:(underline underline-green-500)
+	}
+	.lainnya li {
+		@apply <md:(list-disc list-inside pb-2)
+	}
+	.materi {
+		@apply w-[20%] bg-white sticky top-0 h-screen <md:hidden;
+	}
+	.materi a {
+		@apply block p-2 hover:bg-violet-200 text-sm;
+	}
+	.materi p {
+		@apply text-center border-b;
+		font-family: 'Comic Sans MS';
+	}
+	.materi p a {
+		@apply hover:bg-transparent p-3 text-lg text-green-700;
+	}
+	.active {
+		@apply bg-violet-200
+	}
+	h1, h2 {
+		@apply text-3xl
+	}
+	hr {
+		@apply my-3
+	}
+	:global(h1, h2, h3, h4, h5, h6){
+		@apply text-violet-600
+	}
+	:global(code){
+		@apply text-red-500
+	}
+</style>

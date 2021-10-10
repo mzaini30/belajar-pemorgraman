@@ -1,0 +1,81 @@
+---
+import {ambilKategori} from '../_ambilKategori'
+import Layout from '../__layout.astro'
+import Meta from 'astro-meta'
+
+export async function getStaticPaths(){
+	const semuaTulisan = await Astro.fetchContent('../post/*.md')
+	const kategorinya = ambilKategori(semuaTulisan)
+	return kategorinya.map(x => {
+		return {
+			params: {kategori: x},
+			props: {semuaTulisan}
+		}
+	})
+}
+
+const {kategori} = Astro.request.params
+const {semuaTulisan} = Astro.props
+---
+
+<!-- https://og-image.vercel.app/Apa%20Kabarmu..%20Baik-Baik%20Saja%20Kan%3F%20Aku%20Penasaran%20Eh%20Soalnya..png?theme=dark&md=0&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fhyper-bw-logo.svg -->
+
+<Layout>
+	<div slot='head'>
+		<Meta title={`Kelas ${kategori}`} description={`Yuk kita belajar ${kategori} dengan giat supaya bisa bermanfaat bagi semesta`}></Meta>
+	</div>
+
+	<div slot='body'>
+		<div class='header'>
+			<a href="/">Belajar Pemrograman</a>
+		</div>
+
+		<div class='preview'>
+			<div class='gambar' style={`background-image: url('/ikon/${kategori}.jpg')`}></div>
+			<div class='setelah-gambar'>
+				<h1>{kategori}</h1>
+				<h2>Yuk kita belajar {kategori}</h2>
+			</div>
+		</div>
+
+		<div class='isi'>
+			{semuaTulisan.filter(x => x.kategori == kategori).map(x => <a href={x.url}>
+				<img src={`https://og-image.vercel.app/${encodeURIComponent(x.judul)}.png?theme=dark&md=0&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fhyper-bw-logo.svg`} alt="">
+			</a>)}
+		</div>
+	</div>
+</Layout>
+
+<style>
+	.preview {
+		@apply bg-green-300 text-green-800 items-center grid grid-cols-5 p-10 gap-3 <md:(gap-0 grid-cols-1);
+	}
+	.header a {
+		@apply p-5 block hover:bg-gray-100 <md:text-center;
+	}
+	.setelah-gambar {
+		@apply <md:hidden;
+	}
+	h1 {
+		@apply text-5xl pb-5;
+		font-family: 'Comic Sans MS';
+	}
+	h2 {
+		@apply pb-10;
+	}
+	.isi {
+		@apply grid grid-cols-4 gap-5 p-5 <md:grid-cols-1;
+	}
+	.isi img {
+		@apply block transform hover:rotate-6 <md:hover:rotate-0;
+		transition: .5s;
+	}
+	.gambar {
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+		background-size: cover;
+		width: 200px;
+		height: 200px;
+		@apply rounded-[50%] <md:(block mx-auto);
+	}
+</style>

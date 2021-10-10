@@ -1,0 +1,50 @@
+---
+import Layout from './__layout.astro'
+import Meta from 'astro-meta'
+import {ambilKategori} from './_ambilKategori'
+
+const semuaTulisan = Astro.fetchContent('./post/*.md')
+const semuaKategori = ambilKategori(semuaTulisan)
+---
+
+<Layout>
+	<div slot='head'>
+		<Meta title='Belajar Pemrograman' description='Kamu bisa belajar pemrograman di manapun asalkan numpang wifi'/>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Festive&display=swap" rel="stylesheet">
+	</div>
+
+	<div slot='body' class='body'>
+		<h1>Belajar Pemrograman</h1>
+		<h2>"Kamu bisa belajar pemrograman di manapun asalkan numpang wifi" (Zen, 2021)</h2>
+		<div class='list-kelas'>
+			{semuaKategori.map(x => <a href={`/kelas/${x}`}>
+				<img src={`/ikon/${x}.jpg`} alt="">
+			</a>)}
+		</div>
+	</div>
+</Layout>
+
+<style>
+	.body {
+		background: #202124;
+		color: #bdc1c6;
+		@apply min-h-screen <md:(bg-violet-200);
+	}
+	.body * {
+		@apply <md:text-violet-900;
+	}
+	.list-kelas {
+		@apply grid grid-cols-10 <md:grid-cols-3;
+	}
+	h1 {
+		font-size: 100px;
+		font-family: 'Festive', cursive;
+		@apply text-center <md:(text-[70px] pt-5);
+	}
+	h2 {
+		@apply text-center pb-5;
+		font-family: 'Times New Roman';
+	}
+</style>
