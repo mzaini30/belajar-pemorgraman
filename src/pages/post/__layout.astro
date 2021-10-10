@@ -6,11 +6,11 @@ import './_prism.css'
 const {content} = Astro.props
 
 const site = Astro.site.origin
-// // const site = 'http://localhost:3000'
 
-// let semuaTulisan = await fetch(`${site}/semua`).then(x => x.text())
-// semuaTulisan = JSON.parse(semuaTulisan)
-// semuaTulisan = semuaTulisan.filter(x => x.kategori == content.kategori)
+let semuaTulisan = await fetch(`${site}/semua`).then(x => x.text())
+semuaTulisan = semuaTulisan.replace(`<html lang="\\&quot;en\\&quot;"><head></head><body>`, '').replace(`</policy></policy></body></html>`, '').replace(/"\\&quot;/g, '').replace(/\\&quot;"/g, '').replace(`" initial-scale="`, '')
+semuaTulisan = JSON.parse(semuaTulisan)
+semuaTulisan = semuaTulisan.filter(x => x.kategori == content.kategori)
 ---
 
 <Layout>
@@ -22,9 +22,9 @@ const site = Astro.site.origin
 		<div class='materi'>
 			<p><a href="/">Belajar Pemrograman</a></p>
 			<ul>
-<!-- 				{semuaTulisan.map(x => <li>
+				{semuaTulisan.map(x => <li>
 					<a href={x.url} class={`/${String(Astro.request.url).replace(Astro.site, '')}` == x.url ? 'active' : ''}>{x.judul}</a>
-				</li>)} -->
+				</li>)}
 			</ul>
 		</div>
 
@@ -39,9 +39,9 @@ const site = Astro.site.origin
 			<hr>
 			<ul>
 				<li><a href="/">BERANDA</a></li>
-<!-- 				{semuaTulisan.map(x => <li>
+				{semuaTulisan.map(x => <li>
 					<a href={x.url}>{x.judul}</a>
-				</li>)} -->
+				</li>)}
 			</ul>
 		</div>
 	</div>
