@@ -21,9 +21,7 @@ const {semuaTulisan} = Astro.props
 <!-- https://og-image.vercel.app/Apa%20Kabarmu..%20Baik-Baik%20Saja%20Kan%3F%20Aku%20Penasaran%20Eh%20Soalnya..png?theme=dark&md=0&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fhyper-bw-logo.svg -->
 
 <Layout>
-	<div slot='head'>
-		<Meta title={`Kelas ${kategori}`} description={`Yuk kita belajar ${kategori} dengan giat supaya bisa bermanfaat bagi semesta`}></Meta>
-	</div>
+	<Meta title={`Kelas ${kategori}`} description={`Yuk kita belajar ${kategori} dengan giat supaya bisa bermanfaat bagi semesta`} slot='head'></Meta>
 
 	<div slot='body'>
 		<div class='header'>

@@ -8,14 +8,13 @@ const semuaKategori = ambilKategori(semuaTulisan)
 ---
 
 <Layout>
-	<div slot='head'>
-		<Meta title='Belajar Pemrograman' description='Kamu bisa belajar pemrograman di manapun asalkan numpang wifi'/>
+	<Meta title='Belajar Pemrograman' description='Kamu bisa belajar pemrograman di manapun asalkan numpang wifi' slot='head'/>
+
+	<div slot='body' class='body'>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Festive&display=swap" rel="stylesheet">
-	</div>
 
-	<div slot='body' class='body'>
 		<h1>Belajar Pemrograman</h1>
 		<h2>"Kamu bisa belajar pemrograman di manapun asalkan numpang wifi" (Zen, 2021)</h2>
 		<div class='list-kelas'>

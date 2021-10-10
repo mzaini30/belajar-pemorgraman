@@ -14,9 +14,7 @@ semuaTulisan = semuaTulisan.filter(x => x.kategori == content.kategori)
 ---
 
 <Layout>
-	<div slot='head'>
-		<Meta title={content.judul} description={`Membahas '${content.judul}' di kelas ${content.kategori}`}></Meta>
-	</div>
+	<Meta title={content.judul} description={`Membahas '${content.judul}' di kelas ${content.kategori}`} slot='head'></Meta>
 	
 	<div slot='body' class='latar'>
 		<div class='materi'>
