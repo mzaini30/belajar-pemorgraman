@@ -12,6 +12,8 @@ let semuaTulisan = await fetch(`${site}/semua`).then(x => x.text())
 semuaTulisan = semuaTulisan.replace(/.+(\[\{\")/, '$1').replace(/(\"\}\]).+/, '$1').replace(/"\\&quot;/g, '').replace(/\\&quot;"/g, '').replace(`" initial-scale="`, '')
 semuaTulisan = JSON.parse(semuaTulisan)
 semuaTulisan = semuaTulisan.filter(x => x.kategori == content.kategori)
+
+const blog = "https://belajarpemrograman.my.id"
 ---
 
 <Layout>
@@ -22,7 +24,7 @@ semuaTulisan = semuaTulisan.filter(x => x.kategori == content.kategori)
 			<p><a href="/">Belajar Pemrograman</a></p>
 			<ul>
 				{semuaTulisan.map(x => <li>
-					<a href={x.url} class={`/${String(Astro.request.url).replace(Astro.site, '')}` == x.url ? 'active' : ''}>{x.judul}</a>
+					<a href={x.url} class={String(Astro.request.url).replace(blog, '') == x.url.replace(blog, '') ? 'active' : ''}>{x.judul}</a>
 				</li>)}
 			</ul>
 		</div>
