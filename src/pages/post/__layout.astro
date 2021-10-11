@@ -30,7 +30,9 @@ semuaTulisan = semuaTulisan.filter(x => x.kategori == content.kategori)
 		<div class='kertas pertama'>
 			<h1>{content.judul}</h1>
 			<hr>
-			<slot></slot>
+			<div class="isi">
+				<slot></slot>
+			</div>
 
 <script src="https://giscus.app/client.js"
         data-repo="mzaini30/belajar-pemrograman"
@@ -52,7 +54,7 @@ async></script>
 			<ul>
 				<li><a href="/">BERANDA</a></li>
 				{semuaTulisan.map(x => <li>
-					<a href={x.url}>{x.judul}</a>
+					<a href={x.url} class={String(Astro.request.url).includes(x.url) ? 'active-lainnya' : ''}>{x.judul}</a>
 				</li>)}
 			</ul>
 		</div>
@@ -73,7 +75,7 @@ async></script>
 		@apply hidden <md:block;
 	}
 	.lainnya a {
-		@apply <md:(underline underline-green-500)
+		@apply <md:(underline)
 	}
 	.lainnya li {
 		@apply <md:(list-disc list-inside pb-2)
@@ -100,16 +102,22 @@ async></script>
 	hr {
 		@apply my-3
 	}
-	:global(h1, h2, h3, h4, h5, h6){
+	.isi :global(h1, h2, h3, h4, h5, h6){
 		@apply text-violet-600
 	}
-	:global(code){
+	.isi :global(code){
 		@apply text-red-500
 	}
-	:global(a){
+	.isi :global(a){
 		@apply !text-blue-500
 	}
-	:global(blockquote){
+	.isi :global(blockquote){
 		@apply mx-0 italic
+	}
+	.active-lainnya {
+		@apply text-green-500
+	}
+	.isi :global(p){
+		@apply mb-3
 	}
 </style>

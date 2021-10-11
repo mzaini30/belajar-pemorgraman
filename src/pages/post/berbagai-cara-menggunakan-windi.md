@@ -41,3 +41,34 @@ Windi ini bisa dikombinasikan dengan CSS biasa:
 	background: url("kucing.jpg");
 }
 ```
+
+Nah sekarang, untuk memanggil Windi itu sama seperti kita memanggil CSS biasa.
+
+Yang pertama, itu kita panggil dari file eksternal:
+
+```html
+<script>
+	import "./style.css"
+</script>
+```
+
+Cara itu kita gunakan jika untuk satu file Windi digunakan pada banyak file markup, seperti ini:
+
+```
+.
+|-- style.css
+|-- index.astro
+|-- about.astro
+```
+
+Cara yang kedua adalah dengan menggunakan tag style:
+
+```astro
+<h1>Hello World</h1>
+
+<style>
+	h1 {
+		@apply text-center bg-violet-200 text-red-600
+	}
+</style>
+```
