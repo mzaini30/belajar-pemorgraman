@@ -25,6 +25,7 @@ const blog = "https://belajarpemrograman.my.id"
 			<ul>
 				{semuaTulisan.map(x => <li>
 					<a href={x.url} class={String(Astro.request.url).replace(blog, '') == x.url.replace(blog, '') ? 'active' : ''}>{x.judul}</a>
+					{Astro.request.url} - {x.url}
 				</li>)}
 			</ul>
 		</div>
