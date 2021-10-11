@@ -2,6 +2,7 @@
 kategori: Astro
 judul: Syntax Highlighting Astro di Sublime
 layout: ./__layout.astro
+tanggal: 2021-10-10
 ---
 
 Isi dari `~/.config/sublime-text/Packages/User/Astro.sublime-syntax`:

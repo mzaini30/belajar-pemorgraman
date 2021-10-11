@@ -2,6 +2,7 @@
 kategori: Astro
 judul: Menggunakan Windi di Astro
 layout: ./__layout.astro
+tanggal: 2021-10-10
 ---
 
 Install dependencies yang diperlukan:

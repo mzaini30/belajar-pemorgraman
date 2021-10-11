@@ -2,6 +2,7 @@
 kategori: Linux
 judul: Convert Image to PDF
 layout: ./__layout.astro
+tanggal: 2021-10-10
 ---
 
 Install dulu ImageMagick:

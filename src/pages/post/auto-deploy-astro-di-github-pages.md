@@ -2,6 +2,7 @@
 kategori: Astro
 judul: Auto Deploy Astro di Github Pages
 layout: ./__layout.astro
+tanggal: 2021-10-10
 ---
 
 Isi dari `.github/workflows/deploy.yml`:

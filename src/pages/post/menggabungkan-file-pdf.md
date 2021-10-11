@@ -2,6 +2,7 @@
 kategori: Linux
 judul: Menggabungkan File PDF
 layout: ./__layout.astro
+tanggal: 2021-10-10
 ---
 
 Install dulu `pdftk`:
