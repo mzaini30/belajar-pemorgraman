@@ -23,7 +23,6 @@ semuaTulisan = semuaTulisan.filter(x => x.kategori == content.kategori)
 			<ul>
 				{semuaTulisan.map(x => <li>
 					<a href={x.url} class={String(Astro.request.url).includes(x.url) ? 'active' : ''}>{x.judul}</a>
-					{Astro.request.url} - {x.url}
 				</li>)}
 			</ul>
 		</div>
