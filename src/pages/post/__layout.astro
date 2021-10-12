@@ -37,17 +37,18 @@ semuaTulisan = semuaTulisan.filter(x => x.kategori == content.kategori)
 
 			<a class="edit" href={String(request.canonicalURL).replace("https://belajarpemrograman.my.id", "https://github.com/mzaini30/belajar-pemrograman/blob/master/src/pages").replace(/\/$/, ".md")}>Edit this page</a>
 
-<script src="https://giscus.app/client.js"
-        data-repo="mzaini30/belajar-pemrograman"
-        data-repo-id="MDEwOlJlcG9zaXRvcnkzMTk3OTI3ODk="
-        data-category="Announcements"
-        data-category-id="DIC_kwDOEw-mlc4B_X7z"
-        data-mapping="pathname"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-theme="light"
-        crossorigin="anonymous"
-async></script>
+			<script src="https://giscus.app/client.js"
+			        data-repo="mzaini30/belajar-pemrograman"
+			        data-repo-id="MDEwOlJlcG9zaXRvcnkzMTk3OTI3ODk="
+			        data-category="Announcements"
+			        data-category-id="DIC_kwDOEw-mlc4B_X7z"
+			        data-mapping="pathname"
+			        data-reactions-enabled="1"
+			        data-emit-metadata="0"
+			        data-theme="light"
+			        crossorigin="anonymous"
+			async>
+			</script>
 
 		</div>
 
@@ -78,7 +79,7 @@ async></script>
 		@apply hidden <md:block;
 	}
 	.lainnya a {
-		@apply <md:(underline)
+		@apply <md:underline
 	}
 	.lainnya li {
 		@apply <md:(list-disc list-inside pb-2)

@@ -48,7 +48,8 @@ Yang pertama, itu kita panggil dari file eksternal:
 
 ```html
 <script>
-	import "./style.css"
+	// Change "[dot]" to "."
+	import "[dot]/style[dot]css"
 </script>
 ```
 
