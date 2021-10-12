@@ -46,7 +46,7 @@ Nah sekarang, untuk memanggil Windi itu sama seperti kita memanggil CSS biasa.
 
 Yang pertama, itu kita panggil dari file eksternal:
 
-<script src="https://pastebin.com/embed_js/nGB8kMHw"></script>
+<script src={"https://pastebin.com/embed_js/nGB8kMHw"}></script>
 
 ```astro
 <script>
