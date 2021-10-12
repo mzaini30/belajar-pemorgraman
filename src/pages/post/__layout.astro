@@ -2,13 +2,29 @@
 import Meta from 'astro-meta'
 import Layout from '../__layout.astro'
 import './_prism.css'
+import {readdirSync, readFileSync} from "node:fs"
 
 const {content} = Astro.props
+
+let listFile = readdirSync("./src/pages/post/")
+listFile = listFile.filter(x => x.includes(".md"))
+
+let listFileBener = []
+
+for (const x of listFile){
+	if (readFileSync(`./src/pages/post/${x}`).includes(`kategori: ${content.kategori}`)){
+		listFileBener.push({
+			url: x
+		})
+	}
+}
+
+console.log(listFileBener)
 
 const site = Astro.site.origin
 const request = Astro.request
 
-let semuaTulisan = Astro.fetchContent('./*.md')
+// let semuaTulisan = Astro.fetchContent('./*.md')
 // let semuaTulisan = await fetch(`${site}/semua`).then(x => x.text())
 
 // semuaTulisan = semuaTulisan.replace(/.+(\[\{\")/, '$1').replace(/(\"\}\]).+/, '$1').replace(/"\\&quot;/g, '').replace(/\\&quot;"/g, '').replace(`" initial-scale="`, '')
@@ -23,9 +39,9 @@ let semuaTulisan = Astro.fetchContent('./*.md')
 		<div class='materi'>
 			<p><a href="/">Belajar Pemrograman</a></p>
 			<ul>
-				<!-- {semuaTulisan.map(x => <li>
-					<a href={x.url} class={String(request.url).includes(x.url) ? 'active' : ''}>{x.judul}</a>
-				</li>)} -->
+				{listFileBener.map(x => <li>
+					<a href={`/post/${x.url.replace(".md", "")}`} class={String(request.url).includes(x.url.replace(".md", "")) ? 'active' : ''}>{x}</a>
+				</li>)}
 			</ul>
 		</div>
 
@@ -58,9 +74,9 @@ let semuaTulisan = Astro.fetchContent('./*.md')
 			<hr>
 			<ul>
 				<li><a href="/">BERANDA</a></li>
-				<!-- {semuaTulisan.map(x => <li>
-					<a href={x.url} class={String(request.url).includes(x.url) ? 'active-lainnya' : ''}>{x.judul}</a>
-				</li>)} -->
+				{listFileBener.map(x => <li>
+					<a href={`/post/${x.url.replace(".md", "")}`} class={String(request.url).includes(x.url.replace(".md", "")) ? 'active-lainnya' : ''}>{x}</a>
+				</li>)}
 			</ul>
 		</div>
 	</div>
