@@ -8,11 +8,12 @@ const {content} = Astro.props
 const site = Astro.site.origin
 const request = Astro.request
 
-let semuaTulisan = await fetch(`${site}/semua`).then(x => x.text())
+let semuaTulisan = Astro.fetchContent('./*.md')
+// let semuaTulisan = await fetch(`${site}/semua`).then(x => x.text())
 
-semuaTulisan = semuaTulisan.replace(/.+(\[\{\")/, '$1').replace(/(\"\}\]).+/, '$1').replace(/"\\&quot;/g, '').replace(/\\&quot;"/g, '').replace(`" initial-scale="`, '')
-semuaTulisan = JSON.parse(semuaTulisan)
-semuaTulisan = semuaTulisan.filter(x => x.kategori == content.kategori)
+// semuaTulisan = semuaTulisan.replace(/.+(\[\{\")/, '$1').replace(/(\"\}\]).+/, '$1').replace(/"\\&quot;/g, '').replace(/\\&quot;"/g, '').replace(`" initial-scale="`, '')
+// semuaTulisan = JSON.parse(semuaTulisan)
+// semuaTulisan = semuaTulisan.filter(x => x.kategori == content.kategori)
 ---
 
 <Layout>
@@ -22,9 +23,9 @@ semuaTulisan = semuaTulisan.filter(x => x.kategori == content.kategori)
 		<div class='materi'>
 			<p><a href="/">Belajar Pemrograman</a></p>
 			<ul>
-				{semuaTulisan.map(x => <li>
+				<!-- {semuaTulisan.map(x => <li>
 					<a href={x.url} class={String(request.url).includes(x.url) ? 'active' : ''}>{x.judul}</a>
-				</li>)}
+				</li>)} -->
 			</ul>
 		</div>
 
@@ -57,9 +58,9 @@ semuaTulisan = semuaTulisan.filter(x => x.kategori == content.kategori)
 			<hr>
 			<ul>
 				<li><a href="/">BERANDA</a></li>
-				{semuaTulisan.map(x => <li>
+				<!-- {semuaTulisan.map(x => <li>
 					<a href={x.url} class={String(request.url).includes(x.url) ? 'active-lainnya' : ''}>{x.judul}</a>
-				</li>)}
+				</li>)} -->
 			</ul>
 		</div>
 	</div>
