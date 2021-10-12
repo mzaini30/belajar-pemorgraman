@@ -48,6 +48,13 @@ Yang pertama, itu kita panggil dari file eksternal:
 
 <script src="https://pastebin.com/embed_js/nGB8kMHw"></script>
 
+```astro
+<script>
+ // Change "[dot]" to "."
+ import "[dot]/style[dot]css"
+</script>
+```
+
 Cara itu kita gunakan jika untuk satu file Windi digunakan pada banyak file markup, seperti ini:
 
 ```
