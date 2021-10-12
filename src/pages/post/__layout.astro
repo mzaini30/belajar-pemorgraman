@@ -121,8 +121,8 @@ semuaTulisan = semuaTulisan.filter(x => x.kategori == content.kategori)
 	.active-lainnya {
 		@apply text-green-500
 	}
-	.isi :global(p){
-		@apply mb-3
+	.isi :global(p, .embedPastebin){
+		@apply !mb-3
 	}
 	.edit {
 		@apply px-3 py-1 bg-pink-100 text-pink-500 border border-pink-500 rounded-xl mb-2 inline-block

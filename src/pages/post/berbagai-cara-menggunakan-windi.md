@@ -46,12 +46,7 @@ Nah sekarang, untuk memanggil Windi itu sama seperti kita memanggil CSS biasa.
 
 Yang pertama, itu kita panggil dari file eksternal:
 
-```html
-<script>
-	// Change "[dot]" to "."
-	import "[dot]/style[dot]css"
-</script>
-```
+<script src="https://pastebin.com/embed_js/nGB8kMHw"></script>
 
 Cara itu kita gunakan jika untuk satu file Windi digunakan pada banyak file markup, seperti ini:
 
@@ -74,3 +69,14 @@ Cara yang kedua adalah dengan menggunakan tag style:
 </style>
 ```
 
+Cara itu kita gunakan jika ingin mengubah style pada komponen ini aja.
+
+Lalu, yang terakhir adalah dengan inline class:
+
+```astro
+<p class="text-right italic">Hello</p>
+```
+
+Cara itu kita gunakan jika ingin mengubah style pada elemen itu aja.
+
+Jadi, ketika styling pakai Windi, kita bisa menggunakan ketiganya. Kalau mau untuk style buat banyak komponen, pakai yang file style Windi terpisah, kalau ingin styling komponen itu aja, pakai tag style, kalau ingin styling elemen itu aja, pakai inline class. Jadi ya jangan semuanya pakai inline class. Jadi bingung ngelihatnya...
