@@ -40,7 +40,7 @@ const request = Astro.request
 	
 	<div slot='body' class='latar'>
 		<div class='materi'>
-			<p><a href="/">Belajar Pemrograman</a></p>
+			<p><a href='/'>Kelas {content.kategori}</a></p>
 			<ul>
 				{listFileBener.map(x => <li>
 					<a href={`/post/${x.url.replace(".md", "")}`} class={String(request.url).includes(x.url.replace(".md", "")) ? 'active' : ''}>{x.judul}</a>
@@ -127,7 +127,7 @@ const request = Astro.request
 		@apply my-3
 	}
 	.isi :global(h1, h2, h3, h4, h5, h6){
-		@apply text-violet-600 !mb-3
+		@apply !mb-3
 	}
 	.isi :global(code){
 		@apply text-red-500
@@ -152,5 +152,17 @@ const request = Astro.request
 	}
 	:global(th, td) {
 		@apply border border-blue-500 px-4 py-1
+	}
+	.isi :global(h1, h2, h3, h4, h5, h6){
+		font-weight: inherit;
+	}
+	.isi :global(h2){
+		@apply text-2xl text-violet-500
+	}
+	.isi :global(h3){
+		@apply text-xl text-green-700
+	}
+	.isi :global(h4){
+		@apply text-lg text-blue-500
 	}
 </style>

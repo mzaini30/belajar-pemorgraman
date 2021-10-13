@@ -70,6 +70,29 @@ Maka, secara otomatis, npm sudah terinstall.
 
 Nah, sekarang kita mau buat program seperti di atas.
 
+Pertama, kita buat dulu foldernya. Misalnya aja `cek-genap/`. Lalu, kita init npmnya di situ:
+
+```bash
+cd cek-genap
+npm init -y
+```
+
+Maka, akan otomatis terbentuk file `package.json` yang fungsinya untuk melist package-package yang kita gunakan.
+
+Kemudian, kita install package `is-even`:
+
+```bash
+npm i is-even
+```
+
+Maka, secara otomatis, akan terdownload tuh package `is-even` dan tersimpan di folder `node_modules/`.
+
+### Kelebihan PNPM Dibandingkan dengan NPM
+
+Lalu, apa kelebihannya pnpm jika dibandingkan dengan npm?
+
+Tidak seperti npm yang selalu mendownload package setiap install, pnpm akan mendownload package ke global root juga, sehingga ketika ingin menginstall package yang sama, pnpm nggak perlu mendownloadnya, tapi cukup pakai ulang aja package yang pernah diinstall. Jadi, proses instalasi package akan lebih cepat jika dibandingkan dengan npm.
+
 ## Micro Editor
 
 Micro editor adalah teks editor yang dijalankan _dari dalam Termux_. Jadi, kalau mau menggunakannya, install Termux dulu.
