@@ -120,14 +120,14 @@ const request = Astro.request
 	.active {
 		@apply bg-violet-200
 	}
-	h1, h2 {
+	h1 {
 		@apply text-3xl
 	}
 	hr {
 		@apply my-3
 	}
 	.isi :global(h1, h2, h3, h4, h5, h6){
-		@apply text-violet-600
+		@apply text-violet-600 !mb-3
 	}
 	.isi :global(code){
 		@apply text-red-500
