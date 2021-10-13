@@ -13,8 +13,11 @@ let listFileBener = []
 
 for (const x of listFile){
 	if (readFileSync(`./src/pages/post/${x}`).includes(`kategori: ${content.kategori}`)){
+		let judul = readFileSync(`./src/pages/post/${x}`, "utf8")
+		judul = judul.replace(/judul\: (.+)/, "<<<<<$1>>>>>").replace(/\n/g, "").replace(/.+<<<<</, "").replace(/>>>>>.+/, "")
 		listFileBener.push({
-			url: x
+			url: x,
+			judul
 		})
 	}
 }
@@ -40,7 +43,7 @@ const request = Astro.request
 			<p><a href="/">Belajar Pemrograman</a></p>
 			<ul>
 				{listFileBener.map(x => <li>
-					<a href={`/post/${x.url.replace(".md", "")}`} class={String(request.url).includes(x.url.replace(".md", "")) ? 'active' : ''}>{x}</a>
+					<a href={`/post/${x.url.replace(".md", "")}`} class={String(request.url).includes(x.url.replace(".md", "")) ? 'active' : ''}>{x.judul}</a>
 				</li>)}
 			</ul>
 		</div>
@@ -75,7 +78,7 @@ const request = Astro.request
 			<ul>
 				<li><a href="/">BERANDA</a></li>
 				{listFileBener.map(x => <li>
-					<a href={`/post/${x.url.replace(".md", "")}`} class={String(request.url).includes(x.url.replace(".md", "")) ? 'active-lainnya' : ''}>{x}</a>
+					<a href={`/post/${x.url.replace(".md", "")}`} class={String(request.url).includes(x.url.replace(".md", "")) ? 'active-lainnya' : ''}>{x.judul}</a>
 				</li>)}
 			</ul>
 		</div>
