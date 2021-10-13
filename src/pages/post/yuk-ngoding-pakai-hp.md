@@ -49,8 +49,26 @@ function cekGenap(x){
 		return false
 	}
 }
-console.log(cekGenap(5))
+console.log(cekGenap(5)) // Hasil: false
 ```
+
+Tapi, kalau kita menggunakan package yang udah ada, beban pikiran kita untuk menentukan logika pemrograman akan berkurang:
+
+```javascript
+const cekGenap = require("is-even")
+console.log(cekGenap(5)) // Hasil: false
+```
+
+Sekarang, bagaimana cara menggunakan npm?
+Tentunya, install Node JS terlebih dahulu:
+
+```bash
+pkg install nodejs
+```
+
+Maka, secara otomatis, npm sudah terinstall.
+
+Nah, sekarang kita mau buat program seperti di atas.
 
 ## Micro Editor
 
