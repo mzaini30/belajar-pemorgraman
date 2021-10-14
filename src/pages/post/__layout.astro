@@ -102,7 +102,7 @@ const request = Astro.request
 		@apply <md:underline
 	}
 	.lainnya li {
-		@apply <md:(list-disc list-inside pb-2)
+		@apply <md:(list-disc ml-4 pb-2)
 	}
 	.materi {
 		@apply w-[20%] bg-white sticky top-0 h-screen <md:hidden;
@@ -128,6 +128,9 @@ const request = Astro.request
 	}
 	.isi :global(h1, h2, h3, h4, h5, h6){
 		@apply !mb-3
+	}
+	.isi :global(img){
+		@apply block mx-auto
 	}
 	.isi :global(code){
 		@apply text-red-500
