@@ -14,7 +14,7 @@ let listFileBener = []
 for (const x of listFile){
 	if (readFileSync(`./src/pages/post/${x}`).includes(`kategori: ${content.kategori}`)){
 		let judul = readFileSync(`./src/pages/post/${x}`, "utf8")
-		judul = judul.replace(/judul\: (.+)/, "<<<<<$1>>>>>").replace(/\n/g, "").replace(/.+<<<<</, "").replace(/>>>>>.+/, "")
+		judul = judul.replace(/judul\: (.+)/, "<<<<<$1>>>>>").replace(/\n/g, "").replace(/\r/g, "").replace(/.+<<<<</, "").replace(/>>>>>.+/, "")
 		listFileBener.push({
 			url: x,
 			judul
