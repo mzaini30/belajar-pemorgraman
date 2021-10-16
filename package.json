@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mzaini30/next-belajar-pemrograman.git"
+    "url": "git+https://github.com/mzaini30/belajar-pemrograman.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mzaini30/next-belajar-pemrograman/issues"
+    "url": "https://github.com/mzaini30/belajar-pemrograman/issues"
   },
-  "homepage": "https://github.com/mzaini30/next-belajar-pemrograman#readme",
+  "homepage": "https://github.com/mzaini30/belajar-pemrograman#readme",
   "devDependencies": {
     "@snowpack/plugin-postcss": "^1.4.3",
     "astro": "^0.20.9",
