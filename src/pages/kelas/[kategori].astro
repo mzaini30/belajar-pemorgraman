@@ -35,11 +35,8 @@ const {semuaTulisan} = Astro.props
 		</div>
 
 		<div class='isi'>
-			<!-- {semuaTulisan.filter(x => x.kategori == kategori).map(x => <a href={x.url}>
-				<img src={`https://og-image.vercel.app/${encodeURIComponent(x.judul)}.png?theme=dark&md=0&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fhyper-bw-logo.svg`} alt={x.judul}>
-			</a>)} -->
-			{semuaTulisan.filter(x => x.kategori == kategori).map(x => <a href={x.url}>
-				<img src={`https://cdn.statically.io/og/theme=dark/${encodeURIComponent(x.judul)}.jpg`} alt={x.judul}>
+			{semuaTulisan.filter(x => x.kategori == kategori).map(x => <a class='card' href={x.url}>
+				{x.judul}
 			</a>)}
 		</div>
 	</div>
@@ -47,7 +44,7 @@ const {semuaTulisan} = Astro.props
 
 <style>
 	.preview {
-		@apply bg-green-300 text-green-800 items-center flex p-10 <md:grid-cols-1;
+		@apply bg-gradient-60 text-white items-center flex p-10 <md:grid-cols-1;
 	}
 	.header a {
 		@apply p-5 block hover:bg-gray-100 <md:text-center;
@@ -57,13 +54,16 @@ const {semuaTulisan} = Astro.props
 	}
 	h1 {
 		@apply text-5xl pb-5;
-		font-family: 'Comic Sans MS';
+		/*font-family: 'Comic Sans MS';*/
 	}
 	h2 {
 		@apply pb-10;
 	}
 	.isi {
 		@apply grid grid-cols-4 gap-5 p-5 <md:grid-cols-1;
+	}
+	.isi .card {
+		@apply bg-gradient-2 text-center px-2 py-10
 	}
 	.isi img {
 		@apply block transform hover:rotate-6 <md:hover:rotate-0;

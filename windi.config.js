@@ -2,7 +2,7 @@ import { defineConfig } from 'windicss/helpers'
 
 export default defineConfig({
   extract: {
-    include: ['src/**/*.{html,vue,jsx,tsx,svelte,astro}'],
+    include: ['src/**/*.{html,vue,jsx,tsx,svelte,astro,md}'],
   },
   /* ... */
 })

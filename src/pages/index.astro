@@ -20,6 +20,7 @@ const semuaKategori = ambilKategori(semuaTulisan)
 		<div class='list-kelas'>
 			{semuaKategori.map(x => <a href={`/kelas/${x}`}>
 				<img src={`/ikon/${x}.jpg`} alt={`Kelas ${x}`}>
+				<p>Kelas {x}</p>
 			</a>)}
 		</div>
 	</div>
@@ -29,10 +30,16 @@ const semuaKategori = ambilKategori(semuaTulisan)
 	.body {
 		/*background: #202124;*/
 		/*color: #bdc1c6;*/
-		@apply min-h-screen bg-gradient-60 text-white <md:(bg-gradient-37);
+		@apply min-h-screen bg-gradient-60 text-white <md:(bg-gradient-37) pb-5
 	}
 	.list-kelas {
-		@apply grid grid-cols-10 <md:grid-cols-3;
+		@apply grid grid-cols-10 gap-3 <md:grid-cols-3;
+	}
+	.list-kelas a {
+		@apply rounded bg-blue-300/50 overflow-hidden
+	}
+	.list-kelas p {
+		@apply text-center px-2 py-2
 	}
 	h1 {
 		font-size: 100px;
