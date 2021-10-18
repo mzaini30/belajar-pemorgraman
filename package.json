@@ -20,7 +20,7 @@
   "homepage": "https://github.com/mzaini30/belajar-pemrograman#readme",
   "devDependencies": {
     "@snowpack/plugin-postcss": "^1.4.3",
-    "astro": "^0.20.9",
+    "astro": "^0.20.12",
     "astro-meta": "^0.0.2",
     "postcss-windicss": "^1.0.0"
   }
