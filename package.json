@@ -21,6 +21,7 @@
   "devDependencies": {
     "@snowpack/plugin-postcss": "^1.4.3",
     "astro": "^0.20.12",
+    "astro-div": "^0.0.1",
     "astro-meta": "^0.0.2",
     "postcss-windicss": "^1.0.0"
   }

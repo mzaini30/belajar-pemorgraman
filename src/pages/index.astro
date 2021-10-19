@@ -2,19 +2,21 @@
 import Layout from './__layout.astro'
 import Meta from 'astro-meta'
 import {ambilKategori} from './_ambilKategori'
+import Div from 'astro-div'
 
 const semuaTulisan = Astro.fetchContent('./post/*.md')
 const semuaKategori = ambilKategori(semuaTulisan)
 ---
 
 <Layout>
-	<Meta title='Belajar Pemrograman' description='Kamu bisa belajar pemrograman di manapun asalkan numpang wifi' slot='head'/>
-
-	<div slot='body' class='body'>
+	<Div slot='head'>
+		<Meta title='Belajar Pemrograman' description='Kamu bisa belajar pemrograman di manapun asalkan numpang wifi'/>	
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Festive&display=swap" rel="stylesheet">
-
+	</Div>
+	
+	<div slot='body' class='body'>
 		<h1>Belajar Pemrograman</h1>
 		<h2>"Kamu bisa belajar pemrograman di manapun asalkan numpang wifi" (Zen, 2021)</h2>
 		<div class='list-kelas'>
