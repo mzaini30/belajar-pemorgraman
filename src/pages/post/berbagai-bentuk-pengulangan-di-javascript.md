@@ -39,3 +39,59 @@ Angka 10
 ```
 
 Lebih singkat kan daripada nulis satu-satu?
+
+## Pengulangan Berdasarkan Array
+
+Jadi, misal kita memiliki sebuah array, dan ingin kita cetak. Maka, darilada kita menggunakan teknik pengulangan seperti di atas, kita pakai cara yang lebih cepat:
+
+```javascript
+const buah = ["mangga", "apel", "pepaya", "lengkeng"]
+
+for (let x of buah){
+	console.log(x)
+}
+```
+
+Maka, hasilnya adalah:
+
+```
+mangga
+apel
+pepaya
+lengkeng
+```
+
+Lebih ringkas kan?
+
+Atau misalnya kita ingin untuk menampilkan nomor urutnya juga. Maka, kodenya adalah:
+
+```javascript
+const buah = ["mangga", "apel", "pepaya", "lengkeng"]
+
+for (let n in buah){
+	console.log(`${n + 1}. ${buah[n]}`)
+}
+```
+
+Hasilnya:
+
+```
+1. mangga
+2. apel
+3. pepaya
+4. lengkeng
+```
+
+Atau, kita bisa buat seperti ini:
+
+```javascript
+const buah = ["mangga", "apel", "pepaya", "lengkeng"]
+
+for (let [n, x] of buah.entries()){
+	console.log(`${n + 1}. ${x}`)
+}
+```
+
+Hasilnya akan sama seperti yang di atas.
+
+Mudah kan?
