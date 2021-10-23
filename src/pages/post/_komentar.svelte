@@ -7,6 +7,10 @@
 	const api = 'adef2df9c083a6f7327bcc1a7247e8d0' // id, nama, link, komentar, slug
 	const sql = 'https://excalibur.mabaiz.web.id/sql.php'
 
+	const headers = {
+		'Content-Type': 'application/x-www-form-urlencoded'
+	}
+
 	let semuaKomentar
 	let nama
 	let link 
@@ -35,7 +39,7 @@
 				id: api,
 				kunci: 'ambil',
 				slug: location.pathname
-			}))
+			}), {headers})
 			semuaKomentar = data
 		}
 	}
@@ -50,7 +54,7 @@
 				link,
 				komentar,
 				slug: location.pathname
-			}))
+			}), {headers})
 			if (proses) {
 				localStorage.nama = nama
 				localStorage.link = link
@@ -79,15 +83,17 @@
 	</form>
 
 	{#if semuaKomentar}
-		<p class="judul">Semua Komentar...</p>
+		<div class="semua">
+			<p class="judul">Semua Komentar...</p>
 
-		<ol>
-			{#each semuaKomentar as x}
-				<li>
-					<a rel="nofollow" href="/">Kucing Garong</a>
-					<p>halo</p>
-				</li>
-			{/each}
-		</ol>
+			<ol>
+				{#each semuaKomentar as x}
+					<li>
+						<a rel="nofollow" href={x.link}>{x.nama}</a>
+						<p>{x.komentar}</p>
+					</li>
+				{/each}
+			</ol>
+		</div>
 	{/if}
 </div>
