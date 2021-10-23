@@ -7,25 +7,23 @@
 </code></pre><p>Kemudian, ketika kita buka di browser, hasilnya adalah:</p><pre class=" language-html"><code class="language-html">SyntaxError: Unexpected identifier
 </code></pre><p>What…</p><p>Akhirnya, aku pun bertanya kepada kawan-kawan di Discord Astro. Ternyata, kita perlu <code>;</code> di akhir export. Akhirnya, aku ubah <code>src/pages/_data.js</code> menjadi:</p><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">const</span> name <span class="token operator">=</span> <span class="token string">'World'</span><span class="token punctuation">;</span>
 </code></pre><p>Akhirnya berhasil:</p><pre class=" language-html"><code class="language-html">Hello World
-</code></pre></div><a class="edit astro-7csB5uMR" href="https://github.com/mzaini30/belajar-pemrograman/blob/master/src/pages/post/mengatasi-export-import-problem-di-astro.md">Edit this page</a><astro-root uid="Zqy9zx"><div class="komentar"><p class="judul">Yuk Berkomentar...</p>
-	<form action=""><label>Nama</label>
+</code></pre></div><a class="edit astro-7csB5uMR" href="https://github.com/mzaini30/belajar-pemrograman/blob/master/src/pages/post/mengatasi-export-import-problem-di-astro.md">Edit this page</a><astro-root uid="29Nhdg"><div class="komentar"><p class="judul">Yuk Berkomentar...</p>
+
+	<form><label>Nama</label>
 		<input class="input" required="" type="text">
+
 		<label>Link Blog</label>
-		<input type="text" class="input" required="">
+		<input type="url" class="input" required="">
+		
 		<label class="block">Komentar</label>
 		<textarea required="" name="" id="" cols="30" class="input" rows="10"></textarea>
+		
 		<input value="Kirim Komentar" class="submit" type="submit"></form>
 
-	<p class="judul">Semua Komentar...</p>
-
-	<ol><li><a rel="nofollow" href="/">Kucing Garong</a>
-				<p>halo</p>
-			</li><li><a rel="nofollow" href="/">Kucing Garong</a>
-				<p>halo</p>
-			</li></ol></div></astro-root>
+	</div></astro-root>
 <script type="module">
 import setup from '/_astro_frontend/hydrate/visible.js';
-setup("Zqy9zx", {}, async () => {
+setup("29Nhdg", {}, async () => {
   
   const [{ default: Component }, { default: hydrate }] = await Promise.all([import("/_astro/src/pages/post/_komentar.svelte.js"), import("/_snowpack/pkg/@astrojs.renderer-svelte.client.v0.1.2.js")]);
   return (el, children) => hydrate(el)(Component, {}, children);
