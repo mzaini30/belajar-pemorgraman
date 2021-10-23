@@ -3,6 +3,8 @@ import Meta from 'astro-meta'
 import Layout from '../__layout.astro'
 import './_prism.css'
 import {readdirSync, readFileSync} from "node:fs"
+import Komentar from './_komentar.svelte'
+import './_komentar.css'
 
 const {content} = Astro.props
 
@@ -57,7 +59,9 @@ const request = Astro.request
 
 			<a class="edit" href={String(request.canonicalURL).replace("https://belajarpemrograman.my.id", "https://github.com/mzaini30/belajar-pemrograman/blob/master/src/pages").replace(/\/$/, ".md")}>Edit this page</a>
 
-			<script src="https://giscus.app/client.js"
+			<Komentar client:visible></Komentar>
+
+			<!-- <script src="https://giscus.app/client.js"
 			        data-repo="mzaini30/belajar-pemrograman"
 			        data-repo-id="MDEwOlJlcG9zaXRvcnkzMTk3OTI3ODk="
 			        data-category="Announcements"
@@ -68,7 +72,7 @@ const request = Astro.request
 			        data-theme="light"
 			        crossorigin="anonymous"
 			async>
-			</script>
+			</script> -->
 
 		</div>
 

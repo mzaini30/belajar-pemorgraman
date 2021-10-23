@@ -23,6 +23,9 @@
     "astro": "^0.20.12",
     "astro-div": "^0.0.1",
     "astro-meta": "^0.0.2",
-    "postcss-windicss": "^1.0.0"
+    "axios": "^0.23.0",
+    "pnpm": "^6.19.0",
+    "postcss-windicss": "^1.0.0",
+    "qs": "^6.10.1"
   }
 }

@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+.komentar textarea {
+	@apply block
+}
+
+.komentar .judul {
+	@apply text-3xl italic mt-3 mb-2;
+	font-family: 'Dancing Script', cursive;
+}
+
+.komentar .input {
+	@apply focus:outline-none rounded border border-yellow-700 w-full p-1 px-2;
+}
+
+.komentar .submit {
+	@apply my-3 bg-green-500 rounded px-3 py-1 text-white cursor-pointer
+}
+
+.komentar li {
+	@apply list-decimal ml-5
+}
+
+.komentar a {
+	@apply text-green-700
+}
