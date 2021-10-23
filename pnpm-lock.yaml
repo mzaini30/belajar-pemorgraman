@@ -9,6 +9,7 @@ specifiers:
   pnpm: ^6.19.0
   postcss-windicss: ^1.0.0
   qs: ^6.10.1
+  redaxios: ^0.4.1
 
 devDependencies:
   '@snowpack/plugin-postcss': 1.4.3
@@ -19,6 +20,7 @@ devDependencies:
   pnpm: 6.19.0
   postcss-windicss: 1.0.0
   qs: 6.10.1
+  redaxios: 0.4.1
 
 packages:
 
@@ -4408,6 +4410,10 @@ packages:
     engines: {node: '>=8.10.0'}
     dependencies:
       picomatch: 2.3.0
+    dev: true
+
+  /redaxios/0.4.1:
+    resolution: {integrity: sha512-+Jhh1j8/H0KBro+Hih/MrDEJ1PICaU10JA6iu5b3+uvgRI+5n2M7qpMNXq7eC/0fspP0tTq49ONXlGWFdRoNLg==}
     dev: true
 
   /rehype-raw/6.1.0:
