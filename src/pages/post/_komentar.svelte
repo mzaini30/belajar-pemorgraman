@@ -2,14 +2,15 @@
 	import redaxios from 'redaxios'
 	const {post} = redaxios
 	import {stringify} from 'qs'
+	import {headers} from 'zen-headers'
 	 
 	const browser = !import.meta.env.SSR
 	const api = 'adef2df9c083a6f7327bcc1a7247e8d0' // id, nama, link, komentar, slug
 	const sql = 'https://excalibur.mabaiz.web.id/sql.php'
 
-	const headers = {
-		'Content-Type': 'application/x-www-form-urlencoded'
-	}
+	// const headers = {
+	// 	'Content-Type': 'application/x-www-form-urlencoded'
+	// }
 
 	let semuaKomentar
 	let nama

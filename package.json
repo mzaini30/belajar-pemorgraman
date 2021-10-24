@@ -27,6 +27,7 @@
     "pnpm": "^6.19.0",
     "postcss-windicss": "^1.0.0",
     "qs": "^6.10.1",
-    "redaxios": "^0.4.1"
+    "redaxios": "^0.4.1",
+    "zen-headers": "^0.0.1"
   }
 }
