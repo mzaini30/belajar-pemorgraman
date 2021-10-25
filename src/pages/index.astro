@@ -6,6 +6,10 @@ import Div from 'astro-div'
 
 const semuaTulisan = Astro.fetchContent('./post/*.md')
 const semuaKategori = ambilKategori(semuaTulisan)
+
+const tanggal = new Date().setHours(0,0,0,0) / (10 ** 5)
+const bagi = tanggal % semuaKategori.length
+const kelasHariIni = semuaKategori[bagi]
 ---
 
 <Layout>
@@ -19,6 +23,9 @@ const semuaKategori = ambilKategori(semuaTulisan)
 	<div slot='body' class='body'>
 		<h1>Belajar Pemrograman</h1>
 		<h2>"Kamu bisa belajar pemrograman di manapun asalkan numpang wifi" (Zen, 2021)</h2>
+
+		<p class="info"><strong>Kelas hari ini:</strong>{" "}<a href={`/kelas/${kelasHariIni}`}>Kelas {kelasHariIni}</a></p>
+
 		<div class='list-kelas'>
 			{semuaKategori.map(x => <a href={`/kelas/${x}`}>
 				<img src={`/ikon/${x}.jpg`} alt={`Kelas ${x}`}>
@@ -33,6 +40,12 @@ const semuaKategori = ambilKategori(semuaTulisan)
 		/*background: #202124;*/
 		/*color: #bdc1c6;*/
 		@apply min-h-screen bg-gradient-60 text-white <md:(bg-gradient-37) pb-5
+	}
+	.info {
+		@apply px-3 bg-green-500 py-1 mb-5
+	}
+	.info a {
+		@apply underline
 	}
 	.list-kelas {
 		@apply grid grid-cols-10 gap-3 <md:grid-cols-3;
@@ -49,7 +62,7 @@ const semuaKategori = ambilKategori(semuaTulisan)
 		@apply text-center <md:(text-[70px] pt-5);
 	}
 	h2 {
-		@apply text-center pb-5;
+		@apply text-center pb-2 px-1;
 		font-family: 'Times New Roman';
 	}
 </style>
