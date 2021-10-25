@@ -4,12 +4,11 @@ import Meta from 'astro-meta'
 import {ambilKategori} from './_ambilKategori'
 import Div from 'astro-div'
 
+import KelasHariIni from './_kelasHariIni.svelte'
+import './_kelasHariIni.css'
+
 const semuaTulisan = Astro.fetchContent('./post/*.md')
 const semuaKategori = ambilKategori(semuaTulisan)
-
-const tanggal = new Date().setHours(0,0,0,0) / (10 ** 5)
-const bagi = tanggal % semuaKategori.length
-const kelasHariIni = semuaKategori[bagi]
 ---
 
 <Layout>
@@ -24,7 +23,7 @@ const kelasHariIni = semuaKategori[bagi]
 		<h1>Belajar Pemrograman</h1>
 		<h2>"Kamu bisa belajar pemrograman di manapun asalkan numpang wifi" (Zen, 2021)</h2>
 
-		<p class="info"><strong>Kelas hari ini:</strong>{" "}<a href={`/kelas/${kelasHariIni}`}>Kelas {kelasHariIni}</a></p>
+		<KelasHariIni semuaKategori={semuaKategori} client:visible></KelasHariIni>
 
 		<div class='list-kelas'>
 			{semuaKategori.map(x => <a href={`/kelas/${x}`}>
@@ -40,12 +39,6 @@ const kelasHariIni = semuaKategori[bagi]
 		/*background: #202124;*/
 		/*color: #bdc1c6;*/
 		@apply min-h-screen bg-gradient-60 text-white <md:(bg-gradient-37) pb-5
-	}
-	.info {
-		@apply px-3 bg-green-500 py-1 mb-5
-	}
-	.info a {
-		@apply underline
 	}
 	.list-kelas {
 		@apply grid grid-cols-10 gap-3 <md:grid-cols-3;
