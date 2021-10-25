@@ -35,9 +35,9 @@ const {semuaTulisan} = Astro.props
 		</div>
 
 		<div class='isi'>
-			{semuaTulisan.filter(x => x.kategori == kategori).map(x => <a class='card' href={x.url}>
+			{semuaTulisan.filter(x => x.kategori == kategori).map(x => <div><a class='card' href={x.url}>
 				{x.judul}
-			</a>)}
+			</a></div>)}
 		</div>
 	</div>
 </Layout>
@@ -63,7 +63,7 @@ const {semuaTulisan} = Astro.props
 		@apply grid grid-cols-4 gap-5 p-5 <md:grid-cols-1;
 	}
 	.isi .card {
-		@apply bg-gradient-2 text-center px-2 py-10
+		@apply bg-gradient-2 text-center px-5 py-10 block
 	}
 	.isi img {
 		@apply block transform hover:rotate-6 <md:hover:rotate-0;
