@@ -49,7 +49,7 @@ const request = Astro.request
 
 			<a class="edit" href={String(request.canonicalURL).replace("https://belajarpemrograman.my.id", "https://github.com/mzaini30/belajar-pemrograman/blob/master/src/pages").replace(/\/$/, ".md")}>Edit this page</a>
 
-			<Komentar client:visible></Komentar>
+			<Komentar client:load></Komentar>
 
 		</div>
 

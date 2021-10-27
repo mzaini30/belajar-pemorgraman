@@ -21,9 +21,9 @@ const semuaKategori = ambilKategori(semuaTulisan)
 	<div slot='body' class='body'>
 		<h1>Belajar Pemrograman</h1>
 		<h2>"Kamu bisa belajar pemrograman di manapun asalkan numpang wifi" (Zen, 2021)</h2>
-		<JumlahPeserta client:visible/>
+		<JumlahPeserta client:load/>
 
-		<KelasHariIni semuaKategori={semuaKategori} client:visible></KelasHariIni>
+		<KelasHariIni semuaKategori={semuaKategori} client:load></KelasHariIni>
 
 		<div class='list-kelas'>
 			{semuaKategori.map(x => <a href={`/kelas/${x}`}>
