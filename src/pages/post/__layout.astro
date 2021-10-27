@@ -23,17 +23,8 @@ for (const x of listFile){
 	}
 }
 
-console.log(listFileBener)
-
 const site = Astro.site.origin
 const request = Astro.request
-
-// let semuaTulisan = Astro.fetchContent('./*.md')
-// let semuaTulisan = await fetch(`${site}/semua`).then(x => x.text())
-
-// semuaTulisan = semuaTulisan.replace(/.+(\[\{\")/, '$1').replace(/(\"\}\]).+/, '$1').replace(/"\\&quot;/g, '').replace(/\\&quot;"/g, '').replace(`" initial-scale="`, '')
-// semuaTulisan = JSON.parse(semuaTulisan)
-// semuaTulisan = semuaTulisan.filter(x => x.kategori == content.kategori)
 ---
 
 <Layout>
@@ -190,5 +181,8 @@ const request = Astro.request
 
 	.komentar a {
 		@apply text-green-700
+	}
+	.token.prefix.inserted {
+		@apply select-none
 	}
 </style>
