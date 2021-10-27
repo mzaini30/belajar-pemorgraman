@@ -29,11 +29,11 @@ import Peserta from './_peserta.svelte'
 </style>
 
 <style global>
-	table {
+	.full table {
 		@apply mx-auto
 	}
-	td, th {
-		@apply border border-gray-300 px-5 py-1
+	.full :where(td, th) {
+		@apply border !border-gray-300 px-5 py-1
 	}
 	.peserta td {
 		@apply border border-gray-300 px-5 py-1
