@@ -7,4 +7,6 @@
 	const kelasHariIni = semuaKategori[bagi]
 </script>
 
-<p class="info"><strong>Kelas hari ini:</strong> <a href='/kelas/{kelasHariIni}'>Kelas {kelasHariIni}</a></p>
+<p class="info">
+	<strong>Kelas hari ini:</strong> <a href='/kelas/{kelasHariIni}'>Kelas {kelasHariIni}</a>
+</p>

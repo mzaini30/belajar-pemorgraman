@@ -1,0 +1,44 @@
+---
+import Meta from 'astro-meta'
+import Layout from './__layout.astro'
+import Peserta from './_peserta.svelte'
+---
+
+<Layout>
+	<Meta slot='head' title='Peserta' description='List peserta yang belajar di blog ini
+	'></Meta>
+
+	<div class='body' slot='body'>
+		<h1>Peserta Belajar Pemrograman</h1>
+		<div class="full">
+			<Peserta client:visible></Peserta>
+		</div>
+	</div>
+</Layout>
+
+<style>
+	.body {
+		@apply p-10 <md:p-3;
+	}
+	h1 {
+		@apply text-3xl pb-5 text-center font-serif
+	}
+	.full {
+		@apply max-w-full overflow-auto
+	}
+</style>
+
+<style global>
+	table {
+		@apply mx-auto
+	}
+	td, th {
+		@apply border border-gray-300 px-5 py-1
+	}
+	.peserta td {
+		@apply border border-gray-300 px-5 py-1
+	}
+	.peserta a {
+		@apply underline
+	}
+</style>

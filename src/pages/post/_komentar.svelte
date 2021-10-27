@@ -3,10 +3,9 @@
 	const {post} = redaxios
 	import {stringify} from 'qs'
 	import {headers} from 'zen-headers'
+	import {komentar as apiKomentar, sql} from '../_api'
 	 
 	const browser = !import.meta.env.SSR
-	const api = 'adef2df9c083a6f7327bcc1a7247e8d0' // id, nama, link, komentar, slug
-	const sql = 'https://excalibur.mabaiz.web.id/sql.php'
 
 	// const headers = {
 	// 	'Content-Type': 'application/x-www-form-urlencoded'
@@ -37,7 +36,7 @@
 	async function ambilData(){
 		if (browser) {
 			const {data} = await post(sql, stringify({
-				id: api,
+				id: apiKomentar,
 				kunci: 'ambil',
 				slug: location.pathname
 			}), {headers})
@@ -49,7 +48,7 @@
 	async function kirim(){
 		if (browser) {
 			const proses = await post(sql, stringify({
-				id: api,
+				id: apiKomentar,
 				kunci: 'kirim',
 				nama,
 				link,

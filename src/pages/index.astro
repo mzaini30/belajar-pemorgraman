@@ -3,9 +3,8 @@ import Layout from './__layout.astro'
 import Meta from 'astro-meta'
 import {ambilKategori} from './_ambilKategori'
 import Div from 'astro-div'
-
 import KelasHariIni from './_kelasHariIni.svelte'
-import './_kelasHariIni.css'
+import JumlahPeserta from './_jumlahPeserta.svelte'
 
 const semuaTulisan = Astro.fetchContent('./post/*.md')
 const semuaKategori = ambilKategori(semuaTulisan)
@@ -22,6 +21,7 @@ const semuaKategori = ambilKategori(semuaTulisan)
 	<div slot='body' class='body'>
 		<h1>Belajar Pemrograman</h1>
 		<h2>"Kamu bisa belajar pemrograman di manapun asalkan numpang wifi" (Zen, 2021)</h2>
+		<JumlahPeserta client:visible/>
 
 		<KelasHariIni semuaKategori={semuaKategori} client:visible></KelasHariIni>
 
@@ -57,5 +57,22 @@ const semuaKategori = ambilKategori(semuaTulisan)
 	h2 {
 		@apply text-center pb-2 px-1;
 		font-family: 'Times New Roman';
+	}
+</style>
+
+<style global>
+	.info {
+		@apply px-3 bg-green-500 py-1 mb-5
+	}
+	.info a {
+		@apply underline
+	}
+
+	.jumlah-peserta {
+		@apply text-center pb-2 px-1;
+		font-family: 'Times New Roman';
+	}
+	.jumlah-peserta a {
+		@apply underline
 	}
 </style>

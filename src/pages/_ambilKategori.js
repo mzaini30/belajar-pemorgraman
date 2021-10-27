@@ -5,4 +5,4 @@ export function ambilKategori(semua){
 	}
 	semuaKategori = [...new Set(semuaKategori)]
 	return semuaKategori.sort()
-}
+};

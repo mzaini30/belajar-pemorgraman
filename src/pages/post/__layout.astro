@@ -4,7 +4,6 @@ import Layout from '../__layout.astro'
 import './_prism.css'
 import {readdirSync, readFileSync} from "node:fs"
 import Komentar from './_komentar.svelte'
-import './_komentar.css'
 
 const {content} = Astro.props
 
@@ -60,19 +59,6 @@ const request = Astro.request
 			<a class="edit" href={String(request.canonicalURL).replace("https://belajarpemrograman.my.id", "https://github.com/mzaini30/belajar-pemrograman/blob/master/src/pages").replace(/\/$/, ".md")}>Edit this page</a>
 
 			<Komentar client:visible></Komentar>
-
-			<!-- <script src="https://giscus.app/client.js"
-			        data-repo="mzaini30/belajar-pemrograman"
-			        data-repo-id="MDEwOlJlcG9zaXRvcnkzMTk3OTI3ODk="
-			        data-category="Announcements"
-			        data-category-id="DIC_kwDOEw-mlc4B_X7z"
-			        data-mapping="pathname"
-			        data-reactions-enabled="1"
-			        data-emit-metadata="0"
-			        data-theme="light"
-			        crossorigin="anonymous"
-			async>
-			</script> -->
 
 		</div>
 
@@ -171,5 +157,38 @@ const request = Astro.request
 	}
 	.isi :global(h4){
 		@apply text-lg text-blue-500
+	}
+</style>
+
+<style global>
+	@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+	.komentar .semua {
+		@apply pb-3
+	}
+
+	.komentar textarea {
+		@apply block
+	}
+
+	.komentar .judul {
+		@apply text-3xl italic mt-3 mb-2;
+		font-family: 'Dancing Script', cursive;
+	}
+
+	.komentar .input {
+		@apply focus:outline-none rounded border border-yellow-700 w-full p-1 px-2;
+	}
+
+	.komentar .submit {
+		@apply my-3 bg-green-500 rounded px-3 py-1 text-white cursor-pointer
+	}
+
+	.komentar li {
+		@apply list-decimal ml-5
+	}
+
+	.komentar a {
+		@apply text-green-700
 	}
 </style>
