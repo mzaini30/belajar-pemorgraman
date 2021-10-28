@@ -5,6 +5,9 @@ import {ambilKategori} from './_ambilKategori'
 import Div from 'astro-div'
 import KelasHariIni from './_kelasHariIni.svelte'
 import JumlahPeserta from './_jumlahPeserta.svelte'
+import IklanKecil from './_iklan/kecil.astro'
+import IklanSedang from './_iklan/sedang.astro'
+import IklanKotak from './_iklan/kotak.astro'
 
 const semuaTulisan = Astro.fetchContent('./post/*.md')
 const semuaKategori = ambilKategori(semuaTulisan)
@@ -23,6 +26,8 @@ const semuaKategori = ambilKategori(semuaTulisan)
 		<h2>"Kamu bisa belajar pemrograman di manapun asalkan numpang wifi" (Zen, 2021)</h2>
 		<JumlahPeserta client:load/>
 
+		<IklanKecil></IklanKecil>
+
 		<KelasHariIni semuaKategori={semuaKategori} client:load></KelasHariIni>
 
 		<div class='list-kelas'>
@@ -31,6 +36,9 @@ const semuaKategori = ambilKategori(semuaTulisan)
 				<p>Kelas {x}</p>
 			</a>)}
 		</div>
+
+		<br>
+		<IklanKotak></IklanKotak>
 	</div>
 </Layout>
 
