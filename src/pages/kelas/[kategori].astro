@@ -2,8 +2,6 @@
 import {ambilKategori} from '../_ambilKategori'
 import Layout from '../__layout.astro'
 import Meta from 'astro-meta'
-import IklanKecil from '../_iklan/kecil.astro'
-import IklanKotak from '../_iklan/kotak.astro'
 
 export async function getStaticPaths(){
 	const semuaTulisan = await Astro.fetchContent('../post/*.md')
@@ -36,15 +34,11 @@ const {semuaTulisan} = Astro.props
 			</div>
 		</div>
 
-		<br>
-		<IklanKecil></IklanKecil>
-
 		<div class='isi'>
 			{semuaTulisan.filter(x => x.kategori == kategori).map(x => <div><a class='card' href={x.url}>
 				{x.judul}
 			</a></div>)}
 		</div>
-		<IklanKotak></IklanKotak>
 	</div>
 </Layout>
 
