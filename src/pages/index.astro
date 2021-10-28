@@ -5,6 +5,7 @@ import {ambilKategori} from './_ambilKategori'
 import Div from 'astro-div'
 import KelasHariIni from './_kelasHariIni.svelte'
 import JumlahPeserta from './_jumlahPeserta.svelte'
+import Iklan from './_iklan.astro'
 
 const semuaTulisan = Astro.fetchContent('./post/*.md')
 const semuaKategori = ambilKategori(semuaTulisan)
