@@ -3,6 +3,7 @@ import Meta from 'astro-meta'
 import Layout from './__layout.astro'
 import Peserta from './_peserta.svelte'
 import IklanKecil from './_iklan/kecil.astro'
+import IklanKotak from './_iklan/kotak.astro'
 ---
 
 <Layout>
@@ -15,6 +16,7 @@ import IklanKecil from './_iklan/kecil.astro'
 		<div class="full">
 			<Peserta client:load></Peserta>
 		</div>
+		<IklanKotak></IklanKotak>
 	</div>
 </Layout>
 

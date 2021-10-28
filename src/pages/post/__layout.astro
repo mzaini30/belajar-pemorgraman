@@ -4,6 +4,8 @@ import Layout from '../__layout.astro'
 import './_prism.css'
 import {readdirSync, readFileSync} from "node:fs"
 import Komentar from './_komentar.svelte'
+import IklanKecil from '../_iklan/kecil.astro'
+import IklanKotak from '../_iklan/kotak.astro'
 
 const {content} = Astro.props
 
@@ -43,11 +45,14 @@ const request = Astro.request
 		<div class='kertas pertama'>
 			<h1>{content.judul}</h1>
 			<hr>
+			<IklanKecil></IklanKecil>
 			<div class="isi">
 				<slot></slot>
 			</div>
 
 			<a class="edit" href={String(request.canonicalURL).replace("https://belajarpemrograman.my.id", "https://github.com/mzaini30/belajar-pemrograman/blob/master/src/pages").replace(/\/$/, ".md")}>Edit this page</a>
+
+			<IklanKecil></IklanKecil>
 
 			<Komentar client:load></Komentar>
 
