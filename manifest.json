@@ -264,6 +264,17 @@
       "_api.883d5493.js"
     ]
   },
+  "\u0000virtual:post_struktur-folder-di-iles_ile-1": {
+    "file": "assets/_virtual_post_struktur-folder-di-iles_ile-1.9d6cb4f4.js",
+    "src": "\u0000virtual:post_struktur-folder-di-iles_ile-1",
+    "isEntry": true,
+    "imports": [
+      "_iles.8105d9b2.js",
+      "src/components/Komentar.svelte",
+      "_vendor-svelte.3aad0a64.js",
+      "_api.883d5493.js"
+    ]
+  },
   "\u0000virtual:post_syntax-highlighting-astro-di-micro-editor_ile-1": {
     "file": "assets/_virtual_post_syntax-highlighting-astro-di-micro-editor_ile-1.222b25d3.js",
     "src": "\u0000virtual:post_syntax-highlighting-astro-di-micro-editor_ile-1",
