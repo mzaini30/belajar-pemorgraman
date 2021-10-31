@@ -1,33 +1,33 @@
 {
-  "name": "next-belajar-pemrograman",
+  "name": "iles-belajar-pemrograman",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build"
+    "dev": "iles dev",
+    "build": "iles build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mzaini30/belajar-pemrograman.git"
+    "url": "git+https://github.com/mzaini30/iles-belajar-pemrograman.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mzaini30/belajar-pemrograman/issues"
+    "url": "https://github.com/mzaini30/iles-belajar-pemrograman/issues"
   },
-  "homepage": "https://github.com/mzaini30/belajar-pemrograman#readme",
+  "homepage": "https://github.com/mzaini30/iles-belajar-pemrograman#readme",
   "devDependencies": {
-    "@snowpack/plugin-postcss": "^1.4.3",
-    "astro": "^0.20.12",
-    "astro-div": "^0.0.1",
-    "astro-meta": "^0.0.2",
-    "axios": "^0.23.0",
-    "pnpm": "^6.19.0",
-    "postcss-windicss": "^1.0.0",
+    "@mapbox/rehype-prism": "^0.8.0",
+    "@sveltejs/vite-plugin-svelte": "^1.0.0-next.30",
+    "axios": "^0.24.0",
+    "iles": "^0.4.6",
     "qs": "^6.10.1",
     "redaxios": "^0.4.1",
+    "svelte": "^3.44.0",
+    "vite-plugin-windicss": "^1.4.12",
+    "windicss": "^3.2.0",
     "zen-headers": "^0.0.1"
   }
 }
