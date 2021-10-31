@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html  lang="en-US" data-head-attrs="lang">
+  <head>
+    <title>Berbagai Cara Menggunakan Windi</title><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta property="og:url" content="https://belajarpemrograman.my.id/post/berbagai-cara-menggunakan-windi"><meta property="twitter:domain" content="belajarpemrograman.my.id"><meta property="twitter:url" content="https://belajarpemrograman.my.id/post/berbagai-cara-menggunakan-windi"><link rel="sitemap" href="https://belajarpemrograman.my.id/sitemap.xml"><meta property="generator" content="îles"><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2408628281705149" crossorigin="anonymous" async></script><link rel="icon" href="https://image.freepik.com/free-vector/young-man-head-with-beard-avatar-character_24877-36786.jpg"><meta name="description" content="Membahas &#39;Berbagai Cara Menggunakan Windi&#39; di kelas Windi"><meta property="og:locale" content="id_ID"><meta property="og:type" content="article"><meta property="og:title" content="Berbagai Cara Menggunakan Windi"><meta property="og:description" content="Membahas &#39;Berbagai Cara Menggunakan Windi&#39; di kelas Windi"><meta property="og:image" content="https://cdn.statically.io/og/Berbagai%20Cara%20Menggunakan%20Windi.jpg"><meta property="og:image:width" content="2048"><meta property="og:image:height" content="1170"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:title" content="Berbagai Cara Menggunakan Windi"><meta property="twitter:description" content="Membahas &#39;Berbagai Cara Menggunakan Windi&#39; di kelas Windi"><meta property="twitter:image" content="https://cdn.statically.io/og/Berbagai%20Cara%20Menggunakan%20Windi.jpg"><meta property="og:site_name" content="Belajar Pemrograman"><meta name="head:count" content="22">
+    <link rel="stylesheet" href="/assets/style.111154ca.css">
+    
+  <link rel="modulepreload" href="/assets/iles.8105d9b2.js" crossorigin/><link rel="modulepreload" href="/assets/vendor-svelte.3aad0a64.js" crossorigin/><link rel="modulepreload" href="/assets/Komentar.7c61b391.js" crossorigin/><link rel="modulepreload" href="/assets/api.883d5493.js" crossorigin/></head>
+  <body  data-head-attrs="">
+    <div id="app"><!--[--><!----><!--[--><!----><!--[--><!----><div class="latar" data-v-75edeebc><div class="materi" data-v-75edeebc><p data-v-75edeebc><a href="/" data-v-75edeebc>Kelas Windi</a></p><ul data-v-75edeebc><!--[--><li data-v-75edeebc><a href="/post/berbagai-cara-menggunakan-windi" class="active" data-v-75edeebc>Berbagai Cara Menggunakan Windi</a></li><li data-v-75edeebc><a href="/post/windi-gradient" class="" data-v-75edeebc>Windi Gradient</a></li><!--]--></ul></div><div class="kertas pertama" data-v-75edeebc><h1 data-v-75edeebc>Berbagai Cara Menggunakan Windi</h1><hr data-v-75edeebc><div class="isi-tulisan" data-v-75edeebc><!--[--><!--[--><p>Windi adalah superset Tailwind di mana Tailwind merupakan superset dari CSS.</p>
+<p>Jikalau di CSS kita menuliskan seperti ini:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.gambar</span></span> <span class="token punctuation">{</span>
+	<span class="token property">padding-left</span><span class="token punctuation">:</span> <span class="token number">4</span><span class="token unit">rem</span><span class="token punctuation">;</span>
+	<span class="token property">padding-right</span><span class="token punctuation">:</span> <span class="token number">4</span><span class="token unit">rem</span><span class="token punctuation">;</span>
+	<span class="token property">padding-top</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token unit">rem</span><span class="token punctuation">;</span>
+	<span class="token property">padding-botton</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token unit">rem</span><span class="token punctuation">;</span>
+	<span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Maka, kalau di Windi, kita menuliskannya seperti ini:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.gambar</span></span> <span class="token punctuation">{</span>
+	<span class="token atrule"><span class="token rule">@apply</span> px-8 py-4 text-center<span class="token punctuation">;</span></span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Tapi, menggunakan Windi ini nggak bisa langsung dipanggil seperti kita menggunakan pure CSS, melainkan harus disetup dulu supaya nanti tercompile otomatis saat menggunakan Windi, menjadi CSS biasa.</p>
+<blockquote>
+<p>Baca juga: <a href="/post/menggunakan-windi-di-astro">Menggunakan Windi di Astro</a></p>
+</blockquote>
+<blockquote>
+<p>Baca juga: <a href="https://windicss.org/guide/installation.html">Instalasi Windi di Berbagai Framework JS dan Berbagai Build Tools</a></p>
+</blockquote>
+<p>Windi ini bisa dikombinasikan dengan CSS biasa:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.nama</span></span> <span class="token punctuation">{</span>
+	<span class="token atrule"><span class="token rule">@apply</span> text-right text-red-500<span class="token punctuation">;</span></span>
+	<span class="token property">background</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">&quot;kucing.jpg&quot;</span><span class="token punctuation">)</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Nah sekarang, untuk memanggil Windi itu sama seperti kita memanggil CSS biasa.</p>
+<p>Yang pertama, itu kita panggil dari file eksternal:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+ <span class="token comment">// Change &quot;[dot]&quot; to &quot;.&quot;</span>
+ <span class="token keyword module">import</span> <span class="token string">&quot;[dot]/style[dot]css&quot;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>Cara itu kita gunakan jika untuk satu file Windi digunakan pada banyak file markup, seperti ini:</p>
+<pre><code>.
+|-- style.css
+|-- index.astro
+|-- about.astro
+</code></pre>
+<p>Cara yang kedua adalah dengan menggunakan tag style:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>Hello World<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+	<span class="token selector">h1</span> <span class="token punctuation">{</span>
+		@apply text-center bg-violet-200 text-red-600
+	<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>Cara itu kita gunakan jika ingin mengubah style pada komponen ini aja.</p>
+<p>Lalu, yang terakhir adalah dengan inline class:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>text-right italic<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Hello<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>Cara itu kita gunakan jika ingin mengubah style pada elemen itu aja.</p>
+<p>Jadi, ketika styling pakai Windi, kita bisa menggunakan ketiganya. Kalau mau untuk style buat banyak komponen, pakai yang file style Windi terpisah, kalau ingin styling komponen itu aja, pakai tag style, kalau ingin styling elemen itu aja, pakai inline class. Jadi ya jangan semuanya pakai inline class. Jadi bingung ngelihatnya...</p><!--]--><!--]--></div><a class="edit" href="https://github.com/mzaini30/belajar-pemrograman/blob/master/src/pages/post/berbagai-cara-menggunakan-windi.mdx" data-v-75edeebc>Edit this page</a><!--[--><ile-root id="ile-1"><div class="komentar svelte-1g1evew"><p class="judul svelte-1g1evew">Yuk Berkomentar...</p>
+
+	<form><label>Nama</label>
+		<input class="input svelte-1g1evew" required type="text">
+
+		<label>Link Blog</label>
+		<input type="url" class="input svelte-1g1evew" required>
+		
+		<label class="block">Komentar</label>
+		<textarea required name="" id="" cols="30" class="input svelte-1g1evew" rows="10"></textarea>
+		
+		<input value="Kirim Komentar" class="submit svelte-1g1evew" type="submit"></form>
+
+	
+</div></ile-root><script type="module" async>import{h as a,c as r}from"/assets/iles.8105d9b2.js";import{K as e}from"/assets/Komentar.7c61b391.js";import"/assets/vendor-svelte.3aad0a64.js";import"/assets/api.883d5493.js";a(r,e,"ile-1",{},{});
+</script><!--]--></div><div class="kertas lainnya" data-v-75edeebc><h2 data-v-75edeebc>Tulisan Lainnya:</h2><hr data-v-75edeebc><ul data-v-75edeebc><li data-v-75edeebc><a href="/" data-v-75edeebc>BERANDA</a></li><!--[--><li data-v-75edeebc><a href="/post/berbagai-cara-menggunakan-windi" class="active-lainnya" data-v-75edeebc>Berbagai Cara Menggunakan Windi</a></li><li data-v-75edeebc><a href="/post/windi-gradient" class="" data-v-75edeebc>Windi Gradient</a></li><!--]--></ul></div></div><!--]--><!--]--><!----><!--]--></div>
+  </body>
+</html>

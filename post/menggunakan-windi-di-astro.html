@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html  lang="en-US" data-head-attrs="lang">
+  <head>
+    <title>Menggunakan Windi di Astro</title><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta property="og:url" content="https://belajarpemrograman.my.id/post/menggunakan-windi-di-astro"><meta property="twitter:domain" content="belajarpemrograman.my.id"><meta property="twitter:url" content="https://belajarpemrograman.my.id/post/menggunakan-windi-di-astro"><link rel="sitemap" href="https://belajarpemrograman.my.id/sitemap.xml"><meta property="generator" content="îles"><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2408628281705149" crossorigin="anonymous" async></script><link rel="icon" href="https://image.freepik.com/free-vector/young-man-head-with-beard-avatar-character_24877-36786.jpg"><meta name="description" content="Membahas &#39;Menggunakan Windi di Astro&#39; di kelas Astro"><meta property="og:locale" content="id_ID"><meta property="og:type" content="article"><meta property="og:title" content="Menggunakan Windi di Astro"><meta property="og:description" content="Membahas &#39;Menggunakan Windi di Astro&#39; di kelas Astro"><meta property="og:image" content="https://cdn.statically.io/og/Menggunakan%20Windi%20di%20Astro.jpg"><meta property="og:image:width" content="2048"><meta property="og:image:height" content="1170"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:title" content="Menggunakan Windi di Astro"><meta property="twitter:description" content="Membahas &#39;Menggunakan Windi di Astro&#39; di kelas Astro"><meta property="twitter:image" content="https://cdn.statically.io/og/Menggunakan%20Windi%20di%20Astro.jpg"><meta property="og:site_name" content="Belajar Pemrograman"><meta name="head:count" content="22">
+    <link rel="stylesheet" href="/assets/style.111154ca.css">
+    
+  <link rel="modulepreload" href="/assets/iles.8105d9b2.js" crossorigin/><link rel="modulepreload" href="/assets/vendor-svelte.3aad0a64.js" crossorigin/><link rel="modulepreload" href="/assets/Komentar.7c61b391.js" crossorigin/><link rel="modulepreload" href="/assets/api.883d5493.js" crossorigin/></head>
+  <body  data-head-attrs="">
+    <div id="app"><!--[--><!----><!--[--><!----><!--[--><!----><div class="latar" data-v-75edeebc><div class="materi" data-v-75edeebc><p data-v-75edeebc><a href="/" data-v-75edeebc>Kelas Astro</a></p><ul data-v-75edeebc><!--[--><li data-v-75edeebc><a href="/post/auto-deploy-astro-di-github-pages" class="" data-v-75edeebc>Auto Deploy Astro di Github Pages</a></li><li data-v-75edeebc><a href="/post/belajar-astro-dari-dasar" class="" data-v-75edeebc>Belajar Astro dari Dasar</a></li><li data-v-75edeebc><a href="/post/import-vue-svelte-dan-react-di-astro" class="" data-v-75edeebc>Import Vue, Svelte, dan React di Astro</a></li><li data-v-75edeebc><a href="/post/mencoba-astro-next" class="" data-v-75edeebc>Mencoba Astro Next</a></li><li data-v-75edeebc><a href="/post/mengatasi-export-import-problem-di-astro" class="" data-v-75edeebc>Mengatasi Masalah Export Import di Astro</a></li><li data-v-75edeebc><a href="/post/menggunakan-windi-di-astro" class="active" data-v-75edeebc>Menggunakan Windi di Astro</a></li><li data-v-75edeebc><a href="/post/syntax-highlighting-astro-di-sublime" class="" data-v-75edeebc>Syntax Highlighting Astro di Sublime</a></li><!--]--></ul></div><div class="kertas pertama" data-v-75edeebc><h1 data-v-75edeebc>Menggunakan Windi di Astro</h1><hr data-v-75edeebc><div class="isi-tulisan" data-v-75edeebc><!--[--><!--[--><p>Install dependencies yang diperlukan:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">pnpm</span> i -D @snowpack/plugin-postcss postcss-windicss
+</code></pre>
+<p>Isi dari <code>postcss.config.js</code>:</p>
+<pre class="language-javascript"><code class="language-javascript">module<span class="token punctuation">.</span><span class="token property-access">exports</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  plugins<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token string">&#39;postcss-windicss&#39;</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token comment">/* ... */</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Isi dari <code>snowpack.config.js</code>:</p>
+<pre class="language-javascript"><code class="language-javascript">module<span class="token punctuation">.</span><span class="token property-access">exports</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token string">&quot;plugins&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">&quot;@snowpack/plugin-postcss&quot;</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Isi dari <code>windi.config.js</code>:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> defineConfig <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">&#39;windicss/helpers&#39;</span>
+
+<span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token function">defineConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  extract<span class="token operator">:</span> <span class="token punctuation">{</span>
+    include<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&#39;src/**/*.{html,vue,jsx,tsx,svelte,astro}&#39;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment">/* ... */</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Isi dari <code>src/pages/_global.css</code>:</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@windicss</span><span class="token punctuation">;</span></span>
+</code></pre>
+<p>Isi dari <code>src/pages/__layout.astro</code>:</p>
+<pre class="language-html"><code class="language-html">---
+import &#39;./_global.css&#39;
+---
+
+<span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>en<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>UTF-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>viewport<span class="token punctuation">&quot;</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>width=device-width, initial-scale=1.0<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>Document<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>slot</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>slot</span><span class="token punctuation">&gt;</span></span>	
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre><!--]--><!--]--></div><a class="edit" href="https://github.com/mzaini30/belajar-pemrograman/blob/master/src/pages/post/menggunakan-windi-di-astro.mdx" data-v-75edeebc>Edit this page</a><!--[--><ile-root id="ile-1"><div class="komentar svelte-1g1evew"><p class="judul svelte-1g1evew">Yuk Berkomentar...</p>
+
+	<form><label>Nama</label>
+		<input class="input svelte-1g1evew" required type="text">
+
+		<label>Link Blog</label>
+		<input type="url" class="input svelte-1g1evew" required>
+		
+		<label class="block">Komentar</label>
+		<textarea required name="" id="" cols="30" class="input svelte-1g1evew" rows="10"></textarea>
+		
+		<input value="Kirim Komentar" class="submit svelte-1g1evew" type="submit"></form>
+
+	
+</div></ile-root><script type="module" async>import{h as a,c as r}from"/assets/iles.8105d9b2.js";import{K as e}from"/assets/Komentar.7c61b391.js";import"/assets/vendor-svelte.3aad0a64.js";import"/assets/api.883d5493.js";a(r,e,"ile-1",{},{});
+</script><!--]--></div><div class="kertas lainnya" data-v-75edeebc><h2 data-v-75edeebc>Tulisan Lainnya:</h2><hr data-v-75edeebc><ul data-v-75edeebc><li data-v-75edeebc><a href="/" data-v-75edeebc>BERANDA</a></li><!--[--><li data-v-75edeebc><a href="/post/auto-deploy-astro-di-github-pages" class="" data-v-75edeebc>Auto Deploy Astro di Github Pages</a></li><li data-v-75edeebc><a href="/post/belajar-astro-dari-dasar" class="" data-v-75edeebc>Belajar Astro dari Dasar</a></li><li data-v-75edeebc><a href="/post/import-vue-svelte-dan-react-di-astro" class="" data-v-75edeebc>Import Vue, Svelte, dan React di Astro</a></li><li data-v-75edeebc><a href="/post/mencoba-astro-next" class="" data-v-75edeebc>Mencoba Astro Next</a></li><li data-v-75edeebc><a href="/post/mengatasi-export-import-problem-di-astro" class="" data-v-75edeebc>Mengatasi Masalah Export Import di Astro</a></li><li data-v-75edeebc><a href="/post/menggunakan-windi-di-astro" class="active-lainnya" data-v-75edeebc>Menggunakan Windi di Astro</a></li><li data-v-75edeebc><a href="/post/syntax-highlighting-astro-di-sublime" class="" data-v-75edeebc>Syntax Highlighting Astro di Sublime</a></li><!--]--></ul></div></div><!--]--><!--]--><!----><!--]--></div>
+  </body>
+</html>

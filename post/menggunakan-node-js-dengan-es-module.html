@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html  lang="en-US" data-head-attrs="lang">
+  <head>
+    <title>Latihan Node JS dengan ESM</title><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta property="og:url" content="https://belajarpemrograman.my.id/post/menggunakan-node-js-dengan-es-module"><meta property="twitter:domain" content="belajarpemrograman.my.id"><meta property="twitter:url" content="https://belajarpemrograman.my.id/post/menggunakan-node-js-dengan-es-module"><link rel="sitemap" href="https://belajarpemrograman.my.id/sitemap.xml"><meta property="generator" content="îles"><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2408628281705149" crossorigin="anonymous" async></script><link rel="icon" href="https://image.freepik.com/free-vector/young-man-head-with-beard-avatar-character_24877-36786.jpg"><meta name="description" content="Membahas &#39;Latihan Node JS dengan ESM&#39; di kelas JavaScript"><meta property="og:locale" content="id_ID"><meta property="og:type" content="article"><meta property="og:title" content="Latihan Node JS dengan ESM"><meta property="og:description" content="Membahas &#39;Latihan Node JS dengan ESM&#39; di kelas JavaScript"><meta property="og:image" content="https://cdn.statically.io/og/Latihan%20Node%20JS%20dengan%20ESM.jpg"><meta property="og:image:width" content="2048"><meta property="og:image:height" content="1170"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:title" content="Latihan Node JS dengan ESM"><meta property="twitter:description" content="Membahas &#39;Latihan Node JS dengan ESM&#39; di kelas JavaScript"><meta property="twitter:image" content="https://cdn.statically.io/og/Latihan%20Node%20JS%20dengan%20ESM.jpg"><meta property="og:site_name" content="Belajar Pemrograman"><meta name="head:count" content="22">
+    <link rel="stylesheet" href="/assets/style.111154ca.css">
+    
+  <link rel="modulepreload" href="/assets/iles.8105d9b2.js" crossorigin/><link rel="modulepreload" href="/assets/vendor-svelte.3aad0a64.js" crossorigin/><link rel="modulepreload" href="/assets/Komentar.7c61b391.js" crossorigin/><link rel="modulepreload" href="/assets/api.883d5493.js" crossorigin/></head>
+  <body  data-head-attrs="">
+    <div id="app"><!--[--><!----><!--[--><!----><!--[--><!----><div class="latar" data-v-75edeebc><div class="materi" data-v-75edeebc><p data-v-75edeebc><a href="/" data-v-75edeebc>Kelas JavaScript</a></p><ul data-v-75edeebc><!--[--><li data-v-75edeebc><a href="/post/berbagai-bentuk-pengulangan-di-javascript" class="" data-v-75edeebc>Berbagai Bentuk Pengulangan di JavaScript</a></li><li data-v-75edeebc><a href="/post/bermain-dengan-confetti" class="" data-v-75edeebc>Bermain dengan Confetti</a></li><li data-v-75edeebc><a href="/post/menggunakan-node-js-dengan-es-module" class="active" data-v-75edeebc>Latihan Node JS dengan ESM</a></li><!--]--></ul></div><div class="kertas pertama" data-v-75edeebc><h1 data-v-75edeebc>Latihan Node JS dengan ESM</h1><hr data-v-75edeebc><div class="isi-tulisan" data-v-75edeebc><!--[--><!--[--><p>Node JS adalah runtime JavaScript di luar lingkungan browser. Kalau biasanya yang kita tau itu JavaScript hanya untuk browser, kalau dengan Node JS, kita bisa menggunakannya di luar lingkungan browser seperti menggunakannya dengan Terminal.</p>
+<p>Untuk menggunakan Node JS, tentu saja kamu harus punya Node JS terlebih dahulu. Kalau kamu menggunakan Linux, perintahnya adalah:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> nodejs
+</code></pre>
+<p>Kalau kamu menggunakan Termux, perintahnya adalah:</p>
+<pre class="language-bash"><code class="language-bash">pkg <span class="token function">install</span> nodejs
+</code></pre>
+<p>Kalau menggunakan Windows, digoogling aja: Node JS download Windows.</p>
+<p>Lalu, dianjurkan menggunakan pnpm. Kenapa menggunakan pnpm? Karena, kalau menggunakan pnpm, packages yang sudah kita download, nggak didownloadnya lagi. Sehingga bisa mempercepat proses instalasi packages. Install dulu pnpm:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> i -g <span class="token function">pnpm</span>
+</code></pre>
+<p>Sekarang kita mulai latihan Node JS. Pertama, buat dulu sebuah folder untuk kita meletakkan berbagai kode JavaScript. Di sini, aku coba menggunakan folder <code>latihan/</code>:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">mkdir</span> latihan
+<span class="token builtin class-name">cd</span> latihan
+</code></pre>
+<p>Lalu, aku buka di Sublime Text Editor:</p>
+<pre class="language-bash"><code class="language-bash">subl <span class="token builtin class-name">.</span> -a
+</code></pre>
+<p>Kita kembali ke Terminal tadi. Sekarang, kita init project JavaScript dengan perintah:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">pnpm</span> init -y
+</code></pre>
+<p>Maka, akan muncul sebuah file <code>package.json</code> yang berisi:</p>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;latihan&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;version&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1.0.0&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;description&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;main&quot;</span><span class="token operator">:</span> <span class="token string">&quot;index.js&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;scripts&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;test&quot;</span><span class="token operator">:</span> <span class="token string">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;keywords&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;author&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;license&quot;</span><span class="token operator">:</span> <span class="token string">&quot;ISC&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Lalu, kita tambahkan <code>&quot;type&quot;: &quot;module&quot;</code> untuk menggunakan fitur ESM (EcmaScript Module):</p>
+<pre class="language-diff"><code class="language-diff">{
+<span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> &quot;name&quot;: &quot;latihan&quot;,
+</span><span class="token prefix unchanged"> </span><span class="token line"> &quot;version&quot;: &quot;1.0.0&quot;,
+</span><span class="token prefix unchanged"> </span><span class="token line"> &quot;description&quot;: &quot;&quot;,
+</span><span class="token prefix unchanged"> </span><span class="token line"> &quot;main&quot;: &quot;index.js&quot;,
+</span><span class="token prefix unchanged"> </span><span class="token line"> &quot;scripts&quot;: {
+</span><span class="token prefix unchanged"> </span><span class="token line">   &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
+</span><span class="token prefix unchanged"> </span><span class="token line"> },
+</span><span class="token prefix unchanged"> </span><span class="token line"> &quot;keywords&quot;: [],
+</span><span class="token prefix unchanged"> </span><span class="token line"> &quot;author&quot;: &quot;&quot;,
+</span><span class="token prefix unchanged"> </span><span class="token line"> &quot;license&quot;: &quot;ISC&quot;,
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">  &quot;type&quot;: &quot;module&quot;
+</span></span>}
+</code></pre>
+<p>Sekarang, kita coba install package Node JS. Lebih gampangnya, kita download package <code>is-even</code>:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">pnpm</span> i -D is-even
+</code></pre>
+<p>Maka, akan terbentuk folder <code>node_modules/</code> yang merupakan letak package <code>is-even</code> yang baru saja kita download dan ada file <code>pnpm-lock.yaml</code> yang merupakan file berisi dengan version packages yang kita download. Kita abaikan itu, tapi kita perlu membuat file <code>.gitignore</code> untuk mencegah <code>node_modules/</code> terupload ke git (contohnya GitHub). Isi dari <code>.gitignore</code> adalah:</p>
+<pre><code>node_modules
+</code></pre>
+<p>Sekarang, kita mulai bermain dengan JavaScript. Sekarang, buatlah file <code>index.js</code> yang berisi:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword module">import</span> <span class="token imports">isEven</span> <span class="token keyword module">from</span> <span class="token string">&#39;is-even&#39;</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token function">isEven</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token function">isEven</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Lalu, kita jalankan dengan:</p>
+<pre class="language-bash"><code class="language-bash">node index.js
+</code></pre>
+<p>Hasilnya:</p>
+<pre><code>false
+true
+</code></pre>
+<p>Jadi, <code>isEven</code> itu akan mengecek apakah itu tu bilangan genap. Kalau genap, returnnya adalah true. Kalau ganjil, returnnya adalah false. Mudah kan?</p><!--]--><!--]--></div><a class="edit" href="https://github.com/mzaini30/belajar-pemrograman/blob/master/src/pages/post/menggunakan-node-js-dengan-es-module.mdx" data-v-75edeebc>Edit this page</a><!--[--><ile-root id="ile-1"><div class="komentar svelte-1g1evew"><p class="judul svelte-1g1evew">Yuk Berkomentar...</p>
+
+	<form><label>Nama</label>
+		<input class="input svelte-1g1evew" required type="text">
+
+		<label>Link Blog</label>
+		<input type="url" class="input svelte-1g1evew" required>
+		
+		<label class="block">Komentar</label>
+		<textarea required name="" id="" cols="30" class="input svelte-1g1evew" rows="10"></textarea>
+		
+		<input value="Kirim Komentar" class="submit svelte-1g1evew" type="submit"></form>
+
+	
+</div></ile-root><script type="module" async>import{h as a,c as r}from"/assets/iles.8105d9b2.js";import{K as e}from"/assets/Komentar.7c61b391.js";import"/assets/vendor-svelte.3aad0a64.js";import"/assets/api.883d5493.js";a(r,e,"ile-1",{},{});
+</script><!--]--></div><div class="kertas lainnya" data-v-75edeebc><h2 data-v-75edeebc>Tulisan Lainnya:</h2><hr data-v-75edeebc><ul data-v-75edeebc><li data-v-75edeebc><a href="/" data-v-75edeebc>BERANDA</a></li><!--[--><li data-v-75edeebc><a href="/post/berbagai-bentuk-pengulangan-di-javascript" class="" data-v-75edeebc>Berbagai Bentuk Pengulangan di JavaScript</a></li><li data-v-75edeebc><a href="/post/bermain-dengan-confetti" class="" data-v-75edeebc>Bermain dengan Confetti</a></li><li data-v-75edeebc><a href="/post/menggunakan-node-js-dengan-es-module" class="active-lainnya" data-v-75edeebc>Latihan Node JS dengan ESM</a></li><!--]--></ul></div></div><!--]--><!--]--><!----><!--]--></div>
+  </body>
+</html>

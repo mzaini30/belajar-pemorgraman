@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html  lang="en-US" data-head-attrs="lang">
+  <head>
+    <title>Import Vue, Svelte, dan React di Astro</title><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta property="og:url" content="https://belajarpemrograman.my.id/post/import-vue-svelte-dan-react-di-astro"><meta property="twitter:domain" content="belajarpemrograman.my.id"><meta property="twitter:url" content="https://belajarpemrograman.my.id/post/import-vue-svelte-dan-react-di-astro"><link rel="sitemap" href="https://belajarpemrograman.my.id/sitemap.xml"><meta property="generator" content="îles"><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2408628281705149" crossorigin="anonymous" async></script><link rel="icon" href="https://image.freepik.com/free-vector/young-man-head-with-beard-avatar-character_24877-36786.jpg"><meta name="description" content="Membahas &#39;Import Vue, Svelte, dan React di Astro&#39; di kelas Astro"><meta property="og:locale" content="id_ID"><meta property="og:type" content="article"><meta property="og:title" content="Import Vue, Svelte, dan React di Astro"><meta property="og:description" content="Membahas &#39;Import Vue, Svelte, dan React di Astro&#39; di kelas Astro"><meta property="og:image" content="https://cdn.statically.io/og/Import%20Vue%2C%20Svelte%2C%20dan%20React%20di%20Astro.jpg"><meta property="og:image:width" content="2048"><meta property="og:image:height" content="1170"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:title" content="Import Vue, Svelte, dan React di Astro"><meta property="twitter:description" content="Membahas &#39;Import Vue, Svelte, dan React di Astro&#39; di kelas Astro"><meta property="twitter:image" content="https://cdn.statically.io/og/Import%20Vue%2C%20Svelte%2C%20dan%20React%20di%20Astro.jpg"><meta property="og:site_name" content="Belajar Pemrograman"><meta name="head:count" content="22">
+    <link rel="stylesheet" href="/assets/style.111154ca.css">
+    
+  <link rel="modulepreload" href="/assets/iles.8105d9b2.js" crossorigin/><link rel="modulepreload" href="/assets/vendor-svelte.3aad0a64.js" crossorigin/><link rel="modulepreload" href="/assets/Komentar.7c61b391.js" crossorigin/><link rel="modulepreload" href="/assets/api.883d5493.js" crossorigin/></head>
+  <body  data-head-attrs="">
+    <div id="app"><!--[--><!----><!--[--><!----><!--[--><!----><div class="latar" data-v-75edeebc><div class="materi" data-v-75edeebc><p data-v-75edeebc><a href="/" data-v-75edeebc>Kelas Astro</a></p><ul data-v-75edeebc><!--[--><li data-v-75edeebc><a href="/post/auto-deploy-astro-di-github-pages" class="" data-v-75edeebc>Auto Deploy Astro di Github Pages</a></li><li data-v-75edeebc><a href="/post/belajar-astro-dari-dasar" class="" data-v-75edeebc>Belajar Astro dari Dasar</a></li><li data-v-75edeebc><a href="/post/import-vue-svelte-dan-react-di-astro" class="active" data-v-75edeebc>Import Vue, Svelte, dan React di Astro</a></li><li data-v-75edeebc><a href="/post/mencoba-astro-next" class="" data-v-75edeebc>Mencoba Astro Next</a></li><li data-v-75edeebc><a href="/post/mengatasi-export-import-problem-di-astro" class="" data-v-75edeebc>Mengatasi Masalah Export Import di Astro</a></li><li data-v-75edeebc><a href="/post/menggunakan-windi-di-astro" class="" data-v-75edeebc>Menggunakan Windi di Astro</a></li><li data-v-75edeebc><a href="/post/syntax-highlighting-astro-di-sublime" class="" data-v-75edeebc>Syntax Highlighting Astro di Sublime</a></li><!--]--></ul></div><div class="kertas pertama" data-v-75edeebc><h1 data-v-75edeebc>Import Vue, Svelte, dan React di Astro</h1><hr data-v-75edeebc><div class="isi-tulisan" data-v-75edeebc><!--[--><!--[--><p>Di saat framework JS saling bersaing untuk meraih popularitasnya, Astro menggandeng semuanya.</p>
+<p>Kan, seperti yang kita tau, bahwasanya ketika kita menulis kode dengan Vue, kita nggak bisa menyisipkannya dengan Svelte. Vice versa.</p>
+<p>Kemudian, lahirlah Astro yang bisa mengimport semuanya. Istilahnya itu <em>island architecture</em>. Jadi, framework JS apapun bisa diterima di Astro dan saling berinteraksi.</p>
+<p>Contohnya, kita punya <code>_header.vue</code>, <code>_sidebar.svelte</code>, dan <code>_isi.react</code>. Terus, ingin kita gabung semua komponen ini dalam satu halaman.</p>
+<p>Maka, sintaks Astronya seperti ini:</p>
+<pre class="language-html"><code class="language-html">---
+import Header from &quot;./_header.vue&quot;
+import Sidebar from &quot;./_sidebar.svelte&quot;
+import Isi from &quot;./_isi.react&quot;
+---
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Header</span><span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Isi</span><span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Sidebar</span><span class="token punctuation">/&gt;</span></span>
+</code></pre>
+<p>Gitu aja. Simpel kan? Tapi, dia nggak hydrate sih. Jadi, ketika di dalam komponen itu terdapat interaksi seperti kalau klik A, maka akan fetch data dari Google, dia nggak jalan.</p>
+<p>Maka, supaya jalan, kita tambahkan atribut <code>client:*</code>. Jadi, istilahnya, ketika kita import dengan <code>&lt;Component/&gt;</code>, maka itu cuma SSR (server side rendering) saat build ke HTML. Jadi ya, langsung jadi statis HTML gitu, nggak bisa menjalankan interaksi. Kalau mau interaksi; CSR (client side rendering) yaitu hydrate, maka harus pakai atribut <code>client:*</code>.</p>
+<p>Contohnya aja, kita ingin hydrate saat komponen dimuat, maka kodenya menjadi <code>&lt;Component client:load/&gt;</code>.</p>
+<p>Lalu, kalau kita ingin hydrate saat komponen terlihat di layar, kodenya adalah <code>&lt;Component client:visible/&gt;</code>.</p>
+<p>Kalau ingin hydrate saat halaman sudah ready: <code>&lt;Component client:idle/&gt;</code>.</p>
+<p>Terus, kalau ingin hydrate tanpa generate HTML (jadi, diabaikan pas generate ke HTML), kodenya adalah: <code>&lt;Component client:only=&quot;svelte&quot;/&gt;</code>. Dia harus disebutkan pakai framework apa.</p>
+<p>Kalau aku sih lebih suka menggunakan <code>&lt;Component client:visible/&gt;</code> karena script Svelte baru akan diload saat komponen terlihat di layar. Jadi, nggak beban di awal. Terus, lebih bagus juga karena terlohat seperti lazy load.</p>
+<p>Nah, terkadang kita ingin menggunakan browser object di framework JS yang kita gunakan. Misalnya seperti ini:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>{localStorage.nama}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>Maka, pasti akan terjadi error karena server nggak mengenal API <code>localStorage</code>. Maka, solusinya adalah:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+	<span class="token comment">// ubah koma jadi titik</span>
+	<span class="token keyword">const</span> browser <span class="token operator">=</span> <span class="token operator">!</span><span class="token keyword module">import</span><span class="token punctuation">,</span>meta<span class="token punctuation">,</span>env<span class="token punctuation">,</span><span class="token constant">SSR</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+
+{#if browser}
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>{localStorage.nama}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+{/if}
+</code></pre><!--]--><!--]--></div><a class="edit" href="https://github.com/mzaini30/belajar-pemrograman/blob/master/src/pages/post/import-vue-svelte-dan-react-di-astro.mdx" data-v-75edeebc>Edit this page</a><!--[--><ile-root id="ile-1"><div class="komentar svelte-1g1evew"><p class="judul svelte-1g1evew">Yuk Berkomentar...</p>
+
+	<form><label>Nama</label>
+		<input class="input svelte-1g1evew" required type="text">
+
+		<label>Link Blog</label>
+		<input type="url" class="input svelte-1g1evew" required>
+		
+		<label class="block">Komentar</label>
+		<textarea required name="" id="" cols="30" class="input svelte-1g1evew" rows="10"></textarea>
+		
+		<input value="Kirim Komentar" class="submit svelte-1g1evew" type="submit"></form>
+
+	
+</div></ile-root><script type="module" async>import{h as a,c as r}from"/assets/iles.8105d9b2.js";import{K as e}from"/assets/Komentar.7c61b391.js";import"/assets/vendor-svelte.3aad0a64.js";import"/assets/api.883d5493.js";a(r,e,"ile-1",{},{});
+</script><!--]--></div><div class="kertas lainnya" data-v-75edeebc><h2 data-v-75edeebc>Tulisan Lainnya:</h2><hr data-v-75edeebc><ul data-v-75edeebc><li data-v-75edeebc><a href="/" data-v-75edeebc>BERANDA</a></li><!--[--><li data-v-75edeebc><a href="/post/auto-deploy-astro-di-github-pages" class="" data-v-75edeebc>Auto Deploy Astro di Github Pages</a></li><li data-v-75edeebc><a href="/post/belajar-astro-dari-dasar" class="" data-v-75edeebc>Belajar Astro dari Dasar</a></li><li data-v-75edeebc><a href="/post/import-vue-svelte-dan-react-di-astro" class="active-lainnya" data-v-75edeebc>Import Vue, Svelte, dan React di Astro</a></li><li data-v-75edeebc><a href="/post/mencoba-astro-next" class="" data-v-75edeebc>Mencoba Astro Next</a></li><li data-v-75edeebc><a href="/post/mengatasi-export-import-problem-di-astro" class="" data-v-75edeebc>Mengatasi Masalah Export Import di Astro</a></li><li data-v-75edeebc><a href="/post/menggunakan-windi-di-astro" class="" data-v-75edeebc>Menggunakan Windi di Astro</a></li><li data-v-75edeebc><a href="/post/syntax-highlighting-astro-di-sublime" class="" data-v-75edeebc>Syntax Highlighting Astro di Sublime</a></li><!--]--></ul></div></div><!--]--><!--]--><!----><!--]--></div>
+  </body>
+</html>
