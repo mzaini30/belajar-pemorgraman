@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html  lang="en-US" data-head-attrs="lang">
+  <head>
+    <title>Struktur Folder di Iles</title><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta property="og:url" content="https://belajarpemrograman.my.id/post/struktur-folder-di-iles"><meta property="twitter:domain" content="belajarpemrograman.my.id"><meta property="twitter:url" content="https://belajarpemrograman.my.id/post/struktur-folder-di-iles"><link rel="sitemap" href="https://belajarpemrograman.my.id/sitemap.xml"><meta property="generator" content="îles"><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2408628281705149" crossorigin="anonymous" async></script><link rel="icon" href="https://image.freepik.com/free-vector/young-man-head-with-beard-avatar-character_24877-36786.jpg"><meta name="description" content="Membahas &#39;Struktur Folder di Iles&#39; di kelas Iles"><meta property="og:locale" content="id_ID"><meta property="og:type" content="article"><meta property="og:title" content="Struktur Folder di Iles"><meta property="og:description" content="Membahas &#39;Struktur Folder di Iles&#39; di kelas Iles"><meta property="og:image" content="https://cdn.statically.io/og/Struktur%20Folder%20di%20Iles.jpg"><meta property="og:image:width" content="2048"><meta property="og:image:height" content="1170"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:title" content="Struktur Folder di Iles"><meta property="twitter:description" content="Membahas &#39;Struktur Folder di Iles&#39; di kelas Iles"><meta property="twitter:image" content="https://cdn.statically.io/og/Struktur%20Folder%20di%20Iles.jpg"><meta property="og:site_name" content="Belajar Pemrograman"><meta name="head:count" content="22">
+    <link rel="stylesheet" href="/assets/style.6fd206bb.css">
+    
+  <link rel="modulepreload" href="/assets/iles.8105d9b2.js" crossorigin/><link rel="modulepreload" href="/assets/vendor-svelte.3aad0a64.js" crossorigin/><link rel="modulepreload" href="/assets/Komentar.7c61b391.js" crossorigin/><link rel="modulepreload" href="/assets/api.883d5493.js" crossorigin/></head>
+  <body  data-head-attrs="">
+    <div id="app"><!--[--><!----><!--[--><!----><!--[--><!----><div class="latar" data-v-75edeebc><div class="materi" data-v-75edeebc><p data-v-75edeebc><a href="/" data-v-75edeebc>Kelas Iles</a></p><ul data-v-75edeebc><!--[--><li data-v-75edeebc><a href="/post/mencoba-iles" class="" data-v-75edeebc>Mencoba Iles</a></li><li data-v-75edeebc><a href="/post/struktur-folder-di-iles" class="active" data-v-75edeebc>Struktur Folder di Iles</a></li><!--]--></ul></div><div class="kertas pertama" data-v-75edeebc><h1 data-v-75edeebc>Struktur Folder di Iles</h1><hr data-v-75edeebc><div class="isi-tulisan" data-v-75edeebc><!--[--><!--[--><p>Ada tiga folder yang terdapat pada Iles yaitu pages, components, dan layouts. Untuk contohnya, seperti ini:</p>
+<pre><code>.
+└── src
+	├── api.js
+	├── components
+	│	├── Dark.jsx
+	│	├── Komentar.svelte
+	│	└── Profil.vue
+	├── data.js
+	├── layouts
+	│	├── default.vue
+	│	└── post.vue
+	└── pages
+		├── about.vue
+		├── index.vue
+		└── [menu].vue
+</code></pre>
+<p>Di situ, untuk halaman-halaman, aku menggunakan folder pages yang berisi: <code>about.vue</code>, <code>index.vue</code>, <code>[menu].vue</code>.</p>
+<p>Kemudian, folder layouts itu digunakan untuk menampung layout berbagai komponen dan halaman.</p>
+<p>Kemudian, folder components, berisi dengan partial hydration. Kalau pada contoh di atas, aku menggabungkan React, Svelte, dan Vue.</p>
+<p>Lalu, selain ketiga tipe itu, aku letakkan di luar, yaitu langsung di bawahnya folder src.</p>
+<p>Sekarang, kita fokus ke isi dari folder pages, karena itu adalah &quot;halaman&quot; yang tampil di layar kita. Misalnya aja <code>index.vue</code>. Jadi, misalnya kita ingin isi dari <code>index.vue</code> itu menggunakan layout dari <code>default.vue</code>. Maka, hasilnya dari <code>index.vue</code>:</p>
+<pre class="language-vue"><code class="language-vue"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span> <span class="token attr-name">layout</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&#39;</span>default<span class="token punctuation">&#39;</span></span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>Hello World<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>Nah itu, dia otomatis menggunakan layout dari <code>src/layouts/default.vue</code>.</p>
+<p>Lalu, magic lainnya adalah partial hydration. Dengan partial hydration, komponen yang dinamis hanyalah komponen tertentu yang kita buat dinamis. Sisanya, komponen statis sehingga membuat website <strong>lebih cepat menyelesaikannya.</strong></p>
+<p>Misalnya aja, kita ingin memasang <code>src/components/Komentar.svelte</code> ke <code>src/pages/index.astro</code>, maka kodenya seperti ini:</p>
+<pre class="language-diff"><code class="language-diff"><span class="token deleted-arrow deleted"><span class="token prefix deleted">&lt;</span><span class="token line">template layout=&#39;default&#39;&gt;
+</span></span>	&lt;h1&gt;Hello World&lt;/h1&gt;
+<span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">	&lt;Komentar client:load/&gt;
+</span></span><span class="token deleted-arrow deleted"><span class="token prefix deleted">&lt;</span><span class="token line">/template&gt;
+</span></span></code></pre>
+<p>Nah, gitu aja. Kita nggak perlu mengimport komponen <code>Komentar</code> karena sudah otomatis disediakan sama Isle.</p>
+<p>Oh iya, jangan lupa, setting dulu projectnya supaya bisa menggunakan Svelte. Pertama, kita install dulu:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">pnpm</span> i -D svelte @sveltejs/vite-plugin-svelte
+</code></pre>
+<p>Lalu, buat <code>iles.config.ts</code>:</p>
+<pre class="language-typescript"><code class="language-typescript"><span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span>defineConfig<span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">&#39;iles&#39;</span>
+
+<span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token function">defineConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+	svelte<span class="token operator">:</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre><!--]--><!--]--></div><a class="edit" href="https://github.com/mzaini30/belajar-pemrograman/blob/master/src/pages/post/struktur-folder-di-iles.mdx" data-v-75edeebc>Edit this page</a><!--[--><ile-root id="ile-1"><div class="komentar svelte-1g1evew"><p class="judul svelte-1g1evew">Yuk Berkomentar...</p>
+
+	<form><label>Nama</label>
+		<input class="input svelte-1g1evew" required type="text">
+
+		<label>Link Blog</label>
+		<input type="url" class="input svelte-1g1evew" required>
+		
+		<label class="block">Komentar</label>
+		<textarea required name="" id="" cols="30" class="input svelte-1g1evew" rows="10"></textarea>
+		
+		<input value="Kirim Komentar" class="submit svelte-1g1evew" type="submit"></form>
+
+	
+</div></ile-root><script type="module" async>import{h as a,c as r}from"/assets/iles.8105d9b2.js";import{K as e}from"/assets/Komentar.7c61b391.js";import"/assets/vendor-svelte.3aad0a64.js";import"/assets/api.883d5493.js";a(r,e,"ile-1",{},{});
+</script><!--]--></div><div class="kertas lainnya" data-v-75edeebc><h2 data-v-75edeebc>Tulisan Lainnya:</h2><hr data-v-75edeebc><ul data-v-75edeebc><li data-v-75edeebc><a href="/" data-v-75edeebc>BERANDA</a></li><!--[--><li data-v-75edeebc><a href="/post/mencoba-iles" class="" data-v-75edeebc>Mencoba Iles</a></li><li data-v-75edeebc><a href="/post/struktur-folder-di-iles" class="active-lainnya" data-v-75edeebc>Struktur Folder di Iles</a></li><!--]--></ul></div></div><!--]--><!--]--><!----><!--]--></div>
+  </body>
+</html>

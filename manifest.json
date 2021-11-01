@@ -17,7 +17,7 @@
     ]
   },
   "src/components/Komentar.svelte": {
-    "file": "assets/Komentar.7f0d94f6.js",
+    "file": "assets/Komentar.7c61b391.js",
     "src": "src/components/Komentar.svelte",
     "isEntry": true,
     "imports": [
@@ -67,7 +67,7 @@
     ]
   },
   "\u0000virtual:post_auto-deploy-astro-di-github-pages_ile-1": {
-    "file": "assets/_virtual_post_auto-deploy-astro-di-github-pages_ile-1.3182c127.js",
+    "file": "assets/_virtual_post_auto-deploy-astro-di-github-pages_ile-1.76841577.js",
     "src": "\u0000virtual:post_auto-deploy-astro-di-github-pages_ile-1",
     "isEntry": true,
     "imports": [
@@ -78,7 +78,7 @@
     ]
   },
   "\u0000virtual:post_belajar-astro-dari-dasar_ile-1": {
-    "file": "assets/_virtual_post_belajar-astro-dari-dasar_ile-1.664ed9ab.js",
+    "file": "assets/_virtual_post_belajar-astro-dari-dasar_ile-1.0763674f.js",
     "src": "\u0000virtual:post_belajar-astro-dari-dasar_ile-1",
     "isEntry": true,
     "imports": [
@@ -89,7 +89,7 @@
     ]
   },
   "\u0000virtual:post_berbagai-bentuk-pengulangan-di-javascript_ile-1": {
-    "file": "assets/_virtual_post_berbagai-bentuk-pengulangan-di-javascript_ile-1.5cd238d0.js",
+    "file": "assets/_virtual_post_berbagai-bentuk-pengulangan-di-javascript_ile-1.8b1f9dc6.js",
     "src": "\u0000virtual:post_berbagai-bentuk-pengulangan-di-javascript_ile-1",
     "isEntry": true,
     "imports": [
@@ -100,7 +100,7 @@
     ]
   },
   "\u0000virtual:post_berbagai-cara-menggunakan-windi_ile-1": {
-    "file": "assets/_virtual_post_berbagai-cara-menggunakan-windi_ile-1.2216c4fa.js",
+    "file": "assets/_virtual_post_berbagai-cara-menggunakan-windi_ile-1.fafc720c.js",
     "src": "\u0000virtual:post_berbagai-cara-menggunakan-windi_ile-1",
     "isEntry": true,
     "imports": [
@@ -111,7 +111,7 @@
     ]
   },
   "\u0000virtual:post_bermain-dengan-confetti_ile-1": {
-    "file": "assets/_virtual_post_bermain-dengan-confetti_ile-1.0a0e11a8.js",
+    "file": "assets/_virtual_post_bermain-dengan-confetti_ile-1.092ce6a9.js",
     "src": "\u0000virtual:post_bermain-dengan-confetti_ile-1",
     "isEntry": true,
     "imports": [
@@ -122,7 +122,7 @@
     ]
   },
   "\u0000virtual:post_convert-image-to-pdf_ile-1": {
-    "file": "assets/_virtual_post_convert-image-to-pdf_ile-1.f88eec4b.js",
+    "file": "assets/_virtual_post_convert-image-to-pdf_ile-1.cd8a62e8.js",
     "src": "\u0000virtual:post_convert-image-to-pdf_ile-1",
     "isEntry": true,
     "imports": [
@@ -133,7 +133,7 @@
     ]
   },
   "\u0000virtual:post_import-vue-svelte-dan-react-di-astro_ile-1": {
-    "file": "assets/_virtual_post_import-vue-svelte-dan-react-di-astro_ile-1.79469b84.js",
+    "file": "assets/_virtual_post_import-vue-svelte-dan-react-di-astro_ile-1.faa0c5ae.js",
     "src": "\u0000virtual:post_import-vue-svelte-dan-react-di-astro_ile-1",
     "isEntry": true,
     "imports": [
@@ -144,7 +144,7 @@
     ]
   },
   "\u0000virtual:post_membuat-landing-page-di-blogspot_ile-1": {
-    "file": "assets/_virtual_post_membuat-landing-page-di-blogspot_ile-1.14b0f956.js",
+    "file": "assets/_virtual_post_membuat-landing-page-di-blogspot_ile-1.523b1697.js",
     "src": "\u0000virtual:post_membuat-landing-page-di-blogspot_ile-1",
     "isEntry": true,
     "imports": [
@@ -155,7 +155,7 @@
     ]
   },
   "\u0000virtual:post_membuat-teks-menjadi-huruf-balok-di-termux_ile-1": {
-    "file": "assets/_virtual_post_membuat-teks-menjadi-huruf-balok-di-termux_ile-1.2916fef7.js",
+    "file": "assets/_virtual_post_membuat-teks-menjadi-huruf-balok-di-termux_ile-1.f47bcbe6.js",
     "src": "\u0000virtual:post_membuat-teks-menjadi-huruf-balok-di-termux_ile-1",
     "isEntry": true,
     "imports": [
@@ -166,7 +166,7 @@
     ]
   },
   "\u0000virtual:post_mencoba-astro-next_ile-1": {
-    "file": "assets/_virtual_post_mencoba-astro-next_ile-1.7f8dcd01.js",
+    "file": "assets/_virtual_post_mencoba-astro-next_ile-1.4ba4c861.js",
     "src": "\u0000virtual:post_mencoba-astro-next_ile-1",
     "isEntry": true,
     "imports": [
@@ -177,7 +177,7 @@
     ]
   },
   "\u0000virtual:post_mencoba-iles_ile-1": {
-    "file": "assets/_virtual_post_mencoba-iles_ile-1.930bc1e6.js",
+    "file": "assets/_virtual_post_mencoba-iles_ile-1.eb19cd7f.js",
     "src": "\u0000virtual:post_mencoba-iles_ile-1",
     "isEntry": true,
     "imports": [
@@ -188,7 +188,7 @@
     ]
   },
   "\u0000virtual:post_mengapa-menggunakan-linux_ile-1": {
-    "file": "assets/_virtual_post_mengapa-menggunakan-linux_ile-1.a8ee38ce.js",
+    "file": "assets/_virtual_post_mengapa-menggunakan-linux_ile-1.e8e1681b.js",
     "src": "\u0000virtual:post_mengapa-menggunakan-linux_ile-1",
     "isEntry": true,
     "imports": [
@@ -199,7 +199,7 @@
     ]
   },
   "\u0000virtual:post_mengatasi-export-import-problem-di-astro_ile-1": {
-    "file": "assets/_virtual_post_mengatasi-export-import-problem-di-astro_ile-1.8320f5f6.js",
+    "file": "assets/_virtual_post_mengatasi-export-import-problem-di-astro_ile-1.f324ee39.js",
     "src": "\u0000virtual:post_mengatasi-export-import-problem-di-astro_ile-1",
     "isEntry": true,
     "imports": [
@@ -210,7 +210,7 @@
     ]
   },
   "\u0000virtual:post_mengatasi-masalah-repository-does-not-have-release_ile-1": {
-    "file": "assets/_virtual_post_mengatasi-masalah-repository-does-not-have-release_ile-1.7e3eb285.js",
+    "file": "assets/_virtual_post_mengatasi-masalah-repository-does-not-have-release_ile-1.22780370.js",
     "src": "\u0000virtual:post_mengatasi-masalah-repository-does-not-have-release_ile-1",
     "isEntry": true,
     "imports": [
@@ -221,7 +221,7 @@
     ]
   },
   "\u0000virtual:post_menggabungkan-file-pdf_ile-1": {
-    "file": "assets/_virtual_post_menggabungkan-file-pdf_ile-1.7135dc68.js",
+    "file": "assets/_virtual_post_menggabungkan-file-pdf_ile-1.f4246e09.js",
     "src": "\u0000virtual:post_menggabungkan-file-pdf_ile-1",
     "isEntry": true,
     "imports": [
@@ -232,7 +232,7 @@
     ]
   },
   "\u0000virtual:post_menggunakan-node-js-dengan-es-module_ile-1": {
-    "file": "assets/_virtual_post_menggunakan-node-js-dengan-es-module_ile-1.6c921f2f.js",
+    "file": "assets/_virtual_post_menggunakan-node-js-dengan-es-module_ile-1.c0f878ac.js",
     "src": "\u0000virtual:post_menggunakan-node-js-dengan-es-module_ile-1",
     "isEntry": true,
     "imports": [
@@ -243,7 +243,7 @@
     ]
   },
   "\u0000virtual:post_menggunakan-windi-di-astro_ile-1": {
-    "file": "assets/_virtual_post_menggunakan-windi-di-astro_ile-1.16c417fa.js",
+    "file": "assets/_virtual_post_menggunakan-windi-di-astro_ile-1.fe306e03.js",
     "src": "\u0000virtual:post_menggunakan-windi-di-astro_ile-1",
     "isEntry": true,
     "imports": [
@@ -254,7 +254,7 @@
     ]
   },
   "\u0000virtual:post_perintah-git-untuk-berganti-commit_ile-1": {
-    "file": "assets/_virtual_post_perintah-git-untuk-berganti-commit_ile-1.a32f3977.js",
+    "file": "assets/_virtual_post_perintah-git-untuk-berganti-commit_ile-1.20992801.js",
     "src": "\u0000virtual:post_perintah-git-untuk-berganti-commit_ile-1",
     "isEntry": true,
     "imports": [
@@ -264,8 +264,19 @@
       "_api.883d5493.js"
     ]
   },
+  "\u0000virtual:post_struktur-folder-di-iles_ile-1": {
+    "file": "assets/_virtual_post_struktur-folder-di-iles_ile-1.9d6cb4f4.js",
+    "src": "\u0000virtual:post_struktur-folder-di-iles_ile-1",
+    "isEntry": true,
+    "imports": [
+      "_iles.8105d9b2.js",
+      "src/components/Komentar.svelte",
+      "_vendor-svelte.3aad0a64.js",
+      "_api.883d5493.js"
+    ]
+  },
   "\u0000virtual:post_syntax-highlighting-astro-di-micro-editor_ile-1": {
-    "file": "assets/_virtual_post_syntax-highlighting-astro-di-micro-editor_ile-1.646527c6.js",
+    "file": "assets/_virtual_post_syntax-highlighting-astro-di-micro-editor_ile-1.222b25d3.js",
     "src": "\u0000virtual:post_syntax-highlighting-astro-di-micro-editor_ile-1",
     "isEntry": true,
     "imports": [
@@ -276,7 +287,7 @@
     ]
   },
   "\u0000virtual:post_syntax-highlighting-astro-di-sublime_ile-1": {
-    "file": "assets/_virtual_post_syntax-highlighting-astro-di-sublime_ile-1.89d35c9a.js",
+    "file": "assets/_virtual_post_syntax-highlighting-astro-di-sublime_ile-1.ea73d607.js",
     "src": "\u0000virtual:post_syntax-highlighting-astro-di-sublime_ile-1",
     "isEntry": true,
     "imports": [
@@ -287,7 +298,7 @@
     ]
   },
   "\u0000virtual:post_windi-gradient_ile-1": {
-    "file": "assets/_virtual_post_windi-gradient_ile-1.101f3a73.js",
+    "file": "assets/_virtual_post_windi-gradient_ile-1.9ff14ad0.js",
     "src": "\u0000virtual:post_windi-gradient_ile-1",
     "isEntry": true,
     "imports": [
@@ -298,7 +309,7 @@
     ]
   },
   "\u0000virtual:post_yuk-ngoding-pakai-hp_ile-1": {
-    "file": "assets/_virtual_post_yuk-ngoding-pakai-hp_ile-1.09127aab.js",
+    "file": "assets/_virtual_post_yuk-ngoding-pakai-hp_ile-1.56df9c83.js",
     "src": "\u0000virtual:post_yuk-ngoding-pakai-hp_ile-1",
     "isEntry": true,
     "imports": [
