@@ -151,4 +151,8 @@
 	.isi-tulisan :where(p, .embedPastebin){
 		@apply !mb-3
 	}
+  .token.prefix.inserted,
+	.token.deleted-sign.deleted {
+		@apply select-none
+	}
 </style>
