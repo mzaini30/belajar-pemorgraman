@@ -1,16 +1,6 @@
 <script>
-	// 200
 	import {definePageComponent, usePage} from 'iles'
 	import {ambilKategori} from '~/ambilKategori'
-
-	import Astro from '~/icons/Astro.jpg?w=200&webp'
-	import Blogspot from '~/icons/Blogspot.jpg?w=200&webp'
-	import Git from '~/icons/Git.jpg?w=200&webp'
-	import Iles from '~/icons/Iles.jpg?w=200&webp'
-	import JavaScript from '~/icons/JavaScript.jpg?w=200&webp'
-	import Linux from '~/icons/Linux.jpg?w=200&webp'
-	import Termux from '~/icons/Termux.jpg?w=200&webp'
-	import Windi from '~/icons/Windi.jpg?w=200&webp'
 
 	export default definePageComponent({
 		getStaticPaths(){
@@ -56,16 +46,7 @@
 	</div>
 
 	<div class='preview'>
-
-		<div class='gambar' v-if='kategori == "Astro"' :style='"background-image: url(" + Astro + ")"'></div>
-		<div class='gambar' v-if='kategori == "Blogspot"' :style='"background-image: url(" + Blogspot + ")"'></div>
-		<div class='gambar' v-if='kategori == "Git"' :style='"background-image: url(" + Git + ")"'></div>
-		<div class='gambar' v-if='kategori == "Iles"' :style='"background-image: url(" + Iles + ")"'></div>
-		<div class='gambar' v-if='kategori == "JavaScript"' :style='"background-image: url(" + JavaScript + ")"'></div>
-		<div class='gambar' v-if='kategori == "Linux"' :style='"background-image: url(" + Linux + ")"'></div>
-		<div class='gambar' v-if='kategori == "Termux"' :style='"background-image: url(" + Termux + ")"'></div>
-		<div class='gambar' v-if='kategori == "Windi"' :style='"background-image: url(" + Windi + ")"'></div>
-
+		<div class='gambar' :style='"background-image: url(/ikon/" + kategori + ".jpg)"'></div>
 		<div class='setelah-gambar'>
 			<h1>{{kategori}}</h1>
 			<h2>Yuk kita belajar {{kategori}}</h2>

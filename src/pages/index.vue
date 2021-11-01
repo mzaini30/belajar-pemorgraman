@@ -1,18 +1,8 @@
 <script setup>
-	// 230
 	import {ambilKategori} from '~/ambilKategori'
 
 	const semuaTulisan = Object.values(import.meta.globEagerDefault('./post/*.mdx'))
 	const semuaKategori = ambilKategori(semuaTulisan)
-
-	import Astro from '~/icons/Astro.jpg?w=230&webp'
-	import Blogspot from '~/icons/Blogspot.jpg?w=230&webp'
-	import Git from '~/icons/Git.jpg?w=230&webp'
-	import Iles from '~/icons/Iles.jpg?w=230&webp'
-	import JavaScript from '~/icons/JavaScript.jpg?w=230&webp'
-	import Linux from '~/icons/Linux.jpg?w=230&webp'
-	import Termux from '~/icons/Termux.jpg?w=230&webp'
-	import Windi from '~/icons/Windi.jpg?w=230&webp'
 </script>
 
 <template layout="default" title='Belajar Pemrograman' description='Kamu bisa belajar pemrograman di manapun asalkan numpang wifi'>
@@ -31,16 +21,7 @@
 
 		<div class='list-kelas'>
 			<a v-for='x in semuaKategori' :href='"/kelas/" + x'>
-
-				<img :src='Astro' v-if='x == "Astro"' :alt='"Kelas " + x'>
-				<img :src='Blogspot' v-if='x == "Blogspot"' :alt='"Kelas " + x'>
-				<img :src='Git' v-if='x == "Git"' :alt='"Kelas " + x'>
-				<img :src='Iles' v-if='x == "Iles"' :alt='"Kelas " + x'>
-				<img :src='JavaScript' v-if='x == "JavaScript"' :alt='"Kelas " + x'>
-				<img :src='Linux' v-if='x == "Linux"' :alt='"Kelas " + x'>
-				<img :src='Termux' v-if='x == "Termux"' :alt='"Kelas " + x'>
-				<img :src='Windi' v-if='x == "Windi"' :alt='"Kelas " + x'>
-				
+				<img :src='"/ikon/" + x + ".jpg"' :alt='"Kelas " + x'>
 				<p>Kelas {{x}}</p>
 			</a>
 		</div>

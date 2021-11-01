@@ -129,4 +129,7 @@
 	.komentar a {
 		@apply text-green-700
 	}
+	.token.prefix.inserted {
+		@apply select-none
+	}
 </style>
