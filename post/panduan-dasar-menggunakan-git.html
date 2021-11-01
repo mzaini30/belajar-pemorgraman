@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html  lang="en-US" data-head-attrs="lang">
+  <head>
+    <title>Panduan Dasar Menggunakan Git</title><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta property="og:url" content="https://belajarpemrograman.my.id/post/panduan-dasar-menggunakan-git"><meta property="twitter:domain" content="belajarpemrograman.my.id"><meta property="twitter:url" content="https://belajarpemrograman.my.id/post/panduan-dasar-menggunakan-git"><link rel="sitemap" href="https://belajarpemrograman.my.id/sitemap.xml"><meta property="generator" content="îles"><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2408628281705149" crossorigin="anonymous" async></script><link rel="icon" href="https://image.freepik.com/free-vector/young-man-head-with-beard-avatar-character_24877-36786.jpg"><meta name="description" content="Membahas &#39;Panduan Dasar Menggunakan Git&#39; di kelas Git"><meta property="og:locale" content="id_ID"><meta property="og:type" content="article"><meta property="og:title" content="Panduan Dasar Menggunakan Git"><meta property="og:description" content="Membahas &#39;Panduan Dasar Menggunakan Git&#39; di kelas Git"><meta property="og:image" content="https://cdn.statically.io/og/Panduan%20Dasar%20Menggunakan%20Git.jpg"><meta property="og:image:width" content="2048"><meta property="og:image:height" content="1170"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:title" content="Panduan Dasar Menggunakan Git"><meta property="twitter:description" content="Membahas &#39;Panduan Dasar Menggunakan Git&#39; di kelas Git"><meta property="twitter:image" content="https://cdn.statically.io/og/Panduan%20Dasar%20Menggunakan%20Git.jpg"><meta property="og:site_name" content="Belajar Pemrograman"><meta name="head:count" content="22">
+    <link rel="stylesheet" href="/assets/style.a702fd57.css">
+    
+  <link rel="modulepreload" href="/assets/iles.8105d9b2.js" crossorigin/><link rel="modulepreload" href="/assets/vendor-svelte.3aad0a64.js" crossorigin/><link rel="modulepreload" href="/assets/Komentar.4d47e0bc.js" crossorigin/><link rel="modulepreload" href="/assets/api.883d5493.js" crossorigin/></head>
+  <body  data-head-attrs="">
+    <div id="app"><!--[--><!----><!--[--><!----><!--[--><!----><div class="latar" data-v-31bb63ce><div class="materi" data-v-31bb63ce><p data-v-31bb63ce><a href="/" data-v-31bb63ce>Kelas Git</a></p><ul data-v-31bb63ce><!--[--><li data-v-31bb63ce><a href="/post/panduan-dasar-menggunakan-git" class="active" data-v-31bb63ce>Panduan Dasar Menggunakan Git</a></li><li data-v-31bb63ce><a href="/post/perintah-git-untuk-berganti-commit" class="" data-v-31bb63ce>Perintah Git untuk Berganti Commit</a></li><!--]--></ul></div><div class="kertas pertama" data-v-31bb63ce><h1 data-v-31bb63ce>Panduan Dasar Menggunakan Git</h1><hr data-v-31bb63ce><div class="isi-tulisan" data-v-31bb63ce><!--[--><!--[--><p>Definisi Git yang paling sederhana adalah seperti Google Drive. Itu sih. Tapi sebenarnya dia lebih dari itu karena dengan Git, kita bisa saling berkolaborasi dan yang paling inti adalah setiap perubahan yang kita lakukan, akan selalu tersimpan. Jadi, ketika ada error, kita bisa kembali ke versi sebelumnya.</p>
+<p>Misalnya aja, alur commitnya seperti ini:</p>
+<pre class="language-toml"><code class="language-toml"><span class="token key property">7js72k</span> <span class="token punctuation">=</span> Init project
+<span class="token key property">ka887f</span> <span class="token punctuation">=</span> Tambah data-data
+<span class="token key property">ja7djd</span> <span class="token punctuation">=</span> Lengkapi semua data
+<span class="token key property">a7akd1</span> <span class="token punctuation">=</span> Terjadi error
+</code></pre>
+<p>Nah, kita lihat di situ, pada hash <code>a7akd1</code>, terjadi error. Maka, kita bisa mengembalikannya ke hash <code>ja7djd</code> di mana semua data masih baik dan belum ada yang rusak. Enak kan jadinya? Kita jadi nggak perlu khawatir pada setiap perubahan yang kita lakukan. Ketika terjadi error, kita tinggal kembali saja ke hash sebelumnya.</p>
+<p>Oh iya, apa itu hash?</p>
+<p>Hash adalah alfanumerik acak yang kalau di sini merupakan id dari setiap commit yang kita lakukan. Dia nggak bisa kita tentukan karena telah terbentuk otomatis. Yang bisa kita lakukan hanyalah membuat pesan commit yang mudah dipahami.</p>
+<p>Apa itu commit?</p>
+<p>Commit adalah semacam <em>save</em> point. Jadi, mirip seperti kita main PS, maka commit adalah save ke memori PS.</p>
+<p>Nah, sekarang mungkin kita akan mulai dengan teknisnya karena kurasa sudah cukup sih teorinya tentang Git ini seperti apa.</p>
+<h2>Instalasi Git</h2>
+<p>Karena Git adalah suatu aplikasi, maka kita perlu menginstallnya terlebih dahulu. Untuk instalasinya, kalau menggunakan Linux, maka perintahnya adalah:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> <span class="token function">git</span>
+</code></pre>
+<p>Kalau menggunakan Termux:</p>
+<pre class="language-bash"><code class="language-bash">pkg <span class="token function">install</span> <span class="token function">git</span>
+</code></pre>
+<p>Kalau menggunakan Windows, langsung klik <a href="https://git-scm.com/download/win">https://git-scm.com/download/win</a>.</p>
+<p>Kalau menggunakan Mac, perintah downloadnya adalah:</p>
+<pre class="language-bash"><code class="language-bash">brew <span class="token function">install</span> <span class="token function">git</span>
+</code></pre>
+<h2>Konfigurasi</h2>
+<p>Ketika kita sudah menginstall Git, maka sekarang adalah tahap konfigurasi. Perintahnya seperti ini:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">git</span> config --global user.name <span class="token punctuation">[</span>usernamemu<span class="token punctuation">]</span>
+<span class="token function">git</span> config --global user.email <span class="token punctuation">[</span>emailmu<span class="token punctuation">]</span>
+</code></pre>
+<p>Dari mana kita mendapatkan username dan email? Tentunya dari akun Git yang kita miliki. Entah itu dari Github, Gitlab, maupun Bitbucket. Kalau belum punya, dicoba aja ya buat dulu. Buatnya gampang aja sih. Tinggal buka Github (misalnya kalau mau coba yang Github). Terus, kita <em>daftar</em>. Terus, ikuti aja langkahnya.</p>
+<p>Nah, konfigurasi di atas adalah konfigurasi global. Jadi, kita cukup konfigurasi sekali aja untuk banyak repo yang kita pakai. Jadi, ketika kita commit di repo manapun, maka akan secara otomatis tersimpan username dan emailnya untuk di repo tersebut.</p>
+<p>Apa itu repo? Repo adalah singkatan dari repositori. Repositori itu semacam folder yang kita gunakan untuk meletakkan file-file atau kode-kode kita.</p>
+<h2>Membuat Repo Baru di Github</h2>
+<p>Untuk membuat repo baru, buka aja <a href="https://github.com/new">https://github.com/new</a>. Terus, isi formulir yang diberikan.</p>
+<p><img src="http://imgur.com/0A0Q2lhl.png" alt="Nama repositori"></p>
+<p>Untuk nama repositori, kamu bisa menamakannya seperti menamakan suatu folder. Tapi, kalau lebih dari satu kata, gunakan strip untuk memisahkan. Contoh: <code>tugas-makalah</code>.</p>
+<p><img src="http://imgur.com/ltyzycql.png" alt="Deskripsi repositori"></p>
+<p>Untuk deskripsi, bisa diisi dengan penjelasan tentang isi repositori itu. Misalnya, diisi dengan <code>Berisi berbagai makalah untuk dipresentasikan.</code> Bagian deskripsi ini opsional. Jadi, bisa kamu isi maupun nggak kamu isi. Terserah aja sih. Kalau mau memahami secara sekilas, repo tentang apa, baiknya sih diisi aja. Kalau aku, biasanya nggak diisi.</p>
+<p><img src="http://imgur.com/lJeKlsol.png" alt="Pilih public atau private"></p>
+<p>Di sini, bisa kamu pilih apakah public atau private repositorinya.</p>
+<p><img src="http://imgur.com/boHJRH0l.png" alt="File starter"></p>
+<p>Di situ dipilih, starternya apa.</p>
+<p>Habis itu, klik <code>Create repository</code>.</p><!--]--><!--]--></div><a class="edit" href="https://github.com/mzaini30/belajar-pemrograman/blob/master/src/pages/post/panduan-dasar-menggunakan-git.mdx" data-v-31bb63ce>Edit this page</a><!--[--><ile-root id="ile-1"><div class="komentar svelte-1g1evew"><p class="judul svelte-1g1evew">Yuk Berkomentar...</p>
+
+	<form><label>Nama</label>
+		<input class="input svelte-1g1evew" required type="text">
+
+		<label>Link Blog</label>
+		<input type="url" class="input svelte-1g1evew" required>
+		
+		<label class="block">Komentar</label>
+		<textarea required name="" id="" cols="30" class="input svelte-1g1evew" rows="10"></textarea>
+		
+		<input value="Kirim Komentar" class="submit svelte-1g1evew" type="submit"></form>
+
+	
+</div></ile-root><script type="module" async>import{h as a,c as e}from"/assets/iles.8105d9b2.js";import{K as r}from"/assets/Komentar.4d47e0bc.js";import"/assets/vendor-svelte.3aad0a64.js";import"/assets/api.883d5493.js";a(e,r,"ile-1",{},{});
+</script><!--]--></div><div class="kertas lainnya" data-v-31bb63ce><h2 data-v-31bb63ce>Tulisan Lainnya:</h2><hr data-v-31bb63ce><ul data-v-31bb63ce><li data-v-31bb63ce><a href="/" data-v-31bb63ce>BERANDA</a></li><!--[--><li data-v-31bb63ce><a href="/post/panduan-dasar-menggunakan-git" class="active-lainnya" data-v-31bb63ce>Panduan Dasar Menggunakan Git</a></li><li data-v-31bb63ce><a href="/post/perintah-git-untuk-berganti-commit" class="" data-v-31bb63ce>Perintah Git untuk Berganti Commit</a></li><!--]--></ul></div></div><!--]--><!--]--><!----><!--]--></div>
+  </body>
+</html>
