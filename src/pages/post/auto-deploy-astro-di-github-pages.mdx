@@ -5,6 +5,12 @@ layout: post
 tanggal: 2021-10-10
 ---
 
+Ada banyak cara untuk mendeploy Astro. Ada dengan cara menguploadnya ke serverless function sehingga akan dideploy otomatis seperti dikirim ke Cloudflare, Firebase Pages, Vercel, Netlify, dan Heroku. Tapi, bisa juga dengan cara menggunakan Github Pages. Nah, inilah yang akan kita lakukan kali ini.
+
+Jadi, caranya adalah dengan membuat file `.github/workflows/*.yml` yang merupakan kode YAML buat menjalankan Github Action. Nah, dengan demikian, website berbasis Astro akan terdeploy secara otomatis setiap kali kita menguploadnya.
+
+Berikut ini adalah kodenya:
+
 ## Versi npm
 
 Isi dari `.github/workflows/deploy.yml`:
