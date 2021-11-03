@@ -130,6 +130,12 @@
 	.isi-tulisan :where(blockquote){
 		@apply mx-0 italic
 	}
+	.isi-tulisan ol li {
+		@apply ml-3 list-decimal
+	}
+	.isi-tulisan ul li {
+		@apply ml-3 list-disc
+	}
 	:where(table){
 		@apply mb-3
 	}
