@@ -42,12 +42,15 @@
 		<div class='kertas pertama'>
 			<h1>{{judul}}</h1>
 			<hr>
+			<IklanKecil client:none></IklanKecil>
 			<div class="isi-tulisan">
 				<slot></slot>
 				<p><strong>Yuk dukung penulis blog Belajar Pemrograman <em>secara finansial</em> dengan mengklik: <a href="https://saweria.co/mzaini30">saweria.co/mzaini30</a></strong> (metode pembayaran bisa menggunakan transfer bank, GoPay, OVO, DANA, dan LinkAja).</p>
 			</div>
 
 			<a class="edit" :href='"https://github.com/mzaini30/belajar-pemrograman/blob/master/" + filename'>Edit this page</a>
+
+			<IklanKotak client:none></IklanKotak>
 
 			<Komentar client:load></Komentar>
 

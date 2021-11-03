@@ -6,6 +6,9 @@ declare module 'vue' {
   export interface GlobalComponents {
     DefaultLayout: typeof import('./src/layouts/default.vue')['default']
     Head: typeof import('@vueuse/head')['Head']
+    IklanKecil: typeof import('./src/components/IklanKecil.svelte')['default']
+    IklanKotak: typeof import('./src/components/IklanKotak.svelte')['default']
+    IklanMelayang: typeof import('./src/components/IklanMelayang.svelte')['default']
     Island: typeof import('iles')['Island']
     JumlahPeserta: typeof import('./src/components/JumlahPeserta.svelte')['default']
     KelasHariIni: typeof import('./src/components/KelasHariIni.svelte')['default']

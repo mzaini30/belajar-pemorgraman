@@ -4,17 +4,18 @@
 	import {useHead} from '@vueuse/head'
 
 	const {title, description} = usePage().frontmatter
-	/*
-	useHead({
-		script: [
-			{
-				src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2408628281705149",
-				crossorigin: 'anonymous',
-				async: true
-			}
-		]
-	})
-	*/
+	
+	// useHead({
+		// script: [
+			// {
+			// 	src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2408628281705149",
+			// 	crossorigin: 'anonymous',
+			// 	async: true
+			// },
+		// ]
+	
+	// })
+	
 </script>
 
 <template>
@@ -38,6 +39,7 @@
 	</Head>
 
 	<slot></slot>
+	<IklanMelayang client:none></IklanMelayang>
 </template>
 
 <style>
