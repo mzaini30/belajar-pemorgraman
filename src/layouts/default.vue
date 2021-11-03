@@ -4,6 +4,7 @@
 	import {useHead} from '@vueuse/head'
 
 	const {title, description} = usePage().frontmatter
+	/*
 	useHead({
 		script: [
 			{
@@ -13,6 +14,7 @@
 			}
 		]
 	})
+	*/
 </script>
 
 <template>
