@@ -74,6 +74,8 @@
 		</div>
 	</div>
 
+	<IklanKecil client:none/>
+
 	<div class='isi'>
 		<div v-for='x in semuaTulisan.filter(x => x.kategori == kategori)'>
 			<a class='card' :href='x.href'>
@@ -81,6 +83,8 @@
 			</a>
 		</div>
 	</div>
+
+	<IklanKotak client:none/>
 </template>
 
 <style scoped>

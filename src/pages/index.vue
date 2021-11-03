@@ -48,6 +48,7 @@
 				<p>Kelas {{x}}</p>
 			</a>
 		</div>
+		<IklanKotak client:none/>
 	</div>
 </template>
 
