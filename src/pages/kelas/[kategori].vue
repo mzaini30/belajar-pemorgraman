@@ -11,6 +11,7 @@
 	import Linux from '~/icons/Linux.jpg?w=200&webp'
 	import Termux from '~/icons/Termux.jpg?w=200&webp'
 	import Windi from '~/icons/Windi.jpg?w=200&webp'
+	import Lua from '~/icons/Lua.png?w=200&webp'
 
 	export default definePageComponent({
 		getStaticPaths(){
@@ -65,6 +66,7 @@
 		<div class='gambar' v-if='kategori == "Linux"' :style='"background-image: url(" + Linux + ")"'></div>
 		<div class='gambar' v-if='kategori == "Termux"' :style='"background-image: url(" + Termux + ")"'></div>
 		<div class='gambar' v-if='kategori == "Windi"' :style='"background-image: url(" + Windi + ")"'></div>
+		<div class='gambar' v-if='kategori == "Lua"' :style='"background-image: url(" + Lua + ")"'></div>
 
 		<div class='setelah-gambar'>
 			<h1>{{kategori}}</h1>
