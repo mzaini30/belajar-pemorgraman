@@ -131,10 +131,10 @@
 		@apply mx-0 italic
 	}
 	.isi-tulisan ol li {
-		@apply ml-3 list-decimal
+		@apply ml-5 list-decimal
 	}
 	.isi-tulisan ul li {
-		@apply ml-3 list-disc
+		@apply ml-5 list-disc
 	}
 	:where(table){
 		@apply mb-3
@@ -154,7 +154,7 @@
 	.isi-tulisan :where(h4){
 		@apply text-lg text-blue-500
 	}
-	.isi-tulisan :where(p, .embedPastebin){
+	.isi-tulisan :where(p, .embedPastebin, ol, ul){
 		@apply !mb-3
 	}
   .token.prefix.inserted,
