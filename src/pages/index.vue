@@ -30,6 +30,8 @@
 
 		<KelasHariIni :semuaKategori='semuaKategori' client:load></KelasHariIni>
 
+		<IklanKecil client:none/>
+
 		<div class='list-kelas'>
 			<a v-for='x in semuaKategori' :href='"/kelas/" + x'>
 

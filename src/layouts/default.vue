@@ -39,7 +39,6 @@
 	</Head>
 
 	<slot></slot>
-	<IklanMelayang client:none></IklanMelayang>
 </template>
 
 <style>
