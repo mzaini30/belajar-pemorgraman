@@ -1,3 +1,4 @@
+<!--
 <div class="iklan-kecil">
 	<script type="text/javascript">
 		atOptions = {
@@ -16,3 +17,4 @@
 		@apply w-min mx-auto
 	}
 </style>
+-->
