@@ -341,6 +341,17 @@
       "_api.883d5493.js"
     ]
   },
+  "\u0000virtual:post_yuk-bahas-ssg-lagi_ile-3": {
+    "file": "assets/_virtual_post_yuk-bahas-ssg-lagi_ile-3.f011b1d4.js",
+    "src": "\u0000virtual:post_yuk-bahas-ssg-lagi_ile-3",
+    "isEntry": true,
+    "imports": [
+      "_iles.8105d9b2.js",
+      "src/components/Komentar.svelte",
+      "_vendor-svelte.3aad0a64.js",
+      "_api.883d5493.js"
+    ]
+  },
   "\u0000virtual:post_yuk-ngoding-pakai-hp_ile-3": {
     "file": "assets/_virtual_post_yuk-ngoding-pakai-hp_ile-3.53fba57a.js",
     "src": "\u0000virtual:post_yuk-ngoding-pakai-hp_ile-3",

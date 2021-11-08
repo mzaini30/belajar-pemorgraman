@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html  lang="en-US" data-head-attrs="lang">
+  <head>
+    <title>Yuk, Kita Bahas Static Site Generator yang Baru Lagi...</title><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta property="og:url" content="https://belajarpemrograman.my.id/post/yuk-bahas-ssg-lagi"><meta property="twitter:domain" content="belajarpemrograman.my.id"><meta property="twitter:url" content="https://belajarpemrograman.my.id/post/yuk-bahas-ssg-lagi"><link rel="sitemap" href="https://belajarpemrograman.my.id/sitemap.xml"><meta property="generator" content="îles"><link rel="icon" href="https://image.freepik.com/free-vector/young-man-head-with-beard-avatar-character_24877-36786.jpg"><meta name="description" content="Membahas &#39;Yuk, Kita Bahas Static Site Generator yang Baru Lagi...&#39; di kelas JavaScript"><meta property="og:locale" content="id_ID"><meta property="og:type" content="article"><meta property="og:title" content="Yuk, Kita Bahas Static Site Generator yang Baru Lagi..."><meta property="og:description" content="Membahas &#39;Yuk, Kita Bahas Static Site Generator yang Baru Lagi...&#39; di kelas JavaScript"><meta property="og:image" content="https://cdn.statically.io/og/Yuk%2C%20Kita%20Bahas%20Static%20Site%20Generator%20yang%20Baru%20Lagi....jpg"><meta property="og:image:width" content="2048"><meta property="og:image:height" content="1170"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:title" content="Yuk, Kita Bahas Static Site Generator yang Baru Lagi..."><meta property="twitter:description" content="Membahas &#39;Yuk, Kita Bahas Static Site Generator yang Baru Lagi...&#39; di kelas JavaScript"><meta property="twitter:image" content="https://cdn.statically.io/og/Yuk%2C%20Kita%20Bahas%20Static%20Site%20Generator%20yang%20Baru%20Lagi....jpg"><meta property="og:site_name" content="Belajar Pemrograman"><meta name="head:count" content="21">
+    <link rel="stylesheet" href="/assets/style.ccf6eb58.css">
+    
+  <link rel="modulepreload" href="/assets/iles.8105d9b2.js" crossorigin/><link rel="modulepreload" href="/assets/vendor-svelte.3aad0a64.js" crossorigin/><link rel="modulepreload" href="/assets/Komentar.4d47e0bc.js" crossorigin/><link rel="modulepreload" href="/assets/api.883d5493.js" crossorigin/></head>
+  <body  data-head-attrs="">
+    <div id="app"><!--[--><!----><!--[--><!----><!--[--><!----><div class="latar" data-v-74abf830><div class="materi" data-v-74abf830><p data-v-74abf830><a href="/" data-v-74abf830>Kelas JavaScript</a></p><ul data-v-74abf830><!--[--><li data-v-74abf830><a href="/post/berbagai-bentuk-pengulangan-di-javascript" class="" data-v-74abf830>Berbagai Bentuk Pengulangan di JavaScript</a></li><li data-v-74abf830><a href="/post/bermain-dengan-confetti" class="" data-v-74abf830>Bermain dengan Confetti</a></li><li data-v-74abf830><a href="/post/menggunakan-node-js-dengan-es-module" class="" data-v-74abf830>Latihan Node JS dengan ESM</a></li><li data-v-74abf830><a href="/post/yuk-bahas-ssg-lagi" class="active" data-v-74abf830>Yuk, Kita Bahas Static Site Generator yang Baru Lagi...</a></li><!--]--></ul></div><div class="kertas pertama" data-v-74abf830><h1 data-v-74abf830>Yuk, Kita Bahas Static Site Generator yang Baru Lagi...</h1><hr data-v-74abf830><ile-root id="ile-1" data-v-74abf830></ile-root><div class="isi-tulisan" data-v-74abf830><!--[--><!--[--><p>Ada banyak Static Site Generator berterbaran. Mulai dari yang paling klasik, yaitu Jekyll, lalu disusul oleh Hugo, kemudian ada Pelican, Gatsby, VuePress, Next, SvelteKit, hingga ada banyak sekali sampai kita nggak hapal apa aja namanya.</p>
+<p>Jadi, kita kenalan sama SSG yang lain lagi, yang belum banyak dikenal, yaitu Mini SSG.</p>
+<p>Jadi, SSG ini dibuat oleh Bang Hilman yang merupakan founder dari Sekolah Koding. Untuk membaca Mini SSG, bisa dilihat di <a href="https://minissg.vercel.app/">https://minissg.vercel.app/</a>.</p>
+<h2>Sintaks</h2>
+<h3>Import</h3>
+<p><code>dev/pages/index.html</code>:</p>
+<pre class="language-html"><code class="language-html">@import(header)		
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Your awesome content<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p><code>dev/_imports/header.html</code>:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Ini Judul...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<h3>Layout</h3>
+<p><code>dev/pages/index.html</code>:</p>
+<pre class="language-html"><code class="language-html">@layout(halaman)
+
+@section(judul, Zen)
+
+@section(isi)
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Ini adalah isi...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+@endsection
+</code></pre>
+<p><code>dev/_layouts/halaman.html</code>:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Judul: @attach(judul)<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>hr</span><span class="token punctuation">&gt;</span></span>
+@attach(isi)
+</code></pre>
+<h3>Component</h3>
+<p><code>dev/pages/index.html</code>:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>Ini bagian component:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+
+@component(sepeda)
+	@slot(isi)
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Ini isinya<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+	@endslot
+@endcomponent
+</code></pre>
+<p><code>dev/_components/sepeda.html</code>:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">&gt;</span></span>Isinya:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
+@attach(isi)
+</code></pre>
+<h3>Default Value</h3>
+<pre class="language-html"><code class="language-html">@attach(isi, Belum ada isinya)
+</code></pre>
+<h2>Catatan</h2>
+<p>Mungkin pas nyoba ini pertama kali agak bingung ya? Aku juga sih. Jadi ya, dicoba-coba aja..</p>
+<h2>Tahap-Tahap Menggunakan Tools Ini</h2>
+<p>Misalnya kita ingin menginstallnya di folder <code>latihan-mini-ssg</code>:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">mkdir</span> latihan-mini-ssg
+<span class="token builtin class-name">cd</span> latihan-mini-ssg
+<span class="token function">pnpm</span> init -y
+</code></pre>
+<p>Terus, kita edit bagian ini di <code>package.json</code>:</p>
+<pre class="language-json"><code class="language-json"><span class="token property">&quot;scripts&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+	<span class="token property">&quot;dev&quot;</span><span class="token operator">:</span> <span class="token string">&quot;minissg --watch&quot;</span><span class="token punctuation">,</span>
+	<span class="token property">&quot;build&quot;</span><span class="token operator">:</span> <span class="token string">&quot;minissg&quot;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre>
+<p>Lalu, dianjurkan untuk membuat file <code>.npmrc</code> yang isinya:</p>
+<pre class="language-javascript"><code class="language-javascript">shamefully<span class="token operator">-</span>hoist <span class="token operator">=</span> <span class="token boolean">true</span>
+</code></pre>
+<p>Terus, kita install dengan:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">pnpm</span> i -D mini-ssg
+</code></pre>
+<p>Oh iya, aku menggunakan <code>pnpm</code>. Kalau kamu pakai <code>npm</code>, ganti aja <code>pnpm</code> dengan <code>npm</code>.</p>
+<p>Untuk index, kita buat di <code>dev/_pages/index.html</code>.</p>
+<p>Mode dev menggunakan:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">pnpm</span> dev
+</code></pre>
+<p>Lalu, untuk build, menggunakan:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">pnpm</span> build
+</code></pre>
+<h2>Mini SSG Versi Mod</h2>
+<p>Oh iya, aku edit tools ini supaya sesuai dengan keinginanku:</p>
+<ul>
+<li>Ubah <code>_layouts</code> menjadi <code>layouts</code> karena folder atau file berawalan underscore, akan diabaikan oleh Android Studio</li>
+<li>Ubah <code>_imports</code> menjadi <code>imports</code> karena folder atau file berawalan underscore, akan diabaikan oleh Android Studio</li>
+<li>Ubah <code>_components</code> menjadi <code>components</code> karena folder atau file berawalan underscore, akan diabaikan oleh Android Studio</li>
+<li><code>dev/pages/about.html</code> menjadi <code>public/about.html</code>, bukan <code>public/about/index.html</code></li>
+<li>Memberikan warning jika tipo dalam import file</li>
+</ul>
+<p>Untuk menggunakannya, install dengan:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">pnpm</span> i -D mini-ssg-zen
+</code></pre>
+<p>Lalu, isi dari <code>package.json</code>:</p>
+<pre class="language-json"><code class="language-json"><span class="token property">&quot;scripts&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+	<span class="token property">&quot;dev&quot;</span><span class="token operator">:</span> <span class="token string">&quot;ssg --watch&quot;</span><span class="token punctuation">,</span>
+	<span class="token property">&quot;build&quot;</span><span class="token operator">:</span> <span class="token string">&quot;ssg&quot;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre>
+<h2>Tools Ini Cocok untuk Apa?</h2>
+<p>Cocok buat project yang nggak perlu tools frontend seperti Vue, React, atau Svelte.</p><!--]--><!--]--><p data-v-74abf830><strong data-v-74abf830>Yuk dukung penulis blog Belajar Pemrograman <em data-v-74abf830>secara finansial</em> dengan mengklik: <a href="https://saweria.co/mzaini30" data-v-74abf830>saweria.co/mzaini30</a></strong> (metode pembayaran bisa menggunakan transfer bank, GoPay, OVO, DANA, dan LinkAja).</p></div><a class="edit" href="https://github.com/mzaini30/belajar-pemrograman/blob/master/src/pages/post/yuk-bahas-ssg-lagi.mdx" data-v-74abf830>Edit this page</a><ile-root id="ile-2" data-v-74abf830></ile-root><!--[--><ile-root id="ile-3"><div class="komentar svelte-1g1evew"><p class="judul svelte-1g1evew">Yuk Berkomentar...</p>
+
+	<form><label>Nama</label>
+		<input class="input svelte-1g1evew" required type="text">
+
+		<label>Link Blog</label>
+		<input type="url" class="input svelte-1g1evew" required>
+		
+		<label class="block">Komentar</label>
+		<textarea required name="" id="" cols="30" class="input svelte-1g1evew" rows="10"></textarea>
+		
+		<input value="Kirim Komentar" class="submit svelte-1g1evew" type="submit"></form>
+
+	
+</div></ile-root><script type="module" async>import{h as a,c as e}from"/assets/iles.8105d9b2.js";import{K as r}from"/assets/Komentar.4d47e0bc.js";import"/assets/vendor-svelte.3aad0a64.js";import"/assets/api.883d5493.js";a(e,r,"ile-3",{},{});
+</script><!--]--></div><div class="kertas lainnya" data-v-74abf830><h2 data-v-74abf830>Tulisan Lainnya:</h2><hr data-v-74abf830><ul data-v-74abf830><li data-v-74abf830><a href="/" data-v-74abf830>BERANDA</a></li><!--[--><li data-v-74abf830><a href="/post/berbagai-bentuk-pengulangan-di-javascript" class="" data-v-74abf830>Berbagai Bentuk Pengulangan di JavaScript</a></li><li data-v-74abf830><a href="/post/bermain-dengan-confetti" class="" data-v-74abf830>Bermain dengan Confetti</a></li><li data-v-74abf830><a href="/post/menggunakan-node-js-dengan-es-module" class="" data-v-74abf830>Latihan Node JS dengan ESM</a></li><li data-v-74abf830><a href="/post/yuk-bahas-ssg-lagi" class="active-lainnya" data-v-74abf830>Yuk, Kita Bahas Static Site Generator yang Baru Lagi...</a></li><!--]--></ul></div></div><!--]--><!--]--><!----><!--]--></div>
+  </body>
+</html>
