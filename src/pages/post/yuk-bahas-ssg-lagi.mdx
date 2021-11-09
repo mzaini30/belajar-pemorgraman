@@ -164,28 +164,31 @@ Lalu, isi dari `package.json`:
 Install dulu package yang dibutuhkan:
 
 ```bash
-pnpm i -D mini-ssg-zen windicss
+pnpm i -D mini-ssg-zen windicss npm-run-all
 ```
 
 Terus, di `package.json`:
 
 ```diff
 {
-  "name": "mini-windi",
+  "name": "assets",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-+    "dev": "ssg --watch",
-+    "build": "ssg",
-+    "windi:dev": "windicss './dev/**/*.html' -to './dev/static/windi.css' --dev --style",
-+    "windi:build": "windicss './dev/**/*.html' -mto './dev/static/windi.css' --style"
++    "dev:windi": "windicss './dev/**/*.html' -to './dev/static/windi.css' --dev --style",
++    "dev:ssg": "ssg --watch",
++    "dev": "run-p dev:*",
++    "build:windi": "windicss './dev/**/*.html' -mto './dev/static/windi.css' --style",
++    "build:ssg": "ssg",
++    "build": "run-s build:*"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "mini-ssg-zen": "^0.0.4",
+    "mini-ssg-zen": "^0.0.6",
+    "npm-run-all": "^4.1.5",
     "windicss": "^3.2.1"
   }
 }
@@ -194,13 +197,13 @@ Terus, di `package.json`:
 Mode development:
 
 ```bash
-pnpm windi:dev & pnpm dev
+pnpm dev
 ```
 
 Mode build:
 
 ```bash
-pnpm windi:build && pnpm build
+pnpm build
 ```
 
 ## Tools Ini Cocok untuk Apa?
