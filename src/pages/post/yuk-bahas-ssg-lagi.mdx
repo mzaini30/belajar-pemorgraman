@@ -159,6 +159,50 @@ Lalu, isi dari `package.json`:
 },
 ```
 
+## Mengaitkannya dengan Windi
+
+Install dulu package yang dibutuhkan:
+
+```bash
+pnpm i -D mini-ssg-zen windicss
+```
+
+Terus, di `package.json`:
+
+```diff
+{
+  "name": "mini-windi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
++    "dev": "ssg --watch",
++    "build": "ssg",
++    "windi:dev": "windicss './dev/**/*.html' -mto './dev/static/windi.css' --dev --style",
++    "windi:build": "windicss './dev/**/*.html' -mto './dev/static/windi.css' --style"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mini-ssg-zen": "^0.0.4",
+    "windicss": "^3.2.1"
+  }
+}
+```
+
+Mode development:
+
+```bash
+pnpm windi:dev & pnpm dev
+```
+
+Mode build:
+
+```bash
+pnpm windi:build && pnpm build
+```
+
 ## Tools Ini Cocok untuk Apa?
 
 Cocok buat project yang nggak perlu tools frontend seperti Vue, React, atau Svelte.
