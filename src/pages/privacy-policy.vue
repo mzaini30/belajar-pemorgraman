@@ -21,7 +21,7 @@
         <p>
             The terms used in this Privacy Policy have the same meanings
             as in our Terms and Conditions, which is accessible at
-            Skoring Panahan unless otherwise defined in this Privacy Policy.
+            the apps unless otherwise defined in this Privacy Policy.
         </p>
         <p><strong>Information Collection and Use</strong></p>
         <p>
