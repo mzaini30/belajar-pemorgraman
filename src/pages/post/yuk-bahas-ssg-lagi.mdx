@@ -171,15 +171,15 @@ Terus, di `package.json`:
 
 ```diff
 {
-  "name": "assets",
+  "name": "tpq-baru",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-+    "dev:windi": "windicss './dev/**/*.html' -to './dev/static/windi.css' --dev --style",
++    "dev:windi": "windicss './dev/pages/**/*.html' './dev/layouts/**/*.html' './dev/components/**/*.html' './dev/imports/**/*.html' -to './dev/static/windi.css' --dev --style",
 +    "dev:ssg": "ssg --watch",
 +    "dev": "run-p dev:*",
-+    "build:windi": "windicss './dev/**/*.html' -mto './dev/static/windi.css' --style",
++    "build:windi": "windicss './dev/pages/**/*.html' './dev/layouts/**/*.html' './dev/components/**/*.html' './dev/imports/**/*.html' -mto './dev/static/windi.css' --style",
 +    "build:ssg": "ssg",
 +    "build": "run-s build:*"
   },
@@ -192,6 +192,7 @@ Terus, di `package.json`:
     "windicss": "^3.2.1"
   }
 }
+
 ```
 
 Mode development:
