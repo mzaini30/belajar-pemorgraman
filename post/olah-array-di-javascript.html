@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html  lang="en-US" data-head-attrs="lang">
+  <head>
+    <title>Olah Array di JavaScript</title><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta property="og:url" content="https://belajarpemrograman.my.id/post/olah-array-di-javascript"><meta property="twitter:domain" content="belajarpemrograman.my.id"><meta property="twitter:url" content="https://belajarpemrograman.my.id/post/olah-array-di-javascript"><link rel="sitemap" href="https://belajarpemrograman.my.id/sitemap.xml"><meta property="generator" content="îles"><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2408628281705149" crossorigin="anonymous" async></script><link rel="icon" href="https://image.freepik.com/free-vector/young-man-head-with-beard-avatar-character_24877-36786.jpg"><meta name="description" content="Membahas &#39;Olah Array di JavaScript&#39; di kelas JavaScript"><meta property="og:locale" content="id_ID"><meta property="og:type" content="article"><meta property="og:title" content="Olah Array di JavaScript"><meta property="og:description" content="Membahas &#39;Olah Array di JavaScript&#39; di kelas JavaScript"><meta property="og:image" content="https://cdn.statically.io/og/Olah%20Array%20di%20JavaScript.jpg"><meta property="og:image:width" content="2048"><meta property="og:image:height" content="1170"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:title" content="Olah Array di JavaScript"><meta property="twitter:description" content="Membahas &#39;Olah Array di JavaScript&#39; di kelas JavaScript"><meta property="twitter:image" content="https://cdn.statically.io/og/Olah%20Array%20di%20JavaScript.jpg"><meta property="og:site_name" content="Belajar Pemrograman"><meta name="head:count" content="22">
+    <link rel="stylesheet" href="/assets/style.9b065ffe.css">
+    
+  <link rel="modulepreload" href="/assets/iles.8105d9b2.js" crossorigin/><link rel="modulepreload" href="/assets/vendor-svelte.3aad0a64.js" crossorigin/><link rel="modulepreload" href="/assets/Komentar.4d47e0bc.js" crossorigin/><link rel="modulepreload" href="/assets/api.883d5493.js" crossorigin/></head>
+  <body  data-head-attrs="">
+    <div id="app"><!--[--><!----><!--[--><!----><!--[--><!----><div class="latar" data-v-74abf830><div class="materi" data-v-74abf830><p data-v-74abf830><a href="/" data-v-74abf830>Kelas JavaScript</a></p><ul data-v-74abf830><!--[--><li data-v-74abf830><a href="/post/berbagai-bentuk-pengulangan-di-javascript" class="" data-v-74abf830>Berbagai Bentuk Pengulangan di JavaScript</a></li><li data-v-74abf830><a href="/post/bermain-dengan-confetti" class="" data-v-74abf830>Bermain dengan Confetti</a></li><li data-v-74abf830><a href="/post/menggunakan-node-js-dengan-es-module" class="" data-v-74abf830>Latihan Node JS dengan ESM</a></li><li data-v-74abf830><a href="/post/olah-array-di-javascript" class="active" data-v-74abf830>Olah Array di JavaScript</a></li><li data-v-74abf830><a href="/post/yuk-bahas-ssg-lagi" class="" data-v-74abf830>Yuk, Kita Bahas Static Site Generator yang Baru Lagi...</a></li><!--]--></ul></div><div class="kertas pertama" data-v-74abf830><h1 data-v-74abf830>Olah Array di JavaScript</h1><hr data-v-74abf830><ile-root id="ile-1" data-v-74abf830></ile-root><div class="isi-tulisan" data-v-74abf830><!--[--><!--[--><p>Misal aja ada array:</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">let</span> angka <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span>
+</code></pre>
+<h2>Tambah</h2>
+<p>Misal, ditambahkan angka 6:</p>
+<pre class="language-javascript"><code class="language-javascript">angka <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token spread operator">...</span>angka<span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span>
+</code></pre>
+<h2>Hapus</h2>
+<p>Hapus angka 4:</p>
+<pre class="language-javascript"><code class="language-javascript">angka <span class="token operator">=</span> angka<span class="token punctuation">.</span><span class="token method function property-access">filter</span><span class="token punctuation">(</span><span class="token parameter">x</span> <span class="token arrow operator">=&gt;</span> x <span class="token operator">!=</span> <span class="token number">4</span><span class="token punctuation">)</span>
+</code></pre>
+<h2>Update</h2>
+<p>Update angka 3 menjadi &#39;tiga&#39;:</p>
+<pre class="language-javascript"><code class="language-javascript">angka <span class="token operator">=</span> angka<span class="token punctuation">.</span><span class="token method function property-access">map</span><span class="token punctuation">(</span><span class="token parameter">x</span> <span class="token arrow operator">=&gt;</span> x <span class="token operator">==</span> <span class="token number">3</span> <span class="token operator">?</span> <span class="token string">&#39;tiga&#39;</span> <span class="token operator">:</span> x<span class="token punctuation">)</span>
+</code></pre><!--]--><!--]--><p data-v-74abf830><strong data-v-74abf830>Yuk dukung penulis blog Belajar Pemrograman <em data-v-74abf830>secara finansial</em> dengan mengklik: <a href="https://saweria.co/mzaini30" data-v-74abf830>saweria.co/mzaini30</a></strong> (metode pembayaran bisa menggunakan transfer bank, GoPay, OVO, DANA, dan LinkAja).</p></div><a class="edit" href="https://github.com/mzaini30/belajar-pemrograman/blob/master/src/pages/post/olah-array-di-javascript.mdx" data-v-74abf830>Edit this page</a><ile-root id="ile-2" data-v-74abf830></ile-root><!--[--><ile-root id="ile-3"><div class="komentar svelte-1g1evew"><p class="judul svelte-1g1evew">Yuk Berkomentar...</p>
+
+	<form><label>Nama</label>
+		<input class="input svelte-1g1evew" required type="text">
+
+		<label>Link Blog</label>
+		<input type="url" class="input svelte-1g1evew" required>
+		
+		<label class="block">Komentar</label>
+		<textarea required name="" id="" cols="30" class="input svelte-1g1evew" rows="10"></textarea>
+		
+		<input value="Kirim Komentar" class="submit svelte-1g1evew" type="submit"></form>
+
+	
+</div></ile-root><script type="module" async>import{h as a,c as e}from"/assets/iles.8105d9b2.js";import{K as r}from"/assets/Komentar.4d47e0bc.js";import"/assets/vendor-svelte.3aad0a64.js";import"/assets/api.883d5493.js";a(e,r,"ile-3",{},{});
+</script><!--]--></div><div class="kertas lainnya" data-v-74abf830><h2 data-v-74abf830>Tulisan Lainnya:</h2><hr data-v-74abf830><ul data-v-74abf830><li data-v-74abf830><a href="/" data-v-74abf830>BERANDA</a></li><!--[--><li data-v-74abf830><a href="/post/berbagai-bentuk-pengulangan-di-javascript" class="" data-v-74abf830>Berbagai Bentuk Pengulangan di JavaScript</a></li><li data-v-74abf830><a href="/post/bermain-dengan-confetti" class="" data-v-74abf830>Bermain dengan Confetti</a></li><li data-v-74abf830><a href="/post/menggunakan-node-js-dengan-es-module" class="" data-v-74abf830>Latihan Node JS dengan ESM</a></li><li data-v-74abf830><a href="/post/olah-array-di-javascript" class="active-lainnya" data-v-74abf830>Olah Array di JavaScript</a></li><li data-v-74abf830><a href="/post/yuk-bahas-ssg-lagi" class="" data-v-74abf830>Yuk, Kita Bahas Static Site Generator yang Baru Lagi...</a></li><!--]--></ul></div></div><!--]--><!--]--><!----><!--]--></div>
+  </body>
+</html>
