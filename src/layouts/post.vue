@@ -45,7 +45,11 @@
 			<IklanKecil client:none></IklanKecil>
 			<div class="isi-tulisan">
 				<slot></slot>
+				<hr>
 				<p><strong>Yuk dukung penulis blog Belajar Pemrograman <em>secara finansial</em> dengan mengklik: <a href="https://saweria.co/mzaini30">saweria.co/mzaini30</a></strong> (metode pembayaran bisa menggunakan transfer bank, GoPay, OVO, DANA, dan LinkAja).</p>
+				<blockquote>
+					<p>Ingin mengundangku mengisi seminar? Chat WA ke <a href="https://wa.me/6281545143654">0815 4514 3654</a></p>
+				</blockquote>
 			</div>
 
 			<a class="edit" :href='"https://github.com/mzaini30/belajar-pemrograman/blob/master/" + filename'>Edit this page</a>
