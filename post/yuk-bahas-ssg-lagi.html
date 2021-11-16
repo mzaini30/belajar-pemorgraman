@@ -2,7 +2,7 @@
 <html  lang="en-US" data-head-attrs="lang">
   <head>
     <title>Yuk, Kita Bahas Static Site Generator yang Baru Lagi...</title><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta property="og:url" content="https://belajarpemrograman.my.id/post/yuk-bahas-ssg-lagi"><meta property="twitter:domain" content="belajarpemrograman.my.id"><meta property="twitter:url" content="https://belajarpemrograman.my.id/post/yuk-bahas-ssg-lagi"><link rel="sitemap" href="https://belajarpemrograman.my.id/sitemap.xml"><meta property="generator" content="îles"><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2408628281705149" crossorigin="anonymous" async></script><link rel="icon" href="https://image.freepik.com/free-vector/young-man-head-with-beard-avatar-character_24877-36786.jpg"><meta name="description" content="Membahas &#39;Yuk, Kita Bahas Static Site Generator yang Baru Lagi...&#39; di kelas JavaScript"><meta property="og:locale" content="id_ID"><meta property="og:type" content="article"><meta property="og:title" content="Yuk, Kita Bahas Static Site Generator yang Baru Lagi..."><meta property="og:description" content="Membahas &#39;Yuk, Kita Bahas Static Site Generator yang Baru Lagi...&#39; di kelas JavaScript"><meta property="og:image" content="https://cdn.statically.io/og/Yuk%2C%20Kita%20Bahas%20Static%20Site%20Generator%20yang%20Baru%20Lagi....jpg"><meta property="og:image:width" content="2048"><meta property="og:image:height" content="1170"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:title" content="Yuk, Kita Bahas Static Site Generator yang Baru Lagi..."><meta property="twitter:description" content="Membahas &#39;Yuk, Kita Bahas Static Site Generator yang Baru Lagi...&#39; di kelas JavaScript"><meta property="twitter:image" content="https://cdn.statically.io/og/Yuk%2C%20Kita%20Bahas%20Static%20Site%20Generator%20yang%20Baru%20Lagi....jpg"><meta property="og:site_name" content="Belajar Pemrograman"><meta name="head:count" content="22">
-    <link rel="stylesheet" href="/assets/style.238f2b00.css">
+    <link rel="stylesheet" href="/assets/style.9b065ffe.css">
     
   <link rel="modulepreload" href="/assets/iles.8105d9b2.js" crossorigin/><link rel="modulepreload" href="/assets/vendor-svelte.3aad0a64.js" crossorigin/><link rel="modulepreload" href="/assets/Komentar.4d47e0bc.js" crossorigin/><link rel="modulepreload" href="/assets/api.883d5493.js" crossorigin/></head>
   <body  data-head-attrs="">
@@ -90,6 +90,7 @@
 <li>Ubah <code>_components</code> menjadi <code>components</code> karena folder atau file berawalan underscore, akan diabaikan oleh Android Studio</li>
 <li><code>dev/pages/about.html</code> menjadi <code>public/about.html</code>, bukan <code>public/about/index.html</code></li>
 <li>Memberikan warning jika tipo dalam import file</li>
+<li><strong>Include Windi</strong></li>
 </ul>
 <p>Untuk menggunakannya, install dengan:</p>
 <pre class="language-bash"><code class="language-bash"><span class="token function">pnpm</span> i -D mini-ssg-zen
@@ -99,41 +100,6 @@
 	<span class="token property">&quot;dev&quot;</span><span class="token operator">:</span> <span class="token string">&quot;ssg --watch&quot;</span><span class="token punctuation">,</span>
 	<span class="token property">&quot;build&quot;</span><span class="token operator">:</span> <span class="token string">&quot;ssg&quot;</span>
 <span class="token punctuation">}</span><span class="token punctuation">,</span>
-</code></pre>
-<h2>Mengaitkannya dengan Windi</h2>
-<p>Install dulu package yang dibutuhkan:</p>
-<pre class="language-bash"><code class="language-bash"><span class="token function">pnpm</span> i -D mini-ssg-zen windicss npm-run-all
-</code></pre>
-<p>Terus, di <code>package.json</code>:</p>
-<pre class="language-diff"><code class="language-diff">{
-<span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> &quot;name&quot;: &quot;tpq-baru&quot;,
-</span><span class="token prefix unchanged"> </span><span class="token line"> &quot;version&quot;: &quot;1.0.0&quot;,
-</span><span class="token prefix unchanged"> </span><span class="token line"> &quot;description&quot;: &quot;&quot;,
-</span><span class="token prefix unchanged"> </span><span class="token line"> &quot;main&quot;: &quot;index.js&quot;,
-</span><span class="token prefix unchanged"> </span><span class="token line"> &quot;scripts&quot;: {
-</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">    &quot;dev:windi&quot;: &quot;windicss &#39;./dev/pages/**/*.html&#39; &#39;./dev/layouts/**/*.html&#39; &#39;./dev/components/**/*.html&#39; &#39;./dev/imports/**/*.html&#39; -to &#39;./dev/static/windi.css&#39; --dev --style&quot;,
-</span><span class="token prefix inserted">+</span><span class="token line">    &quot;dev:ssg&quot;: &quot;ssg --watch&quot;,
-</span><span class="token prefix inserted">+</span><span class="token line">    &quot;dev&quot;: &quot;run-p dev:*&quot;,
-</span><span class="token prefix inserted">+</span><span class="token line">    &quot;build:windi&quot;: &quot;windicss &#39;./dev/pages/**/*.html&#39; &#39;./dev/layouts/**/*.html&#39; &#39;./dev/components/**/*.html&#39; &#39;./dev/imports/**/*.html&#39; -mto &#39;./dev/static/windi.css&#39; --style&quot;,
-</span><span class="token prefix inserted">+</span><span class="token line">    &quot;build:ssg&quot;: &quot;ssg&quot;,
-</span><span class="token prefix inserted">+</span><span class="token line">    &quot;build&quot;: &quot;run-s build:*&quot;
-</span></span><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> },
-</span><span class="token prefix unchanged"> </span><span class="token line"> &quot;keywords&quot;: [],
-</span><span class="token prefix unchanged"> </span><span class="token line"> &quot;author&quot;: &quot;&quot;,
-</span><span class="token prefix unchanged"> </span><span class="token line"> &quot;license&quot;: &quot;ISC&quot;,
-</span><span class="token prefix unchanged"> </span><span class="token line"> &quot;devDependencies&quot;: {
-</span><span class="token prefix unchanged"> </span><span class="token line">   &quot;mini-ssg-zen&quot;: &quot;^0.0.6&quot;,
-</span><span class="token prefix unchanged"> </span><span class="token line">   &quot;npm-run-all&quot;: &quot;^4.1.5&quot;,
-</span><span class="token prefix unchanged"> </span><span class="token line">   &quot;windicss&quot;: &quot;^3.2.1&quot;
-</span><span class="token prefix unchanged"> </span><span class="token line"> }
-</span></span>}
-
-</code></pre>
-<p>Mode development:</p>
-<pre class="language-bash"><code class="language-bash"><span class="token function">pnpm</span> dev
-</code></pre>
-<p>Mode build:</p>
-<pre class="language-bash"><code class="language-bash"><span class="token function">pnpm</span> build
 </code></pre>
 <h2>Tools Ini Cocok untuk Apa?</h2>
 <p>Cocok buat project yang nggak perlu tools frontend seperti Vue, React, atau Svelte.</p><!--]--><!--]--><p data-v-74abf830><strong data-v-74abf830>Yuk dukung penulis blog Belajar Pemrograman <em data-v-74abf830>secara finansial</em> dengan mengklik: <a href="https://saweria.co/mzaini30" data-v-74abf830>saweria.co/mzaini30</a></strong> (metode pembayaran bisa menggunakan transfer bank, GoPay, OVO, DANA, dan LinkAja).</p></div><a class="edit" href="https://github.com/mzaini30/belajar-pemrograman/blob/master/src/pages/post/yuk-bahas-ssg-lagi.mdx" data-v-74abf830>Edit this page</a><ile-root id="ile-2" data-v-74abf830></ile-root><!--[--><ile-root id="ile-3"><div class="komentar svelte-1g1evew"><p class="judul svelte-1g1evew">Yuk Berkomentar...</p>
