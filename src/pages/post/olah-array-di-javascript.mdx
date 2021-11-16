@@ -1,0 +1,36 @@
+---
+kategori: JavaScript
+judul: Olah Array di JavaScript
+layout: post
+tanggal: 2021-11-16
+---
+
+Misal aja ada array:
+
+```javascript
+let angka = [1, 2, 3, 4, 5]
+```
+
+## Tambah
+
+Misal, ditambahkan angka 6:
+
+```javascript
+angka = [...angka, 6]
+```
+
+## Hapus
+
+Hapus angka 4:
+
+```javascript
+angka = angka.filter(x => x != 4)
+```
+
+## Update
+
+Update angka 3 menjadi 'tiga':
+
+```javascript
+angka = angka.map(x => x == 3 ? 'tiga' : x)
+```
