@@ -160,6 +160,29 @@ Lalu, isi dari `package.json`:
 },
 ```
 
+## Snippets
+
+Buka setting Emmet di text editor favoritmu, lalu tambahkan ini (aku pakai Sublime Text sih):
+
+```diff
+{
+	"telemetry": true,
+	"uid": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
++	"config": {
++		"markup": {
++			"snippets": {
++				"attach": "{@attach()}",
++				"import": "{@import()}",
++				"layout": "{@layout()\n\n@section()\n\t\n@endsection}",
++				"section": "{@section()\n\t\n@endsection}",
++				"component": "{@component()\n\t@slot()\n\t\t\n\t@endslot\n@endcomponent}",
++				"slot": "{@slot()\n\t\n@endslot}"
++			}
++		}
++	}
+}
+```
+
 ## Tools Ini Cocok untuk Apa?
 
 Cocok buat project yang nggak perlu tools frontend seperti Vue, React, atau Svelte.
