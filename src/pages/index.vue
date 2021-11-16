@@ -14,6 +14,7 @@
 	import Termux from '~/icons/Termux.jpg?w=230&webp'
 	import Windi from '~/icons/Windi.jpg?w=230&webp'
 	import Lua from '~/icons/Lua.png?w=230&webp'
+	import Sublime from '~/icons/Sublime.png?w=230&webp'
 </script>
 
 <template layout="default" title='Belajar Pemrograman' description='Kamu bisa belajar pemrograman di manapun asalkan numpang wifi'>
@@ -44,6 +45,7 @@
 				<img :src='Termux' v-if='x == "Termux"' :alt='"Kelas " + x'>
 				<img :src='Windi' v-if='x == "Windi"' :alt='"Kelas " + x'>
 				<img :src='Lua' v-if='x == "Lua"' :alt='"Kelas " + x'>
+				<img :src='Sublime' v-if='x == "Sublime"' :alt='"Kelas " + x'>
 				
 				<p>Kelas {{x}}</p>
 			</a>
