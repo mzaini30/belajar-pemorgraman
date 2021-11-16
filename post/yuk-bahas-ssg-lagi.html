@@ -101,6 +101,25 @@
 	<span class="token property">&quot;build&quot;</span><span class="token operator">:</span> <span class="token string">&quot;ssg&quot;</span>
 <span class="token punctuation">}</span><span class="token punctuation">,</span>
 </code></pre>
+<h2>Snippets</h2>
+<p>Buka setting Emmet di text editor favoritmu, lalu tambahkan ini (aku pakai Sublime Text sih):</p>
+<pre class="language-diff"><code class="language-diff">{
+	&quot;telemetry&quot;: true,
+	&quot;uid&quot;: &quot;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;,
+<span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">	&quot;config&quot;: {
+</span><span class="token prefix inserted">+</span><span class="token line">		&quot;markup&quot;: {
+</span><span class="token prefix inserted">+</span><span class="token line">			&quot;snippets&quot;: {
+</span><span class="token prefix inserted">+</span><span class="token line">				&quot;attach&quot;: &quot;{@attach()}&quot;,
+</span><span class="token prefix inserted">+</span><span class="token line">				&quot;import&quot;: &quot;{@import()}&quot;,
+</span><span class="token prefix inserted">+</span><span class="token line">				&quot;layout&quot;: &quot;{@layout()\n\n@section()\n\t\n@endsection}&quot;,
+</span><span class="token prefix inserted">+</span><span class="token line">				&quot;section&quot;: &quot;{@section()\n\t\n@endsection}&quot;,
+</span><span class="token prefix inserted">+</span><span class="token line">				&quot;component&quot;: &quot;{@component()\n\t@slot()\n\t\t\n\t@endslot\n@endcomponent}&quot;,
+</span><span class="token prefix inserted">+</span><span class="token line">				&quot;slot&quot;: &quot;{@slot()\n\t\n@endslot}&quot;
+</span><span class="token prefix inserted">+</span><span class="token line">			}
+</span><span class="token prefix inserted">+</span><span class="token line">		}
+</span><span class="token prefix inserted">+</span><span class="token line">	}
+</span></span>}
+</code></pre>
 <h2>Tools Ini Cocok untuk Apa?</h2>
 <p>Cocok buat project yang nggak perlu tools frontend seperti Vue, React, atau Svelte.</p><!--]--><!--]--><p data-v-74abf830><strong data-v-74abf830>Yuk dukung penulis blog Belajar Pemrograman <em data-v-74abf830>secara finansial</em> dengan mengklik: <a href="https://saweria.co/mzaini30" data-v-74abf830>saweria.co/mzaini30</a></strong> (metode pembayaran bisa menggunakan transfer bank, GoPay, OVO, DANA, dan LinkAja).</p></div><a class="edit" href="https://github.com/mzaini30/belajar-pemrograman/blob/master/src/pages/post/yuk-bahas-ssg-lagi.mdx" data-v-74abf830>Edit this page</a><ile-root id="ile-2" data-v-74abf830></ile-root><!--[--><ile-root id="ile-3"><div class="komentar svelte-1g1evew"><p class="judul svelte-1g1evew">Yuk Berkomentar...</p>
 
