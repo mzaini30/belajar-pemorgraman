@@ -46,7 +46,7 @@
     ]
   },
   "\u0000virtual:index_ile-2": {
-    "file": "assets/_virtual_index_ile-2.79c8a922.js",
+    "file": "assets/_virtual_index_ile-2.154fafa8.js",
     "src": "\u0000virtual:index_ile-2",
     "isEntry": true,
     "imports": [
@@ -223,6 +223,17 @@
   "\u0000virtual:post_mengatasi-masalah-repository-does-not-have-release_ile-3": {
     "file": "assets/_virtual_post_mengatasi-masalah-repository-does-not-have-release_ile-3.99aa871b.js",
     "src": "\u0000virtual:post_mengatasi-masalah-repository-does-not-have-release_ile-3",
+    "isEntry": true,
+    "imports": [
+      "_iles.8105d9b2.js",
+      "src/components/Komentar.svelte",
+      "_vendor-svelte.3aad0a64.js",
+      "_api.883d5493.js"
+    ]
+  },
+  "\u0000virtual:post_mengatasi-menu-di-theme-options-nggak-bisa-diklik_ile-3": {
+    "file": "assets/_virtual_post_mengatasi-menu-di-theme-options-nggak-bisa-diklik_ile-3.180cc0f3.js",
+    "src": "\u0000virtual:post_mengatasi-menu-di-theme-options-nggak-bisa-diklik_ile-3",
     "isEntry": true,
     "imports": [
       "_iles.8105d9b2.js",
