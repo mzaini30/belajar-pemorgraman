@@ -13,6 +13,7 @@
 	import Windi from '~/icons/Windi.jpg?w=200&webp'
 	import Lua from '~/icons/Lua.png?w=200&webp'
 	import Sublime from '~/icons/Sublime.png?w=200&webp'
+	import WordPress from '~/icons/WordPress.jpg?w=200&webp'
 
 	export default definePageComponent({
 		getStaticPaths(){
@@ -69,6 +70,7 @@
 		<div class='gambar' v-if='kategori == "Windi"' :style='"background-image: url(" + Windi + ")"'></div>
 		<div class='gambar' v-if='kategori == "Lua"' :style='"background-image: url(" + Lua + ")"'></div>
 		<div class='gambar' v-if='kategori == "Sublime"' :style='"background-image: url(" + Sublime + ")"'></div>
+		<div class='gambar' v-if='kategori == "WordPress"' :style='"background-image: url(" + WordPress + ")"'></div>
 
 		<div class='setelah-gambar'>
 			<h1>{{kategori}}</h1>
