@@ -1,0 +1,59 @@
+---
+kategori: JavaScript
+judul: Melakukan Testing Behavior Web dengan Selenia
+layout: post
+tanggal: 2021-11-25
+---
+
+Aku bingung eh mau kasih judul apa. Hehehehe... Tapi pada tau kan sama yang namanya Selenium? Itu tuh, testing website yang kalau misalnya kita testing manual kan pakai klik-klik. Nah, dengan Selenium, jadi lebih simpel. Cukup jalankan scriptnya, maka otomatis jalan.
+
+Tapi, pengaturan Selenium itu ribet sih menurutku. Akhirnya, aku buat dah tools yang bernama Selenia. Supaya tinggal pakai aja gitu. Kalau tertarik dengan Selenia, bisa langsung kunjungi [package NPMnya](https://npm.im/selenia).
+
+## Coba-Coba Menggunakan Selenia
+
+Kita buat dulu satu folder untuk coba-coba. Di sini, aku nyobain di folder `testing`. Nah, setelah membuka folder itu, buka juga di text editor ya... Di sini, aku menggunakan Sublime. Nggak masalah sih kalau kamu mau pakai VS Code atau Vim. Yang penting nyamannya aja.
+
+Oh iya, buka Terminal (atau Command Prompt) juga yang sudah mengarah ke folder itu. Lupa eh tadi mau ngasih tau.
+
+Terus, kita init project npm di situ dengan perintah: `npm init -y`. Terus, kita install package yang diperlukan:
+
+```bash
+npm i selenia chromedriver@95
+```
+
+Kita buka dulu `package.json`, terus tambahkan ini:
+
+```diff
+{
+  "name": "testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
++  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chromedriver": "95",
+    "selenia": "^0.0.1"
+  }
+}
+
+```
+
+Karena aku menggunakan Google Chrome versi 95, maka yang kuinstall itu `chromedriver@95`. Jadi, menyesuaikan dengan versi Chromemu ya...
+
+Sekarang, aku buat file `index.js` yang isinya:
+
+```javascript
+import {driver} from 'selenia'
+
+(async function() {
+	await driver.get('https://belajarpemrograman.my.id')
+})()
+```
+
+Maka akan terbuka blogku...
