@@ -8,7 +8,7 @@
 			@attach(judul)
 		@endslot
 		@slot(deskripsi)
-			Belajar "@attach(judul)" di kelas @attach(kelas)
+			Belajar @attach(judul) di kelas @attach(kelas)
 		@endslot
 	@endcomponent
 	<link rel="stylesheet" href="/windi.css">
@@ -227,5 +227,8 @@
 	}
 	.khusus-postingan article ul {
 		@apply list-disc
+	}
+	.khusus-postingan article blockquote {
+		@apply mx-0
 	}
 </style>

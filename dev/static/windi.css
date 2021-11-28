@@ -629,6 +629,10 @@ pre {
 .khusus-postingan article ul {
   list-style-type: disc;
 }
+.khusus-postingan article blockquote {
+  margin-left: 0px;
+  margin-right: 0px;
+}
 .tambah-komentar :where([type='text']:focus, [type='url']:focus, textarea):focus {
   --tw-border-opacity: 1;
   border-color: rgba(59, 130, 246, var(--tw-border-opacity));
