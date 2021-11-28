@@ -1,0 +1,53 @@
+@layout(post)
+
+@section(judul)
+	Mengatasi Menu di Theme Options Nggak Bisa Diklik
+@endsection
+
+@section(kelas)
+	WordPress
+@endsection
+
+@section(isi)
+	@markdown
+		Hmmm.... aku bingung sih kasih judul postingan ini apa.
+
+		Intinya kan, terkadang ketika kita membeli tema, itu udah tersedia yang namanya Theme Options. Seperti ini:
+
+		![Theme Options di WordPress](https://i.ibb.co/QDgqts6/theme-options-di-wordpress.png)
+
+		Nah, ada tombol-tombol di situ, yaitu General, Site Layout, Colors, Header, Title Bars, Sidebars, Footers, Typography, Buttons, dll. 
+
+		Ternyata, di tema yang ini, itu tombol-tombolnya nggak bisa diklik. Lah, kok bisa? Aku buka deh Console dengan menekan kombinasi tombol `Ctrl` `Shift` `i`. Terus, muncul dah errornya:
+
+		![Hasil error jQuery](https://i.ibb.co/b6q2YZT/Cuplikan-Layar-2021-11-19-08-28-45.png)
+
+		Ternyata errornya di jQuery yaitu di method `.live()`.
+
+		Kenapa kok error?
+
+		Kalau di [StackOverflow](https://stackoverflow.com/questions/14354040/jquery-1-9-live-is-not-a-function) disebutkan bahwa:
+
+		> jQuery `.live()` has been removed in version 1.9 onwards.
+
+		Jadi, cara memperbaikinya adalah mengubah `.live` menjadi `.on`.
+
+		Nah, caranya adalah kita buka Sublime Text Editor.
+
+		Lalu, cari teks yang error itu (`this.$btnDelGroup.live`) dengan cara klik kanan folder tema di Sublime, lalu pilih Find in Files. Terus, ketikkan teks yang error itu:
+
+		![Mencari kode yang error](https://i.ibb.co/QXyFQp4/mencari-kode-yang-error.png)
+
+		Terus, pencet Enter.
+
+		Maka, ketemu dah tuh lokasinya:
+
+		![Lokasi file yang error](https://i.ibb.co/rmLTN0g/file-yang-error.png)
+
+		Nah, tinggal didouble klik, terus ubah `.live` menjadi `.on`.
+
+		Masalah selesai...
+
+		_Eh, jangan lupa upload ke hostingan ya, folder tema yang udah diedit tadi..._
+	@endmarkdown
+@endsection

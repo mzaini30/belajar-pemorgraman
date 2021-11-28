@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	@component(meta)
+		@slot(judul)
+			Belajar Pemrograman
+		@endslot
+		@slot(deskripsi)
+			Mari kita belajar pemrograman
+		@endslot
+	@endcomponent
+	<link rel="stylesheet" href="/windi.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+	<script src="/petite-vue.iife.js"></script>
+	@import(adsense)
+</head>
+<body>
+	<section class="wadah-post index">
+		<section class="isi-post">
+			<header><h1>Belajar Pemrograman</h1></header>
+
+			<nav class="terbaru">
+				<section class="tulisan-terbaru">Terbaru</section> 
+				<section class="link-terbaru">
+					<a :href="'/post/' + data.slug + '.html'" v-cloak>{{data.judul}}</a>
+				</section>
+				<script type="module">
+					import data from '/data/post.js'
+
+					PetiteVue.createApp({
+						data: data.reverse()[0]
+					}).mount('.link-terbaru a')
+				</script>
+			</nav>
+
+			<section class="tengah">
+
+				<nav class="kategorisasi" v-cloak v-for='x in kategorisasiData'>
+					<h2>Kelas {{x.kelas}}</h2>
+					<ol>
+						<li v-for='y in acak(x.postingan).slice(0, 3)'><a :href="'/post/' + y.slug + '.html'">{{y.judul}}</a></li>
+					</ol>
+				</nav>
+
+				<script type='module'>
+					import data from '/data/post.js'
+					import acak from '/acak.js'
+
+					PetiteVue.createApp({
+						data,
+						acak(x){
+							return acak(x)
+						},
+						get kategorisasiData(){
+							let semuaKelas = []
+							for (let x of this.data){
+								if (!semuaKelas.includes(x.kelas)) {
+									semuaKelas = [...semuaKelas, x.kelas]
+								}
+							}
+							semuaKelas.sort()
+
+							let kategorisasi = []
+							for (let x of semuaKelas){
+								kategorisasi = [...kategorisasi, {
+									kelas: x,
+									postingan: []
+								}]
+							}
+
+							for (let x of this.data){
+								for (let y of kategorisasi){
+									if (x.kelas == y.kelas) {
+										y.postingan = [...y.postingan, {
+											judul: x.judul,
+											slug: x.slug
+										}]
+									}
+								}
+							}
+							return kategorisasi
+						}
+					}).mount('.kategorisasi')
+				</script>
+
+			</section>
+
+			@import(footer)
+
+		</section>
+	</section>
+</body>
+</html>
+
+<style lang="windi">
+	.terbaru {
+		@apply !p-0 mb-5 flex text-sm
+	}
+	.tulisan-terbaru, .link-terbaru {
+		@apply p-3
+	}
+	.tulisan-terbaru {
+		@apply bg-blue-500 text-white
+	}
+	.link-terbaru a {
+		@apply hover:underline
+	}
+
+	.index {
+		@apply <sm:!p-3;
+	}
+	.index .kategorisasi {
+		@apply <sm:col-span-4;
+	}
+</style>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	@component(meta)
+		@slot(judul)
+			@attach(judul)
+		@endslot
+		@slot(deskripsi)
+			Belajar "@attach(judul)" di kelas @attach(kelas)
+		@endslot
+	@endcomponent
+	<link rel="stylesheet" href="/windi.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+	<script src="/petite-vue.iife.js"></script>
+	@import(adsense)
+</head>
+<body>
+	<section class="wadah-post khusus-postingan">
+		<section class="isi-post">
+			<header>
+				<a href="/">Belajar Pemrograman</a>
+			</header>
+
+			<section class="tengah">
+
+				<section class="col-span-3 isi-postingan">
+
+					<article>
+						<h1>@attach(judul)</h1>
+						@attach(isi)
+					</article>
+
+					@import(komentar)
+				</section>
+				
+				<section class="menu-postingan">
+					<div class="uppercase hidden"></div>
+					<nav v-cloak>
+						<h2>Kelas @attach(kelas)</h2>
+						<ol>
+							<li v-for='x in post'>
+								<a :href="'/post/' + x.slug + '.html'" :class='x.slug == lokasiSekarang ? "uppercase" : ""'>{{x.judul}}</a>
+							</li>
+						</ol>
+					</nav>
+
+					<script type="module">
+						import post from '/data/post.js'
+
+						PetiteVue.createApp({
+							post: post.filter(x => x.kelas == `@attach(kelas)`.trim()).sort((a, b) => (a.judul > b.judul) ? 1 : -1),
+							lokasiSekarang: location.pathname.replace('/post/', '').replace('.html', '')
+						}).mount('.wadah-post nav')
+					</script>
+				</section>
+			</section>
+
+			@import(footer)
+
+		</section>
+	</section>
+
+	<section class="khusus-mobile" v-cloak>
+		<section class="menu-melayang" @click='tampilMenu = true'>
+			@import(menu)
+		</section>
+
+		<section class="menunya-mobile" v-if='tampilMenu'>
+			<section class="isi">
+				<h2>Kelas @attach(kelas)</h2>
+				<ol>
+					<li v-for='x in post'>
+						<a :href="'/post/' + x.slug + '.html'" :class='x.slug == lokasiSekarang ? "uppercase" : ""'>{{x.judul}}</a>
+					</li>
+				</ol>
+			</section>
+		</section>
+
+		<section class="tutup" v-if='tampilMenu' @click='tampilMenu = false'>
+			@import(x)
+		</section>
+	</section>
+
+	<script type="module">
+		import post from '/data/post.js'
+
+		PetiteVue.createApp({
+			post: post.filter(x => x.kelas == `@attach(kelas)`.trim()).sort((a, b) => (a.judul > b.judul) ? 1 : -1),
+			lokasiSekarang: location.pathname.replace('/post/', '').replace('.html', ''),
+			tampilMenu: false
+		}).mount('.khusus-mobile')
+	</script>
+</body>
+</html>
+
+<style lang="windi">
+	.wadah-post {
+		@apply p-20 px-[10%] bg-blue-300
+	}	
+	.wadah-post :where(header, article, nav) {
+		@apply bg-white p-5
+	}
+	.wadah-post header {
+		@apply text-5xl text-center mb-5 py-10;
+		font-family: 'Sacramento', cursive;
+	}
+
+	.wadah-post :not(pre) > code {
+		@apply bg-yellow-200
+	}
+
+	.wadah-post blockquote {
+		@apply p-4 border border-gray-500 shadow rounded
+	}
+
+	.wadah-post article :where(h1, h2, h3, h4, h5) {
+		@apply font-bold
+	}
+	.wadah-post article img {
+		@apply mx-auto block
+	}
+	.wadah-post article h1 {
+		@apply text-4xl
+	}
+	.wadah-post article h2 {
+		@apply text-3xl
+	}
+	.wadah-post article h3 {
+		@apply text-2xl
+	}
+	.wadah-post article h4 {
+		@apply text-xl
+	}
+	.wadah-post article h5 {
+		@apply text-lg
+	}
+	
+	.wadah-post .tengah {
+		@apply grid grid-cols-4 gap-5
+	}
+	.wadah-post article {
+		@apply col-span-3
+	}
+	.wadah-post article * {
+		@apply mb-5 last:mb-0;
+	}
+	.wadah-post article pre {
+		@apply p-5
+	}
+	.wadah-post article a {
+		@apply underline
+	}
+
+	.wadah-post nav h2 {
+		@apply pb-5 text-3xl text-center pt-3;
+		font-family: 'Sacramento', cursive;
+	}
+	.wadah-post nav li {
+		@apply pb-3 last:pb-0 text-sm hover:underline;
+	}
+
+	[v-cloak] {
+		@apply hidden
+	}
+
+	.wadah-post footer {
+		@apply mt-5 bg-white p-5 text-center text-sm
+	}
+	.wadah-post footer a {
+		@apply underline
+	}
+
+	.gist .gist-meta a,
+	.gist .gist-data {
+		@apply !mb-0
+	}
+
+	.khusus-postingan {
+		@apply <sm:!p-3;
+	}
+	.menu-postingan {
+		@apply <sm:hidden;
+	}
+	.isi-postingan {
+		@apply <sm:col-span-4;
+	}
+
+	.khusus-mobile {
+		@apply sm:hidden;
+	}
+	.menu-melayang {
+		@apply bottom-0 left-0 p-2 fixed text-blue-500 cursor-pointer
+	}
+	.menunya-mobile {
+		@apply min-h-screen w-full bg-black/50 top-0 left-0 fixed
+	}
+	.menunya-mobile .isi {
+		@apply bg-white w-[70%] p-3 h-screen overflow-auto
+	}
+	.menunya-mobile .isi h2 {
+		font-family: 'Sacramento', cursive;
+		@apply text-2xl
+	}
+	.menunya-mobile .isi li {
+		@apply text-sm pt-3
+	}
+	.tutup {
+		@apply fixed top-0 right-0 p-3 text-white cursor-pointer
+	}
+
+	* {
+		@apply break-words
+	}
+	pre {
+		@apply overflow-auto
+	}
+
+	.khusus-postingan article :where(ol, ul) {
+		@apply ml-5
+	}
+	.khusus-postingan article ol {
+		@apply list-decimal
+	}
+	.khusus-postingan article ul {
+		@apply list-disc
+	}
+</style>

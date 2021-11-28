@@ -1,0 +1,24 @@
+@layout(post)
+
+@section(judul)
+	Jelajah
+@endsection
+
+@section(kelas)
+	JavaScript
+@endsection
+
+@section(isi)
+	<p>List semua artikel di blog ini:</p>
+	<ol class="semua-artikel" v-cloak>
+		<li v-for='x in data.sort((a, b) => (a.judul > b.judul) ? 1 : -1)'><a :href="'/post/' + x.slug + '.html'">{{x.judul}}</a></li>
+	</ol>
+
+	<script type="module">
+		import data from '/data/post.js'
+
+		PetiteVue.createApp({
+			data
+		}).mount('.semua-artikel')
+	</script>
+@endsection
