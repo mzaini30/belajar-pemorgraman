@@ -31,4 +31,5 @@ export default [
 	{judul: 'Yuk, Kita Bahas Static Site Generator yang Baru Lagi...', slug: 'yuk-bahas-ssg-lagi', kelas: 'JavaScript'},
 	{judul: 'Yuk Ngoding Pakai HP', slug: 'yuk-ngoding-pakai-hp', kelas: 'Termux'},
 	{judul: 'Dialog di JavaScript', slug: 'dialog-di-javascript', kelas: 'JavaScript'},
+	{judul: 'Mengenal Mini SSG Zen', slug: 'mengenal-mini-ssg-zen', kelas: 'Mini SSG Zen'},
 ]
