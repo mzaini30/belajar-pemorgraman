@@ -247,5 +247,75 @@
     Di situ ada dua `alert` yang berada di dalam dua bagian if. Bagian yang pertama itu untuk menunjukkan `truthy` dan bagian yang kedua itu untuk menunjukkan `falsy`. Jadi, kalau di JavaScript itu terbiasa dengan istilah truthy dan falsy bukan true dan false. Kenapa? Karena JavaScript itu unik. Yang namanya true nggak selama truthy dan yang namanya false nggak selamanya falsy. Nanti deh kita bahas juga.
 
     Intinya ya bagian pertama itu adalah alert yang muncul ketika kita jawab Oke dan alert yang kedua itu bakalan muncul jika kita jawab Batal.
+
+    ### Membuat Login User dan Password
+
+    Sekarang kita akan buat form login dengan username dan password. Jadi, logikanya, pertama, user akan diminta memasukkan username. Jika benar, maka lanjut memasukkan password. Jika benar, maka akan ada ucapan selamat bahwa username dan password benar. 
+
+    Cukup simpel kan? Yuk kita coba buat kodenya:
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+    </head>
+    <body>
+      
+      <script>
+        const username = prompt('Masukkan username')
+
+        if (username == 'admin') {
+          const password = prompt('Masukkan password')
+
+          if (password == 'login') {
+            alert('Selamat datang di halaman admin')
+          } else {
+            alert('Password salah')
+          }
+        } else {
+          alert('Username salah')
+        }
+      </script>
+
+    </body>
+    </html>
+    ```    
+
+    Simpel banget kan kodenya? Yuk sekarang kita ulik kodenya.
+
+    Pertama, dimulai dengan menanyakan username:
+
+    ```javascript
+    const username = prompt('Masukkan username')
+    ```
+
+    Lalu, akan ada conditional jika username adalah `admin`, maka benar. Dan jika bukan `admin`, maka salah:
+
+    ```javascript
+    if (username == 'admin') {
+      // jika benar
+    } else {
+      alert('Username salah')
+    }
+    ```
+
+    Kemudian, jika usernamenya benar, lanjut ke pertanyaan berikutnya, yaitu passwordnya apa:
+
+    ```javascript
+    const password = prompt('Masukkan password')
+    ```
+
+    Jika passwordnya sesuai, maka muncul popup selamat datang. Jika salah, dikasih tau kalau passwordnya salah:
+
+    ```javascript
+    if (password == 'login') {
+      alert('Selamat datang di halaman admin')
+    } else {
+      alert('Password salah')
+    }
+    ```
   @endmarkdown
 @endsection
