@@ -30,4 +30,5 @@ export default [
 	{judul: 'Windi Gradient', slug: 'windi-gradient', kelas: 'Windi'},
 	{judul: 'Yuk, Kita Bahas Static Site Generator yang Baru Lagi...', slug: 'yuk-bahas-ssg-lagi', kelas: 'JavaScript'},
 	{judul: 'Yuk Ngoding Pakai HP', slug: 'yuk-ngoding-pakai-hp', kelas: 'Termux'},
+	{judul: 'Dialog di JavaScript', slug: 'dialog-di-javascript', kelas: 'JavaScript'},
 ]

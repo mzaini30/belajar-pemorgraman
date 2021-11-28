@@ -1,30 +1,30 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Latihan Node JS dengan ESM</title><meta name="description" content='
-			Belajar "
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Latihan Node JS dengan ESM</title><meta name="description" content="
+			Belajar 
 	Latihan Node JS dengan ESM
-" di kelas 
+ di kelas 
 	JavaScript
 
-		'><meta property="og:locale" content="id_ID"><meta property="og:type" content="article"><meta property="og:title" content="
+		"><meta property="og:locale" content="id_ID"><meta property="og:type" content="article"><meta property="og:title" content="
 			
 	Latihan Node JS dengan ESM
 
-		"><meta property="og:description" content='
-			Belajar "
+		"><meta property="og:description" content="
+			Belajar 
 	Latihan Node JS dengan ESM
-" di kelas 
+ di kelas 
 	JavaScript
 
-		'><meta property="og:image" content="https://belajarpemrograman.my.id/gambar/cover.jpg"><meta property="og:image:width" content="800"><meta property="og:image:height" content="450"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:title" content="
+		"><meta property="og:image" content="https://belajarpemrograman.my.id/gambar/cover.jpg"><meta property="og:image:width" content="800"><meta property="og:image:height" content="450"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:title" content="
 			
 	Latihan Node JS dengan ESM
 
-		"><meta property="twitter:description" content='
-			Belajar "
+		"><meta property="twitter:description" content="
+			Belajar 
 	Latihan Node JS dengan ESM
-" di kelas 
+ di kelas 
 	JavaScript
 
-		'><meta property="twitter:image" content="https://belajarpemrograman.my.id/gambar/cover.jpg"><meta property="og:site_name" content="Belajar Pemrograman"><link rel="icon" href="/gambar/icon.jpg"><link rel="stylesheet" href="/windi.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet"><script src="/petite-vue.iife.js"></script><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2408628281705149" crossorigin="anonymous" async></script></head><body><section class="wadah-post khusus-postingan"><section class="isi-post"><header><a href="/">Belajar Pemrograman</a></header><section class="tengah"><section class="col-span-3 isi-postingan"><article><h1>Latihan Node JS dengan ESM</h1><p>Node JS adalah runtime JavaScript di luar lingkungan browser. Kalau biasanya yang kita tau itu JavaScript hanya untuk browser, kalau dengan Node JS, kita bisa menggunakannya di luar lingkungan browser seperti menggunakannya dengan Terminal.</p><p>Untuk menggunakan Node JS, tentu saja kamu harus punya Node JS terlebih dahulu. Kalau kamu menggunakan Linux, perintahnya adalah:</p><pre class="shiki" style="background-color: #2e3440ff"><code><span class="line"><span style="color: #D8DEE9FF">sudo apt install nodejs</span></span>
+		"><meta property="twitter:image" content="https://belajarpemrograman.my.id/gambar/cover.jpg"><meta property="og:site_name" content="Belajar Pemrograman"><link rel="icon" href="/gambar/icon.jpg"><link rel="stylesheet" href="/windi.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet"><script src="/petite-vue.iife.js"></script><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2408628281705149" crossorigin="anonymous" async></script></head><body><section class="wadah-post khusus-postingan"><section class="isi-post"><header><a href="/">Belajar Pemrograman</a></header><section class="tengah"><section class="col-span-3 isi-postingan"><article><h1>Latihan Node JS dengan ESM</h1><p>Node JS adalah runtime JavaScript di luar lingkungan browser. Kalau biasanya yang kita tau itu JavaScript hanya untuk browser, kalau dengan Node JS, kita bisa menggunakannya di luar lingkungan browser seperti menggunakannya dengan Terminal.</p><p>Untuk menggunakan Node JS, tentu saja kamu harus punya Node JS terlebih dahulu. Kalau kamu menggunakan Linux, perintahnya adalah:</p><pre class="shiki" style="background-color: #2e3440ff"><code><span class="line"><span style="color: #D8DEE9FF">sudo apt install nodejs</span></span>
 <span class="line"></span></code></pre><p>Kalau kamu menggunakan Termux, perintahnya adalah:</p><pre class="shiki" style="background-color: #2e3440ff"><code><span class="line"><span style="color: #D8DEE9FF">pkg install nodejs</span></span>
 <span class="line"></span></code></pre><p>Kalau menggunakan Windows, digoogling aja: Node JS download Windows.</p><p>Lalu, dianjurkan menggunakan pnpm. Kenapa menggunakan pnpm? Karena, kalau menggunakan pnpm, packages yang sudah kita download, nggak didownloadnya lagi. Sehingga bisa mempercepat proses instalasi packages. Install dulu pnpm:</p><pre class="shiki" style="background-color: #2e3440ff"><code><span class="line"><span style="color: #D8DEE9FF">npm i -g pnpm</span></span>
 <span class="line"></span></code></pre><p>Sekarang kita mulai latihan Node JS. Pertama, buat dulu sebuah folder untuk kita meletakkan berbagai kode JavaScript. Di sini, aku coba menggunakan folder <code>latihan/</code>:</p><pre class="shiki" style="background-color: #2e3440ff"><code><span class="line"><span style="color: #D8DEE9FF">mkdir latihan</span></span>
