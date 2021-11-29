@@ -1,8 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+@layout(default)
+
+@section(head)
 	@component(meta)
 		@slot(judul)
 			Belajar Pemrograman
@@ -11,14 +9,9 @@
 			Mari kita belajar pemrograman
 		@endslot
 	@endcomponent
-	<link rel="stylesheet" href="/windi.css">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
-	<script src="/petite-vue.iife.js"></script>
-	@import(adsense)
-</head>
-<body>
+@endsection
+
+@section(body)
 	<section class="wadah-post index">
 		<section class="isi-post">
 			<header><h1>Belajar Pemrograman</h1></header>
@@ -93,27 +86,26 @@
 
 		</section>
 	</section>
-</body>
-</html>
 
-<style lang="windi">
-	.terbaru {
-		@apply !p-0 mb-5 flex text-sm
-	}
-	.tulisan-terbaru, .link-terbaru {
-		@apply p-3
-	}
-	.tulisan-terbaru {
-		@apply bg-blue-500 text-white
-	}
-	.link-terbaru a {
-		@apply hover:underline
-	}
+	<style lang="windi">
+		.terbaru {
+			@apply !p-0 mb-5 flex text-sm
+		}
+		.tulisan-terbaru, .link-terbaru {
+			@apply p-3
+		}
+		.tulisan-terbaru {
+			@apply bg-blue-500 text-white
+		}
+		.link-terbaru a {
+			@apply hover:underline
+		}
 
-	.index {
-		@apply <sm:!p-3;
-	}
-	.index .kategorisasi {
-		@apply <sm:col-span-4;
-	}
-</style>
+		.index {
+			@apply <sm:!p-3;
+		}
+		.index .kategorisasi {
+			@apply <sm:col-span-4;
+		}
+	</style>
+@endsection
