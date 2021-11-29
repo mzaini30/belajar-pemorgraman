@@ -32,4 +32,5 @@ export default [
 	{judul: 'Yuk Ngoding Pakai HP', slug: 'yuk-ngoding-pakai-hp', kelas: 'Termux'},
 	{judul: 'Dialog di JavaScript', slug: 'dialog-di-javascript', kelas: 'JavaScript'},
 	{judul: 'Mengenal Mini SSG Zen', slug: 'mengenal-mini-ssg-zen', kelas: 'Mini SSG Zen'},
+	{judul: 'Berbagai Modul JavaScript yang Bermanfaat', slug: 'berbagai-modul-javascript-yang-bermanfaat', kelas: 'JavaScript'},
 ]

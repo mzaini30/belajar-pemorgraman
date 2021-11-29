@@ -1,10 +1,10 @@
 lockfileVersion: 5.3
 
 specifiers:
-  mini-ssg-zen: ^0.4.5
+  mini-ssg-zen: ^0.4.6
 
 dependencies:
-  mini-ssg-zen: 0.4.5
+  mini-ssg-zen: 0.4.6
 
 packages:
 
@@ -904,8 +904,8 @@ packages:
     hasBin: true
     dev: false
 
-  /mini-ssg-zen/0.4.5:
-    resolution: {integrity: sha512-J47g+DC1G8bUZzUH8sgBlzJkI8djT+P1RwmSyFuHaOtYK0dZS5Biqeq7JwEX3MZKkSoeEpDkYPKqHSTwx8oA6A==}
+  /mini-ssg-zen/0.4.6:
+    resolution: {integrity: sha512-ErTr8V+hh/ODViSEb75yRxUeK1wh+s4F5KPVbjvvAA6ZjkTB9QyTEgheAPeZ4cUZK7lTzBamE4oZnIicjNEQHQ==}
     hasBin: true
     dependencies:
       chokidar: 3.5.2

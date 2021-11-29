@@ -22,9 +22,7 @@
 
 <script type="module">
 	import {sql, komentar} from '/data/api.js'
-	const headers = {
-		'Content-Type': 'application/x-www-form-urlencoded'
-	}
+	import excalibur from '/excalibur.js'
 
 	PetiteVue.createApp({
 		nama: '',
@@ -39,31 +37,23 @@
 			}
 		},
 		async ambilData(){
-			const body = new FormData
-			body.append('id', komentar)
-			body.append('kunci', 'ambil')
-			body.append('slug', this.slug)
-
-			let data = await fetch(sql, {
-				method: 'post',
-				body
-			}, {headers})
+			let data = await excalibur(sql, {
+				id: komentar,
+				kunci: 'ambil',
+				slug: this.slug
+			})
 			data = await data.json()
 			this.semuaKomentar = data
 		},
 		async tambah(){
-			const body = new FormData
-			body.append('id', komentar)
-			body.append('kunci', 'kirim')
-			body.append('slug', this.slug)
-			body.append('nama', this.nama)
-			body.append('link', this.link)
-			body.append('komentar', this.komentar)
-
-			const proses = await fetch(sql, {
-				method: 'post',
-				body
-			}, {headers})
+			const proses = await excalibur(sql, {
+				id: komentar,
+				kunci: 'kirim',
+				slug: this.slug,
+				nama: this.nama,
+				link: this.link,
+				komentar: this.komentar
+			})
 			if (proses) {
 				localStorage.nama = this.nama
 				localStorage.link = this.link

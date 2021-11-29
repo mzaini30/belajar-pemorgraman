@@ -19,6 +19,6 @@
   },
   "homepage": "https://github.com/mzaini30/ssg-belajar-pemrograman#readme",
   "dependencies": {
-    "mini-ssg-zen": "^0.4.5"
+    "mini-ssg-zen": "^0.4.6"
   }
 }
