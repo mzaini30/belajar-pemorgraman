@@ -32,7 +32,7 @@
 				
 				<section class="menu-postingan">
 					<div class="uppercase hidden"></div>
-					<nav v-cloak>
+					<nav class="list-kelas" v-cloak>
 						<h2>Kelas @attach(kelas)</h2>
 						<ol>
 							<li v-for='x in post'>
@@ -47,8 +47,13 @@
 						PetiteVue.createApp({
 							post: post.filter(x => x.kelas == `@attach(kelas)`.trim()).sort((a, b) => (a.judul > b.judul) ? 1 : -1),
 							lokasiSekarang: location.pathname.replace('/post/', '').replace('.html', '')
-						}).mount('.wadah-post nav')
+						}).mount('.wadah-post .list-kelas')
 					</script>
+
+					<nav class="gadget">
+						@import(gadget)
+					</nav>
+
 				</section>
 			</section>
 
@@ -70,6 +75,10 @@
 						<a :href="'/post/' + x.slug + '.html'" :class='x.slug == lokasiSekarang ? "uppercase" : ""'>{{x.judul}}</a>
 					</li>
 				</ol>
+
+				<nav class="gadget-mobile">
+					@import(gadget)
+				</nav>
 			</section>
 		</section>
 
@@ -92,7 +101,7 @@
 		.wadah-post {
 			@apply p-20 px-[10%] bg-blue-300
 		}	
-		.wadah-post :where(header, article, nav) {
+		.wadah-post :where(header, article, .list-kelas) {
 			@apply bg-white p-5
 		}
 		.wadah-post header {
@@ -146,11 +155,11 @@
 			@apply underline
 		}
 
-		.wadah-post nav h2 {
+		.wadah-post .list-kelas h2 {
 			@apply pb-5 text-3xl text-center pt-3;
 			font-family: 'Sacramento', cursive;
 		}
-		.wadah-post nav li {
+		.wadah-post .list-kelas li {
 			@apply pb-3 last:pb-0 text-sm hover:underline;
 		}
 
@@ -225,5 +234,9 @@
 
 		pre {-moz-tab-size: 2;} /* Firefox */
 		pre {tab-size: 2;}
+
+		:where(.gadget, .gadget-mobile) div {
+			@apply mt-5
+		}
 	</style>
 @endsection
