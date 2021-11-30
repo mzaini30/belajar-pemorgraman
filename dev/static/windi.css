@@ -439,7 +439,7 @@ ul {
   padding-left: 10%;
   padding-right: 10%;
 }
-.wadah-post :where(header, article, .list-kelas) {
+.wadah-post :where(header, article, .list-kelas, .kategorisasi) {
   --tw-bg-opacity: 1;
   background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
   padding: 1.25rem;
@@ -520,7 +520,7 @@ ul {
   -webkit-text-decoration-line: underline;
   text-decoration-line: underline;
 }
-.wadah-post .list-kelas h2 {
+.wadah-post :where(.list-kelas, .kategorisasi) h2 {
   font-size: 1.875rem;
   line-height: 2.25rem;
   padding-bottom: 1.25rem;
@@ -528,15 +528,15 @@ ul {
   text-align: center;
   font-family: 'Sacramento', cursive;
 }
-.wadah-post .list-kelas li {
+.wadah-post :where(.list-kelas, .kategorisasi) li {
   font-size: 0.875rem;
   line-height: 1.25rem;
   padding-bottom: 0.75rem;
 }
-.wadah-post .list-kelas li:last-child {
+.wadah-post :where(.list-kelas:last-child, .kategorisasi) li:last-child {
   padding-bottom: 0px;
 }
-.wadah-post .list-kelas li:hover {
+.wadah-post :where(.list-kelas:hover, .kategorisasi) li:hover {
   -webkit-text-decoration-line: underline;
   text-decoration-line: underline;
 }
