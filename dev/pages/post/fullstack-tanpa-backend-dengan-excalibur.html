@@ -78,5 +78,44 @@
 		```
 
 		Itu kalau lokasinya di `D:\latihan\latihan-excalibur`. Jadi, sesuaikan aja ya...
+
+		Kemudian, buka `D:\latihan\latihan-excalibur` di teks editor kesayanganmu. Kalau aku, menggunakan Sublime, maka aku ketikkan perintah: `subl . -a`. Kalau kamu menggunakan VS Code, perintah untuk membukanya adalah `code .`. Kalau belum punya teks editor, download dulu ya.
+
+		Kemudian, kita init project Node JS dengan perintah: `npm init -y`. Oh iya, kalau belum punya Node JS, install dulu aja ya...
+
+		Maka, akan terbentuk file `package.json` yang isinya:
+
+		```json
+		{
+			"name": "latihan-excalibur",
+			"version": "1.0.0",
+			"description": "",
+			"main": "index.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"keywords": [],
+			"author": "",
+			"license": "ISC"
+		}
+		```
+
+		Kita ubah menjadi seperti ini:
+
+		```diff
+		{
+			"name": "latihan-excalibur",
+			"version": "1.0.0",
+			"description": "",
+			"main": "index.js",
+			"scripts": {
+		+		"dev": "ssg --watch",
+		+		"build": "ssg"
+			},
+			"keywords": [],
+			"author": "",
+			"license": "ISC"
+		}
+		```
 	@endmarkdown
 @endsection
