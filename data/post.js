@@ -34,4 +34,5 @@ export default [
 	{judul: 'Mengenal Mini SSG Zen', slug: 'mengenal-mini-ssg-zen', kelas: 'Mini SSG Zen'},
 	{judul: 'Berbagai Modul JavaScript yang Bermanfaat', slug: 'berbagai-modul-javascript-yang-bermanfaat', kelas: 'JavaScript'},
 	{judul: 'Fullstack Tanpa Backend dengan Excalibur', slug: 'fullstack-tanpa-backend-dengan-excalibur', kelas: 'JavaScript'},
+	{judul: 'Optimasi Blog', slug: 'optimasi-blog', kelas: 'Blogspot'},
 ]

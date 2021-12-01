@@ -4,7 +4,7 @@
 			data
 		}).mount('.semua-artikel')</script></article><script>document.querySelectorAll('.shiki code .line span').forEach(x => {
 							if (x.innerText == '+' || x.innerText == '-' || x.innerText == '!') {
-								x.style.userSelect = 'none'
+								x.style.display = 'none'
 							}
 						})</script><section class="komentar" v-cloak @mounted="cekMeta(); ambilData()"><section class="tambah-komentar"><h2>Sampaikan Pendapatmu</h2><form action="" @submit.prevent="tambah"><input type="text" v-model="nama" placeholder="Nama" required> <input type="url" v-model="link" placeholder="Link Blog" required> <textarea name="" v-model="komentar" placeholder="Komentar" id="" required cols="30" rows="10"></textarea><div class="sm:hidden"></div><input type="submit" value="Kirim"></form></section><section class="komentarnya" v-for="x in semuaKomentar"><h2><a :href="x.link" rel="nofollow">{{x.nama}}</a></h2><p>{{x.komentar}}</p></section></section><script type="module">import {sql, komentar} from '/data/api.js'
 	import excalibur from '/excalibur.js'
