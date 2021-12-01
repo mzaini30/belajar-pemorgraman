@@ -27,6 +27,14 @@
 						@attach(isi)
 					</article>
 
+					<script>
+						document.querySelectorAll('.shiki code .line span').forEach(x => {
+							if (x.innerText == '+' || x.innerText == '-' || x.innerText == '!') {
+								x.style.userSelect = 'none'
+							}
+						})
+					</script>
+
 					@import(komentar)
 				</section>
 				

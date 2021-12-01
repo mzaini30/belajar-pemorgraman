@@ -111,14 +111,7 @@ h2 {
   font-size: inherit;
   font-weight: inherit;
 }
-img {
-  border-style: solid;
-  display: block;
-  vertical-align: middle;
-  max-width: 100%;
-  height: auto;
-}
-input, textarea {
+input {
   font-family: inherit;
   font-size: 100%;
   line-height: 1.15;
@@ -147,6 +140,22 @@ input::-ms-input-placeholder {
   opacity: 1;
   color: #9ca3af;
 }
+img {
+  border-style: solid;
+  display: block;
+  vertical-align: middle;
+  max-width: 100%;
+  height: auto;
+}
+input, textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+  padding: 0;
+  line-height: inherit;
+  color: inherit;
+}
 ol {
   list-style: none;
   margin: 0;
@@ -164,6 +173,11 @@ strong {
 svg {
   display: block;
   vertical-align: middle;
+}
+table {
+  text-indent: 0;
+  border-color: inherit;
+  border-collapse: collapse;
 }
 textarea {
   resize: vertical;
@@ -427,6 +441,47 @@ ul {
     -ms-grid-column-span: span 4 / span 4;
     grid-column: span 4 / span 4;
   }
+}
+main {
+  padding: 1.25rem;
+  padding-left: 30%;
+  padding-right: 30%;
+}
+h1 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  padding-bottom: 1.25rem;
+  text-align: center;
+}
+.isi {
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+label, [type='text'] {
+  display: block;
+}
+[type='text'] {
+  --tw-border-opacity: 1;
+  border-color: rgba(209, 213, 219, var(--tw-border-opacity));
+  border-width: 1px;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+[type='text']:focus {
+  --tw-border-opacity: 1;
+  border-color: rgba(107, 114, 128, var(--tw-border-opacity));
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+td, th {
+  --tw-border-opacity: 1;
+  border-color: rgba(16, 185, 129, var(--tw-border-opacity));
+  border-width: 1px;
+  padding: 0.5rem;
+  text-align: center;
 }
 .kotak {
   padding: 1.25rem;

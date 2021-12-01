@@ -109,13 +109,115 @@
 			"description": "",
 			"main": "index.js",
 			"scripts": {
-		+		"dev": "ssg --watch",
-		+		"build": "ssg"
+		!		"dev": "ssg --watch",
+		!		"build": "ssg"
 			},
 			"keywords": [],
 			"author": "",
 			"license": "ISC"
 		}
 		```
+
+		Kemudian, kita install `mini-ssg-zen` dengan perintah: `npm i mini-ssg-zen`.
+
+		Lalu, kita buat `dev/layouts/default.html` yang isinya:
+
+		```html
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Tamu Undangan</title>
+			<link rel="stylesheet" href="windi.css">
+		</head>
+		<body>
+			@attach(body)
+		</body>
+		</html>
+		```
+
+		Terus, kita buat `dev/pages/index.html` yang berisi:
+
+		```html
+		@layout(default)
+
+		@section(body)
+			<h1>Hello World</h1>
+		@endsection
+		```
+
+		Sekarang, kita kembali ke Terminal/Command Prompt dan jalankan `npm run dev`. Maka, untuk sementara, jadinya seperti ini:
+
+		![Tulisan Hello World](https://i.ibb.co/gtcsnK6/tulisan-hello-world.png)
+
+		Jadi, sekarang kita buat mockupnya dulu ya...
+
+		Jadi, sekarang ubah `dev/pages/index.html` menjadi:
+
+		```html
+		@layout(default)
+
+		@section(body)
+			<main>
+				<h1>Tamu Undangan</h1>
+
+				<section class="isi">
+
+					<form action="">
+						<label for="nama">Nama</label>
+						<input type="text" id="nama">
+						<label for="alamat">Alamat</label>
+						<input type="text" id="alamat">
+					</form>
+
+					<table>
+						<thead>
+							<tr>
+								<th>Nama</th>
+								<th>Alamat</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Zen</td>
+								<td>Samarinda</td>
+							</tr>
+							<tr>
+								<td>Zen</td>
+								<td>Samarinda</td>
+							</tr>
+						</tbody>
+					</table>
+
+				</section>
+			</main>
+
+			<style lang="windi">
+				main {
+					@apply p-5 px-[30%]
+				}
+				h1 {
+					@apply text-center text-2xl pb-5
+				}
+				.isi {
+					@apply grid grid-cols-2
+				}
+				label, [type='text'] {
+					@apply block
+				}
+				[type='text'] {
+					@apply border-gray-300 border focus:(outline-none border-gray-500) py-1 px-2
+				}
+				td, th {
+					@apply border border-green-500 p-2 text-center
+				}
+			</style>
+		@endsection
+		```
+
+		Maka, sekarang formnya menjadi:
+
+		![Formulir sederhana](https://i.ibb.co/ZLwhfm0/form-sederhana.png)
 	@endmarkdown
 @endsection
