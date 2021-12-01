@@ -159,7 +159,7 @@
 		@layout(default)
 
 		@section(body)
-			<main>
+			<main class="tamu">
 				<h1>Tamu Undangan</h1>
 
 				<section class="isi">
@@ -194,22 +194,22 @@
 			</main>
 
 			<style lang="windi">
-				main {
+				.tamu {
 					@apply p-5 px-[30%]
 				}
-				h1 {
+				.tamu h1 {
 					@apply text-center text-2xl pb-5
 				}
-				.isi {
+				.tamu .isi {
 					@apply grid grid-cols-2
 				}
-				label, [type='text'] {
+				.tamu :where(label, [type='text']) {
 					@apply block
 				}
-				[type='text'] {
+				.tamu [type='text'] {
 					@apply border-gray-300 border focus:(outline-none border-gray-500) py-1 px-2
 				}
-				td, th {
+				.tamu :where(td, th) {
 					@apply border border-green-500 p-2 text-center
 				}
 			</style>

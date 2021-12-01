@@ -442,26 +442,26 @@ ul {
     grid-column: span 4 / span 4;
   }
 }
-main {
+.tamu {
   padding: 1.25rem;
   padding-left: 30%;
   padding-right: 30%;
 }
-h1 {
+.tamu h1 {
   font-size: 1.5rem;
   line-height: 2rem;
   padding-bottom: 1.25rem;
   text-align: center;
 }
-.isi {
+.tamu .isi {
   display: -ms-grid;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
-label, [type='text'] {
+.tamu :where(label, [type='text']) {
   display: block;
 }
-[type='text'] {
+.tamu [type='text'] {
   --tw-border-opacity: 1;
   border-color: rgba(209, 213, 219, var(--tw-border-opacity));
   border-width: 1px;
@@ -470,13 +470,13 @@ label, [type='text'] {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
-[type='text']:focus {
+.tamu [type='text']:focus {
   --tw-border-opacity: 1;
   border-color: rgba(107, 114, 128, var(--tw-border-opacity));
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
-td, th {
+.tamu :where(td, th) {
   --tw-border-opacity: 1;
   border-color: rgba(16, 185, 129, var(--tw-border-opacity));
   border-width: 1px;
