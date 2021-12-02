@@ -35,4 +35,5 @@ export default [
 	{judul: 'Berbagai Modul JavaScript yang Bermanfaat', slug: 'berbagai-modul-javascript-yang-bermanfaat', kelas: 'JavaScript'},
 	{judul: 'Fullstack Tanpa Backend dengan Excalibur', slug: 'fullstack-tanpa-backend-dengan-excalibur', kelas: 'JavaScript'},
 	{judul: 'Optimasi Blog', slug: 'optimasi-blog', kelas: 'Blogspot'},
+	{judul: 'Mengatasi Berbagai Permasalahan SEO On Page', slug: 'mengatasi-berbagai-permasalahan-seo-on-page', kelas: 'Blogspot'},
 ]
