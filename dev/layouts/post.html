@@ -24,7 +24,9 @@
 
 					<article>
 						<h1>@attach(judul)</h1>
-						@attach(isi)
+						<section class="isi-artikel">
+							@attach(isi)
+						</section>
 					</article>
 
 					<script>
@@ -40,6 +42,39 @@
 				
 				<section class="menu-postingan">
 					<div class="uppercase hidden"></div>
+
+					<section class="parent-daftar-isi" v-cloak @mounted='toc'>
+						<nav class="daftar-isi" v-if='data.length > 0'>
+							<h2>Daftar Isi</h2>
+							<ol>
+								<li v-for='x in data'>
+									<a :href="x.link">
+										<span v-html='x.judul'></span>
+									</a>
+								</li>
+							</ol>
+						</nav>
+					</section>
+
+					<script>
+						function toc(){
+							let semuaToc = []
+							const toc = document.querySelectorAll('.isi-artikel :where(h2, h3, h4, h5, h6)')
+							for (let x of toc){
+								let item = x.outerHTML.replace(/(^[\S\s]*?href=")([\S\s]*?)(" aria-hidden="true"><\/a>)([\S\s]*?)(<\/h.>)/g, `{"link": "$2", "judul": "$4"}`)
+								semuaToc = [...semuaToc, JSON.parse(item)]
+							}
+							return semuaToc
+						}
+
+						PetiteVue.createApp({
+							data: [],
+							toc(){
+								this.data = toc()
+							}
+						}).mount('.parent-daftar-isi')
+					</script>
+
 					<nav class="list-kelas" v-cloak>
 						<h2>Kelas @attach(kelas)</h2>
 						<ol>
@@ -70,13 +105,24 @@
 		</section>
 	</section>
 
-	<section class="khusus-mobile" v-cloak>
+	<section class="khusus-mobile" v-cloak @mounted='toc'>
 		<section class="menu-melayang" @click='tampilMenu = true'>
 			@import(menu)
 		</section>
 
 		<section class="menunya-mobile" v-if='tampilMenu'>
 			<section class="isi">
+				<nav class="mobile-daftar-isi" v-if='daftarIsi.length > 0'>
+					<h2>Daftar Isi</h2>
+					<ol>
+						<li v-for='x in daftarIsi'>
+							<a :href="x.link" @click='tampilMenu = false'>
+								<span v-html='x.judul'></span>
+							</a>
+						</li>
+					</ol>
+				</nav>
+
 				<h2>Kelas @attach(kelas)</h2>
 				<ol>
 					<li v-for='x in post'>
@@ -100,6 +146,10 @@
 
 		PetiteVue.createApp({
 			post: post.filter(x => x.kelas == `@attach(kelas)`.trim()).sort((a, b) => (a.judul > b.judul) ? 1 : -1),
+			daftarIsi: [],
+			toc(){
+				this.daftarIsi = toc()
+			},
 			lokasiSekarang: location.pathname.replace('/post/', '').replace('.html', ''),
 			tampilMenu: false
 		}).mount('.khusus-mobile')
@@ -109,7 +159,10 @@
 		.wadah-post {
 			@apply p-20 px-[10%] bg-blue-300
 		}	
-		.wadah-post :where(header, article, .list-kelas, .kategorisasi, .terbaru) {
+		.daftar-isi {
+			@apply mb-5
+		}
+		.wadah-post :where(header, article, .list-kelas, .daftar-isi, .kategorisasi, .terbaru) {
 			@apply bg-white p-5
 		}
 		.wadah-post header {
@@ -166,11 +219,11 @@
 			@apply underline
 		}
 
-		.wadah-post :where(.list-kelas, .kategorisasi, .terbaru) h2 {
+		.wadah-post :where(.list-kelas, .daftar-isi, .kategorisasi, .terbaru) h2 {
 			@apply pb-5 text-3xl text-center pt-3;
 			font-family: 'Sacramento', cursive;
 		}
-		.wadah-post :where(.list-kelas, .kategorisasi, .terbaru) li {
+		.wadah-post :where(.list-kelas, .daftar-isi, .kategorisasi, .terbaru) li {
 			@apply pb-3 last:pb-0 text-sm hover:underline;
 		}
 
@@ -248,6 +301,10 @@
 
 		:where(.gadget, .gadget-mobile) div {
 			@apply mt-5
+		}
+
+		.mobile-daftar-isi {
+			@apply mb-5
 		}
 	</style>
 @endsection
