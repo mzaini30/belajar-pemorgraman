@@ -12,9 +12,9 @@
 	</section>
 
 	<section class="komentarnya" v-for='x in semuaKomentar'>
-		<h2>
+		<h3>
 			<a :href="x.link" rel="nofollow">{{x.nama}}</a>
-		</h2>
+		</h3>
 		<p>{{x.komentar}}</p>
 	</section>
 
@@ -81,7 +81,7 @@
 	.tambah-komentar, .komentarnya {
 		@apply bg-white p-5 mt-5
 	}
-	.komentarnya h2 {
+	.komentarnya h3 {
 		font-family: 'Sacramento', cursive;
 		@apply text-3xl
 	}

@@ -104,10 +104,13 @@ hr {
   color: inherit;
   border-top-width: 1px;
 }
-h2, p {
+h1, blockquote, p, h2 {
   margin: 0;
 }
-h2 {
+h2, h3, p {
+  margin: 0;
+}
+h2, h3 {
   font-size: inherit;
   font-weight: inherit;
 }
@@ -722,7 +725,7 @@ pre {
   margin-top: 1.25rem;
   padding: 1.25rem;
 }
-.komentarnya h2 {
+.komentarnya h3 {
   font-family: 'Sacramento', cursive;
   font-size: 1.875rem;
   line-height: 2.25rem;
