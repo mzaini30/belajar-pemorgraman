@@ -2,7 +2,7 @@
 <span class="line"><span style="color: #D8DEE9FF">sudo snap install pdftk</span></span>
 <span class="line"></span></code></pre><p>Lalu, kita tambahkan <code>/snap/bin</code> di PATH. Caranya, buka <code>~/.bashrc</code>, lalu tambahkan:</p><pre class="shiki" style="background-color: #2e3440ff"><code><span class="line"><span style="color: #81A1C1">export</span><span style="color: #D8DEE9FF"> PATH=/snap/bin/:</span><span style="color: #81A1C1">$</span><span style="color: #D8DEE9">PATH</span></span>
 <span class="line"></span></code></pre><h2><a id="menggunakan" class="anchor" href="#menggunakan" aria-hidden="true"></a>Menggunakan</h2><p>Misal, kita ingin menggabungkan <code>a.pdf</code> dengan <code>b.pdf</code> menjadi <code>c.pdf</code>, maka perintahnya adalah:</p><pre class="shiki" style="background-color: #2e3440ff"><code><span class="line"><span style="color: #D8DEE9FF">pdftk a.pdf b.pdf cat output c.pdf</span></span>
-<span class="line"></span></code></pre><blockquote><p>Yuk tingkatkan skill pemrogramanmu dengan <a href="https://www.qubisa.com/courses?price=50-200&ref=SjJSWllG">QuBisa</a></p></blockquote></section></article><script>document.querySelectorAll('.shiki code .line span').forEach(x => {
+<span class="line"></span></code></pre></section></article><script>document.querySelectorAll('.shiki code .line span').forEach(x => {
 							if (x.innerText == '+' || x.innerText == '-' || x.innerText == '!') {
 								x.style.display = 'none'
 							}
