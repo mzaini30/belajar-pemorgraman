@@ -1,14 +1,1 @@
-export default async function(server, data){
-	const body = new FormData
-	for (let n in data){
-		body.append(n, data[n])
-	}
-
-	let proses = await fetch(server, {
-		method: 'post',
-		body
-	}, {
-		'Content-Type': 'application/x-www-form-urlencoded'
-	})
-	return proses
-}
+export default async function(t,n){const o=new FormData;for(var e in n)o.append(e,n[e]);return await fetch(t,{method:"post",body:o},{"Content-Type":"application/x-www-form-urlencoded"})}
