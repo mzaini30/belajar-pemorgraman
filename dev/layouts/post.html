@@ -175,7 +175,7 @@
 		}
 
 		.wadah-post blockquote {
-			@apply italic bg-gray-200 text-sm p-3
+			@apply bg-gray-200 text-sm p-3
 		}
 
 		.wadah-post article :where(h1, h2, h3, h4, h5) {
@@ -305,6 +305,13 @@
 
 		.mobile-daftar-isi {
 			@apply mb-5
+		}
+
+		.khusus-postingan article :where(th, td) {
+			@apply px-2 py-1 border border-violet-500
+		}
+		.khusus-postingan article table {
+			@apply min-w mx-auto
 		}
 	</style>
 @endsection

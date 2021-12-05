@@ -36,4 +36,5 @@ export default [
 	{judul: 'Fullstack Tanpa Backend dengan Excalibur', slug: 'fullstack-tanpa-backend-dengan-excalibur', kelas: 'JavaScript'},
 	{judul: 'Optimasi Blog', slug: 'optimasi-blog', kelas: 'Blogspot'},
 	{judul: 'Mengatasi Berbagai Permasalahan SEO On Page', slug: 'mengatasi-berbagai-permasalahan-seo-on-page', kelas: 'Blogspot'},
+	{judul: 'Manipulasi Gambar dengan Blogspot', slug: 'manipulasi-gambar-dengan-blogspot', kelas: 'Blogspot'},
 ]
