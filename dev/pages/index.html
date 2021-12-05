@@ -3,10 +3,10 @@
 @section(head)
 	@component(meta)
 		@slot(judul)
-			Belajar Pemrograman
+			Main Kode
 		@endslot
 		@slot(deskripsi)
-			Mari kita belajar pemrograman
+			Yuk main kode
 		@endslot
 	@endcomponent
 @endsection
@@ -14,7 +14,7 @@
 @section(body)
 	<section class="wadah-post index">
 		<section class="isi-post">
-			<header><h1>Belajar Pemrograman</h1></header>
+			<header><h1>Main Kode</h1></header>
 
 			<nav class="terbaru">
 				<section class="tulisan-terbaru">Terbaru</section> 
@@ -33,7 +33,7 @@
 			<section class="tengah">
 
 				<nav class="kategorisasi" v-cloak v-for='x in kategorisasiData'>
-					<h2>Kelas {{x.kelas}}</h2>
+					<h2>Main {{x.kelas}}</h2>
 					<ol>
 						<li v-for='y in acak(x.postingan).slice(0, 3)'><a :href="'/post/' + y.slug + '.html'">{{y.judul}}</a></li>
 					</ol>

@@ -6,7 +6,7 @@
 			@attach(judul)
 		@endslot
 		@slot(deskripsi)
-			Belajar "@attach(judul)" di kelas @attach(kelas)
+			Main "@attach(judul)" di dunia @attach(kelas)
 		@endslot
 	@endcomponent
 @endsection
@@ -15,7 +15,7 @@
 	<section class="wadah-post khusus-postingan">
 		<section class="isi-post">
 			<header>
-				<a href="/">Belajar Pemrograman</a>
+				<a href="/">Main Kode</a>
 			</header>
 
 			<section class="tengah">
@@ -76,7 +76,7 @@
 					</script>
 
 					<nav class="list-kelas" v-cloak>
-						<h2>Kelas @attach(kelas)</h2>
+						<h2>Main @attach(kelas)</h2>
 						<ol>
 							<li v-for='x in post'>
 								<a :href="'/post/' + x.slug + '.html'" :class='x.slug == lokasiSekarang ? "uppercase" : ""'>{{x.judul}}</a>
@@ -123,7 +123,7 @@
 					</ol>
 				</nav>
 
-				<h2>Kelas @attach(kelas)</h2>
+				<h2>Main @attach(kelas)</h2>
 				<ol>
 					<li v-for='x in post'>
 						<a :href="'/post/' + x.slug + '.html'" :class='x.slug == lokasiSekarang ? "uppercase" : ""'>{{x.judul}}</a>
