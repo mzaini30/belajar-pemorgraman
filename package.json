@@ -1,5 +1,5 @@
 {
-  "name": "ssg-belajar-pemrograman",
+  "name": "mainkode",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mzaini30/ssg-belajar-pemrograman.git"
+    "url": "git+https://github.com/mzaini30/mainkode.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mzaini30/ssg-belajar-pemrograman/issues"
+    "url": "https://github.com/mzaini30/mainkode/issues"
   },
-  "homepage": "https://github.com/mzaini30/ssg-belajar-pemrograman#readme",
+  "homepage": "https://github.com/mzaini30/mainkode#readme",
   "dependencies": {
     "mini-ssg-zen": "^0.9.1"
   }
