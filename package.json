@@ -19,6 +19,6 @@
   },
   "homepage": "https://github.com/mzaini30/mainkode#readme",
   "dependencies": {
-    "mini-ssg-zen": "^0.9.1"
+    "mini-ssg-zen": "^0.9.3"
   }
 }

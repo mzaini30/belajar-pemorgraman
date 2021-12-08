@@ -10,5 +10,5 @@ export default [
 		rincian: [
 			'Bekal yang didapatkan dari hasil belajar, bermanfaat dalam mengembangkan berbagai Aplikasi Android'
 		]
-	}
+	},
 ]

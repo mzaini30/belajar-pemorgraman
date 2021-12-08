@@ -86,6 +86,13 @@ html {
   font-family: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
   line-height: 1.5;
 }
+h2, p, h3 {
+  margin: 0;
+}
+h2, h3 {
+  font-size: inherit;
+  font-weight: inherit;
+}
 h1, h2 {
   margin: 0;
   font-size: inherit;
@@ -104,12 +111,11 @@ hr {
   color: inherit;
   border-top-width: 1px;
 }
-h2, h3, p {
+h1, blockquote, p, h2 {
   margin: 0;
 }
-h2, h3 {
-  font-size: inherit;
-  font-weight: inherit;
+h2, h3, p {
+  margin: 0;
 }
 input {
   font-family: inherit;
@@ -387,8 +393,18 @@ ul {
 .bg-gradient-60 {
   background-image: linear-gradient(135deg, #FF96F9 10%, #C32BAC 100%);
 }
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
 .hidden {
   display: none;
+}
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 .text-center {
   text-align: center;
@@ -406,9 +422,16 @@ ul {
 .uppercase {
   text-transform: uppercase;
 }
+.gap-3 {
+  grid-gap: 0.75rem;
+  gap: 0.75rem;
+}
 .col-span-3 {
   -ms-grid-column-span: span 3 / span 3;
   grid-column: span 3 / span 3;
+}
+.cv > .basic {
+  text-align: center;
 }
 .terbaru {
   display: -webkit-box;

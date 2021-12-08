@@ -8,7 +8,7 @@ export default [
 		detail: [
 			'Merupakan pengembangan dari mini-ssg dengan tambahan banyak fitur',
 			'Static Site Generator yang cepat mengolahnya',
-			'https://npm.im/mini-ssg-zen'm
+			'https://npm.im/mini-ssg-zen'
 		]
 	}
 ]
