@@ -1,0 +1,43 @@
+{% extends '../layouts/post.html' %}
+
+{% block judul %}
+	Olah Array di JavaScript
+{% endblock %}
+
+{% block kelas %}
+	JavaScript
+{% endblock %}
+
+{% block isi %}
+	@markdown
+		Misal aja ada array:
+
+		```javascript
+		let angka = [1, 2, 3, 4, 5]
+		```
+
+		## Tambah
+
+		Misal, ditambahkan angka 6:
+
+		```javascript
+		angka = [...angka, 6]
+		```
+
+		## Hapus
+
+		Hapus angka 4:
+
+		```javascript
+		angka = angka.filter(x => x != 4)
+		```
+
+		## Update
+
+		Update angka 3 menjadi 'tiga':
+
+		```javascript
+		angka = angka.map(x => x == 3 ? 'tiga' : x)
+		```
+	@endmarkdown
+{% endblock %}

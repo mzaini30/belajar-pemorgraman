@@ -1,0 +1,159 @@
+{% extends '../layouts/post.html' %}
+
+{% block judul %}
+	Optimasi Blog
+{% endblock %}
+
+{% block kelas %}
+	Blogspot
+{% endblock %}
+
+{% block isi %}
+	@markdown
+		## Mengukur Performa Blog
+
+		Buka <https://web.dev/measure/> lalu masukkan link yang mau kamu uji.
+
+		![Form Web Dev](https://i.ibb.co/KLb5W6q/form-web-dev.png)
+
+		Lalu klik `Run Audit`.
+
+		Contohnya nanti kayak gini:
+
+		![Hasil laporan Web Dev](https://i.ibb.co/w6nPRQR/contoh-hasil-di-web-dev.png)
+
+		Habis tu, kita klik `View Report`.
+
+		Mungkin, kita langsung cari contoh-contohnya aja ya...
+
+		### belajarpemrograman.my.id
+
+		Langsung dimulai dari blogku ya... Walaupun aku suka coding-coding, bukan berarti udah teliti ya soal performa blog. Kadang ya lupa ngecek. Nah, ini aku cek perdana performa blog. Jadi ya mungkin akan banyak yang jatuh skornya.
+
+		![Hasil laporan Web Dev untuk Belajar Pemrograman](https://i.ibb.co/w6nPRQR/contoh-hasil-di-web-dev.png)
+
+		Di sini, untuk performa 59%, accessibility 96%, best practice 100%, dan seo 100%. Kita fokusnya bukan di angka-angka ini ya. Tapi lebih ke error-error dan warning-warning yang muncul buat kita perbaiki.
+
+		#### Render Blocking Resources
+
+		![Render blocking resource Belajar Pemrograman](https://i.ibb.co/vJCPvxS/render-blocking-resource-belajar-pemrograman.png)
+
+		Untuk di masalah ini, muncul karena aku pakai **Google Fonts**. Ada beberapa cara yang bisa dilakukan untuk meningkatkan performa di bagian Google Fonts ini.
+
+		##### Gunakan Satu Jenis Font
+
+		Terkadang, untuk satu blog, kita menggunakan banyak font dari Google Fonts. Bisa dua atau tiga, bahkan lebih. Nah, gunakan satu font aja dari Google Fonts supaya lebih hemat prosesnya.
+
+		##### Download Huruf yang Dibutuhkan Aja
+
+		Kan, kode Google Fonts di blog ini adalah:
+
+		```html
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+		```
+
+		Di situ kelihatan bahwa dia mendownload font family Sacramento dari Google Fonts. Nah, misalnya kita ingin mendownload huruf-huruf tertentu, misalnya huruf-huruf `Belajar Pemrograman`, maka tambahkan pada linknya: `&text=BelajarPemrograman`. Jadinya seperti ini:
+
+		```diff
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		!<link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap&text=BelajarPemrograman" rel="stylesheet">
+		```
+
+		Apakah ukuran filenya berkurang? Coba kita cek.
+
+		Cara mengeceknya adalah dengan memencet `Ctrl` `Shift` `i` dan akan langsung muncul Developer Tools. Pilih yang `Jaringan` (jangan lupa beri centang pada `Nonaktifkan Cache`):
+
+		![Hasil Jaringan di Developer Tools](https://i.ibb.co/YRxxqMj/jaringan.png)
+
+		Perhatikan pada yang jenisnya itu `font`. Nah, di situ, dia mendownload sebesar 23.8 kb untuk font dari Google Fonts. Kemudian, aku ubah deh kode download Google Fontsnya dengan hanya mendownload huruf-huruf dari `BelajarPemrograman`:
+
+		```diff
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		!<link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap&text=BelajarPemrograman" rel="stylesheet">
+		```
+
+		Maka, yang didownload hanya **3.2 kb**. Jauh banget ya, dari 23.8 kb menjadi 3.2 kb.
+
+		##### Jadikan Google Fonts di Satu Lokasi dengan Website (hostingan)
+
+		Misalnya kita menggunakan WordPress untuk blog kita, pastinya kan kita menggunakan hostingan. Nah, daripada kita meload Google Fonts dari servernya Google, lebih baik kita download aja fontnya terus letakkan di hostingan kita.
+
+		Caranya adalah buka aja <https://google-webfonts-helper.herokuapp.com/fonts> lalu cari font yang kamu gunakan. Terus, klik fontnya. Maka, akan muncul CSSnya dan tombol untuk mendownloadnya.
+
+		Contoh aja, aku menemukan font Adamina. Terus, aku klik fontnya. Kemudian, muncul kode CSS dari font itu:
+
+		```css
+		/* adamina-regular - latin */
+		@font-face {
+			font-family: 'Adamina';
+			font-style: normal;
+			font-weight: 400;
+			src: url('../fonts/adamina-v14-latin-regular.eot'); /* IE9 Compat Modes */
+			src: local(''),
+					url('../fonts/adamina-v14-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+					url('../fonts/adamina-v14-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+					url('../fonts/adamina-v14-latin-regular.woff') format('woff'), /* Modern Browsers */
+					url('../fonts/adamina-v14-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+					url('../fonts/adamina-v14-latin-regular.svg#Adamina') format('svg'); /* Legacy iOS */
+		}
+		```
+
+		Dan ada juga tombol download fontnya.
+
+		#### Reduce Unused JavaScript
+
+		![Reduce unused JavaScript](https://i.ibb.co/j6Fgg5J/reduce-unused-javascript.png)
+
+		Kalau yang kayak gini sih gara-gara Adsense. Solusi terbaiknya adalah mematikan Adsense.
+
+		## Konversi Gambar ke webp
+
+		Untuk apa konversi gambar? Tentu supaya file gambar itu ukurannya kecil tapi tidak mengurangi kualitas foto. Nah, ini bisa dilakukan oleh format gambar webp.
+
+		Sebanyak apa sih kompresi yang bisa dilakukan? Nah, ini hasil eksperimenku tadi:
+
+		![Perbandingan filesize PNG dan WEBP](https://i.ibb.co/L9R1jtJ/perbandingan-filesize-png-dan-webp.png)
+
+		> Bahkan file PNG sebesar 1.1 mb aja bisa berubah menjadi 84 kb dalam format WEBP
+
+		Nah, kok bisa ya? Mari kita coba.
+
+		### Persiapan
+
+		Install Node JS dulu. Kalau sudah, install pnpm dengan perintah:
+
+		```bash
+		npm i -g pnpm
+		```
+
+		Kenapa pakai `pnpm`? Itu supaya kita bisa mendownload package-package Node JS dengan cepat.
+
+		Lalu, download `sharp-cli`:
+
+		```bash
+		pnpm i -g sharp-cli
+		```
+
+		### Menggunakan
+
+		Sekarang, cara menggunakannya adalah:
+
+		```bash
+		sharp -i target.png -o ./hasil -f webp
+		```
+
+		Itu kalau kita mau mengkonversi file `target.png` menjadi `webp`, terus hasilnya dibuat di folder `hasil`. Kalau bisa, buat dulu ya foldernya.
+
+		Misalnya kita ingin menkonversi semua file di folder `src` menjadi webp, terus hasilnya dibuat di folder `build`, maka perintahnya adalah:
+
+		```bash
+		sharp -i './src/**/*.*' -o ./build -f webp
+		```
+
+		Dalam sekejap, akan terconvert menjadi banyak file webp.
+	@endmarkdown
+{% endblock %}

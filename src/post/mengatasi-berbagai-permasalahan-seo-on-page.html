@@ -1,0 +1,73 @@
+{% extends '../layouts/post.html' %}
+
+{% block judul %}
+	Mengatasi Berbagai Permasalahan SEO On Page
+{% endblock %}
+
+{% block kelas %}
+	Blogspot
+{% endblock %}
+
+{% block isi %}
+	@markdown
+		## og:type missing
+
+		Letakkan ini di bawahnya `<head>`:
+
+		```xml
+		<b:if cond='data:view.isPost'>
+			<meta content='article' property='og:type'/>
+		</b:if>
+		<b:if cond='data:blog.url == data:blog.homepageUrl'>
+			<meta content='website' property='og:type'/>
+		</b:if>
+		```
+
+		## Opengraph and Twitter Card
+
+		Letakkan di bawahnya `<head>`:
+
+		```xml
+		<b:if cond='data:view.isPost'>
+			<meta expr:content='data:blog.pageName' property='og:title'/>
+			<meta expr:content='data:blog.canonicalUrl' property='og:url'/>
+			<meta content='article' property='og:type'/>
+		</b:if>
+		<meta expr:content='data:blog.title' property='og:site_name'/>
+		<b:if cond='data:blog.url == data:blog.homepageUrl'>
+			<meta expr:content='data:blog.metaDescription' name='description'/>
+			<meta expr:content='data:blog.title' property='og:title'/>
+			<meta content='website' property='og:type'/>
+
+			<b:if cond='data:blog.metaDescription'>
+				<meta expr:content='data:blog.metaDescription' property='og:description'/>
+			</b:if>
+
+		</b:if>
+
+		<b:if cond='data:view.isPost'>
+			<meta expr:content='data:blog.metaDescription' property='og:description'/>
+		</b:if>
+		<b:if cond='data:blog.postImageUrl'>
+			<meta expr:content='data:blog.postImageUrl' property='og:image'/>
+		</b:if>
+
+		<meta content='https://www.facebook.com/PROFIL-FACEBOOK' property='article:author'/>
+		<meta content='https://www.facebook.com/FAN-PAGE-FACEBOOK' property='article:publisher'/>
+		<meta content='KODE-APLIKASI-FACEBOOK' property='fb:app_id'/>
+		<meta content='KODE-ADMIN-FACEBOOK' property='fb:admins'/>
+		<meta content='en_US' property='og:locale'/>
+		<meta content='en_GB' property='og:locale:alternate'/>
+		<meta content='id_ID' property='og:locale:alternate'/>
+		<meta content='summary' name='twitter:card'/>
+		<meta expr:content='data:blog.pageTitle' name='twitter:title'/>
+		<meta content='USER-TWITTER' name='twitter:site'/>
+		<meta content='USER-TWITTER' name='twitter:creator'/>
+		<meta content='summary_large_image' name='twitter:card'/>
+		```
+
+		## Mengubah `lang='en'` menjadi `lang='id'`
+
+		Cari `<html ...>`. Nah, di situ kan ada `lang='en'`. Ubah aja ke `lang='id'`.
+	@endmarkdown
+{% endblock %}

@@ -1,0 +1,135 @@
+{% extends './default.html' %}
+
+{% block head %}
+	<!-- <title>{ block judul } { endblock }</title> -->
+	<meta name="description" content='Yuk main kode' />
+	<meta property="og:locale" content="id_ID" />
+	<meta property="og:type" content="article" />
+	<!-- <meta property="og:title" content='{ judul }' /> -->
+	<meta property="og:description" content='Yuk main kode' />
+	<meta property="og:image" content='https://mainkode.my.id/gambar/cover.jpg' />
+	<meta property="og:image:width" content="800" />
+	<meta property="og:image:height" content="450" />
+	<meta property="twitter:card" content="summary_large_image" />
+	<meta property="twitter:title" content='{% block judul %} {% endblock %}' />
+	<meta property="twitter:description" content='Yuk main kode' />
+	<meta property="twitter:image" content='https://mainkode.my.id/gambar/cover.jpg' />	
+	<meta property="og:site_name" content="Main Kode">
+
+	<link rel="icon" href="/gambar/icon.jpg">
+
+	<script type="text/javascript">
+		document.title = document.querySelector('[property="twitter:title"]').content
+	</script>
+{% endblock %}
+
+{% block body %}
+	<section class="wadah-post khusus-postingan">
+		<section class="isi-post">
+			<header>
+				<a href="/">Main Kode</a>
+			</header>
+
+			<section class="tengah">
+
+				<section class="col-span-3 isi-postingan">
+
+					<article>
+						<h1 class="judulnya">{ block judul } { endblock }</h1>
+						<script>
+							document.querySelector('.judulnya').innerText = document.querySelector('[property="twitter:title"]').content.trim()
+						</script>
+						<section class="isi-artikel">
+							{% block isi %} {% endblock %}
+							<blockquote>
+								<p>Website ini dibuat oleh Zen. <a href="/cv.html">Lihat profil selengkapnya</a></p>
+							</blockquote>
+						</section>
+					</article>
+
+					<script>
+						document.querySelectorAll('.shiki code .line span').forEach(x => {
+							if (x.innerText == '+' || x.innerText == '-' || x.innerText == '!') {
+								x.style.display = 'none'
+							}
+						})
+					</script>
+
+					{% include '../imports/komentar.html' %}
+				</section>
+				
+				<section class="menu-postingan">
+					<div class="uppercase hidden"></div>
+					<script>
+						kelas = `{% block kelas %} {% endblock %}`.trim()
+					</script>
+
+					<nav class="list-kelas" v-cloak>
+						<h2>Main {{ kelas }}</h2>
+						<ol>
+							<li v-for='x in post'>
+								<a :href="'/post/' + x.slug + '.html'" :class='x.slug == lokasiSekarang ? "uppercase" : ""'>{{x.judul}}</a>
+							</li>
+						</ol>
+					</nav>
+
+					<script type="module">
+						import post from '/data/post.js'
+
+						PetiteVue.createApp({
+							post: post.filter(x => x.kelas == kelas).sort((a, b) => (a.judul > b.judul) ? 1 : -1),
+							lokasiSekarang: location.pathname.replace('/post/', '').replace('.html', ''),
+							kelas
+						}).mount('.wadah-post .list-kelas')
+					</script>
+
+					<nav class="gadget">
+						{% include '../imports/gadget.html' %}
+					</nav>
+
+				</section>
+			</section>
+
+			{% include '../imports/footer.html' %}
+
+		</section>
+	</section>
+
+	<section class="khusus-mobile" v-cloak>
+		<section class="menu-melayang" @click='tampilMenu = true'>
+			{% include '../imports/menu.html' %}
+		</section>
+
+		<section class="menunya-mobile" v-if='tampilMenu'>
+			<section class="isi">
+
+				<h2>Main {{ kelas }}</h2>
+				<ol>
+					<li v-for='x in post'>
+						<a :href="'/post/' + x.slug + '.html'" :class='x.slug == lokasiSekarang ? "uppercase" : ""'>{{x.judul}}</a>
+					</li>
+				</ol>
+
+				<nav class="gadget-mobile">
+					{% include '../imports/gadget.html' %}
+				</nav>
+			</section>
+		</section>
+
+		<section class="tutup" v-if='tampilMenu' @click='tampilMenu = false'>
+			{% include '../imports/x.html' %}
+		</section>
+	</section>
+
+	<script type="module">
+		import post from '/data/post.js'
+
+		PetiteVue.createApp({
+			post: post.filter(x => x.kelas == kelas).sort((a, b) => (a.judul > b.judul) ? 1 : -1),
+			lokasiSekarang: location.pathname.replace('/post/', '').replace('.html', ''),
+			tampilMenu: false,
+			kelas
+		}).mount('.khusus-mobile')
+	</script>	
+
+{% endblock %}

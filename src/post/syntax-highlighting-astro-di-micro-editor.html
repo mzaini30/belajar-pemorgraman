@@ -1,0 +1,23 @@
+{% extends '../layouts/post.html' %}
+
+{% block judul %}
+	Syntax Highlighting Astro di Micro Editor
+{% endblock %}
+
+{% block kelas %}
+	Termux
+{% endblock %}
+
+{% block isi %}
+	@markdown
+		Isi dari `~/.config/micro/settings.json`:
+
+		```json
+		{
+			"*.astro": {
+				"filetype": "html"
+			}
+		}
+		```
+	@endmarkdown
+{% endblock %}

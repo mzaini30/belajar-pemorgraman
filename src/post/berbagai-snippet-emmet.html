@@ -1,0 +1,46 @@
+{% extends '../layouts/post.html' %}
+
+{% block judul %}
+  Berbagai Snippet Emmet
+{% endblock %}
+
+{% block kelas %}
+  Sublime
+{% endblock %}
+
+{% block isi %}
+  {% raw %} 
+    @markdown
+      ```json
+      {
+        "telemetry": true,
+        "uid": "37791c0d-2653-4447-8bc0-731daa283775",
+        "config": {
+          "markup": {
+            "snippets": {
+              "extends": "{{% extends '' %}}",
+              "block": "{{% block  %}\n\t\n{% endblock %}}",
+              "blockinline": "{{% block  %} {% endblock %}}",
+              "macro": "{{% macro  %} {% endmacro %}}",
+              "raw": "{{% raw %} {% endraw %}}",
+              "persen": "{{%  %}}",
+              "from": "{{% from '' import  %}}",
+              "var": "{{\\$  \\$}}",
+              "vp": "{{{  }}}",
+              "include": "{{% include '' %}}",
+              "markdown": "{@markdown\n\t\n@.endmarkdown}",
+              "windi": "style[lang=windi]",
+              "petite": "script>{PetiteVue.createApp({}).mount()\n}",
+            },
+            "options": {
+              "output.selfClosingStyle": "xhtml"
+            }
+          }
+        }
+      }
+      ```
+
+      Ubah `@.` menjadi `@`
+    @endmarkdown
+  {% endraw %}
+{% endblock %}

@@ -1,0 +1,67 @@
+<section class="komentar" v-cloak @mounted='cekMeta(); ambilData()'>
+
+	<section class="tambah-komentar">
+		<h2>Sampaikan Pendapatmu</h2>
+		<form action="" @submit.prevent='tambah'>
+			<input type="text" v-model='nama' placeholder="Nama" required>
+			<input type="url" v-model='link' placeholder="Link Blog" required>
+			<textarea name="" v-model='komentar' placeholder="Komentar" id="" required cols="30" rows="10"></textarea>
+			<div class="sm:hidden"></div>
+			<input type="submit" value="Kirim">
+		</form>
+	</section>
+
+	<section class="komentarnya" v-for='x in semuaKomentar'>
+		<h3>
+			<a :href="x.link" rel="nofollow">{{x.nama}}</a>
+		</h3>
+		<p>{{x.komentar}}</p>
+	</section>
+
+</section>
+
+<script type="module">
+	import {sql, komentar} from '/data/api.js'
+	import excalibur from '/excalibur.js'
+
+	PetiteVue.createApp({
+		nama: '',
+		link: '',
+		komentar: '',
+		semuaKomentar: [],
+		slug: location.pathname.replace('.html', ''),
+		cekMeta(){
+			if (localStorage.nama && localStorage.link) {
+				this.nama = localStorage.nama
+				this.link = localStorage.link 
+			}
+		},
+		async ambilData(){
+			let data = await excalibur(sql, {
+				id: komentar,
+				kunci: 'ambil',
+				slug: this.slug
+			})
+			data = await data.json()
+			this.semuaKomentar = data
+		},
+		async tambah(){
+			const proses = await excalibur(sql, {
+				id: komentar,
+				kunci: 'kirim',
+				slug: this.slug,
+				nama: this.nama,
+				link: this.link,
+				komentar: this.komentar
+			})
+			if (proses) {
+				localStorage.nama = this.nama
+				localStorage.link = this.link
+				alert('Komentar berhasil ditambahkan.')
+				this.komentar = ''
+				this.ambilData()
+			}
+		}
+	}).mount('.komentar')
+</script>
+

@@ -1,24 +1,24 @@
 {
-  "name": "mainkode",
+  "name": "unmei-mainkode",
   "version": "1.0.0",
-  "description": "",
+  "description": "Mainkode dengan SSG Unmei",
   "main": "index.js",
   "scripts": {
-    "dev": "ssg --watch",
-    "build": "ssg"
+    "dev": "unmei dev",
+    "build": "unmei build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mzaini30/mainkode.git"
+    "url": "git+https://github.com/mzaini30/unmei-mainkode.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mzaini30/mainkode/issues"
+    "url": "https://github.com/mzaini30/unmei-mainkode/issues"
   },
-  "homepage": "https://github.com/mzaini30/mainkode#readme",
+  "homepage": "https://github.com/mzaini30/unmei-mainkode#readme",
   "dependencies": {
-    "mini-ssg-zen": "^0.9.3"
+    "unmei": "^2.1.0"
   }
 }

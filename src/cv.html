@@ -1,0 +1,86 @@
+{% extends 'layouts/post.html' %}
+
+{% block judul %}
+	Curriculum Vitae
+{% endblock %}
+
+{% block kelas %}
+	JavaScript
+{% endblock %}
+
+{% block isi %}
+	<main class="cv" v-cloak>
+		<section class="basic">
+			<h2>{{basic.nama}}</h2>
+			<p>{{basic.bio}}</p>
+			<p class="text-sm">
+				{{basic.alamat}} | <a :href="'mailto:' + basic.email">{{basic.email}}</a> | <a :href="'https://wa.me/' + basic.wa.link">{{basic.wa.teks}}</a> (WA) | <a :href="'https://github.com/' + basic.github">github/{{basic.github}}</a>
+			</p>
+		</section>
+
+		<h2>Profil</h2>
+		<section v-html='profil'></section>
+
+		<h2>Background Pendidikan</h2>
+		<section class="flex gap-3" v-for='x in pendidikan'>
+			<section class="bg-yellow-300">
+				<p>
+					<strong>{{x.tanggal}}</strong> <br>
+					{{x.lokasi}}
+				</p>
+			</section>
+			<section>
+				<p><strong>{{x.fokus}}</strong></p>
+				<p><em>{{x.nama}}}</em></p>
+				<ul>
+					<li v-for='y in x.rincian'>{{y}}</li>
+				</ul>
+			</section>
+		</section>
+
+		<h2>Skill</h2>
+		<section v-for='x in skill'>
+			<h3>{{x.ringkasan}}</h3>
+			<p>{{x.detail.sort().join(', ')}}</p>
+		</section>
+
+		<h2>Project</h2>
+		<section class="flex gap-3" v-for='x in project'>
+			<section>
+				<p class="bg-yellow-300">{{x.tanggal}}</p>
+			</section>
+			<section>
+				<p><strong>{{x.nama}}</strong></p>
+				<p><em>{{x.bentuk}}</em></p>
+				<ul>
+					<li v-for='y in x.detail' v-html='y'></li>
+				</ul>
+			</section>
+		</section>		
+	</main>
+
+
+	<script type="module">
+		import basic from '/cv/basic.js'
+		import pendidikan from '/cv/pendidikan.js'
+		import profil from '/cv/profil.js'
+		import project from '/cv/project.js'
+		import skill from '/cv/skill.js'
+		import training from '/cv/training.js'
+
+		PetiteVue.createApp({
+			basic, 
+			pendidikan: pendidikan.reverse(), 
+			profil, 
+			project: project.reverse(), 
+			skill, 
+			training
+		}).mount('.cv')
+	</script>
+
+	<style lang="windi">
+		li {
+			@apply !mb-0
+		}
+	</style>
+{% endblock %}
