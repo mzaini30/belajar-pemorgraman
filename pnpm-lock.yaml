@@ -1,9 +1,11 @@
 lockfileVersion: 5.3
 
 specifiers:
+  recursive-readdir-sync: ^1.0.6
   unmei: ^2.1.0
 
 dependencies:
+  recursive-readdir-sync: 1.0.6
   unmei: 2.1.0
 
 packages:
