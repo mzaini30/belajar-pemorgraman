@@ -1,0 +1,159 @@
+{% extends '../layouts/post.html' %}
+
+{% block judul %}
+	Unmei: Solusi Bagi Lambatnya Proses Developing Static Site Generator
+{% endblock %}
+
+{% block kelas %}
+	JavaScript
+{% endblock %}
+
+{% block isi %}
+	@markdown
+		Membangun sebuah website bukanlah perkara mudah karena banyak aspek yang perlu diperhatikan selain tampilan yang indah. Untuk membuat tampilan yang indah, kita bisa cepat membuatnya dengan Bootstrap, Materialize, ataupun menggunakan CSS Utility seperti Tailwind, [Windi](/post/berbagai-cara-menggunakan-windi.html), dan Uno.
+
+		Masalahnya adalah di keamanan.
+
+		Website-website yang ada sekarang ini biasanya menggunakan server untuk menjalankannya. Contohnya aja WordPress. WordPress memerlukan sebuah hosting yang bisa menjalankan PHP. Oke, sampai di sini nggak ada masalah. Mengapa memerlukan PHP? Karena PHP bisa menggabungkan kode-kode HTML sehingga developer perlu mengetik sedikit saja kode. Contohnya seperti ini:
+
+		`header.php`:
+
+		```php
+		<h1>Ini Judul</h1>
+		```
+
+		`index.php`:
+
+		```php
+		<?php include('./header.php') ?>
+		<p>Ini adalah halaman beranda</p>
+		```
+
+		`about.php`:
+
+		```php
+		<?php include('./header.php') ?>
+		<p>Ini adalah halaman about</p>
+		```
+
+		Maka, kita nggak perlu mengetikkan judul berkali-kali, atau nggak perlu mengetikkan kode yang sama berkali-kali.
+
+		Bayangkan kalau kita mengetikkannya dengan HTML biasa:
+
+		`index.html`:
+
+		```html
+		<h1>Ini Judul</h1>
+		<p>Ini adalah halaman beranda</p>
+		```
+
+		`about.html`:
+
+		```html
+		<h1>Ini Judul</h1>
+		<p>Ini adalah halaman about</p>
+		```		
+
+		Maka, terjadi yang namanya pengulangan kode. Itu bertentangan dengan salah satu kaidah pemrograman yaitu DRY (don't repeat yourself). Maka, untuk setiap kode yang kita ketikkan, jangan sampai terjadi yang namanya pengulangan. Walaupun itu sebuah kode HTML.
+
+		Masalahnya adalah, di HTML sendiri, nggak ada kode untuk mengimport file HTML lain untuk melebur ke dalam dirinya.
+
+		Oke, sekarang kembali ke PHP. Ada apa dengan PHP? Apakah itu berbahaya? PHP nggak cuma dipakai untuk menginclude satu elemen HTML ke dalam file PHP lainnya. Tapi dia lebih dari itu. Dengan PHP, kita bisa mengirim email, menyimpan ke database, membuat file, menghapus folder, dan lain sebagainya.
+
+		Itulah mengapa kita bisa melakukan banyak hal hanya dengan WordPress. Bahkan, ada banyak orang yang berprofesi sebagai [web developer](/post/melakukan-testing-behavior-web-dengan-selenia.html) dengan hanya bermodalkan WordPress. Itulah kecanggihan PHP.
+
+		Akan tetapi, banyak pula bertebaran tema-tema WordPress nulled, plugin-plugin WordPress nulled, dan segala macamnya. Apa itu nulled? Nulled artinya berbahaya. Plugin-plugin WordPress dan tema-tema WordPress ada beberapa yang berbahaya karena menjalankan kode-kode yang tidak kita inginkan.
+
+		Contoh yang berbahaya itu adalah mengirim email yang tidak kita inginkan, menghapus database yang kita miliki, menghapus semua file, menghapus folder-folder tanpa kendali kita, dan segala macamnya.
+
+		Mengerikan... Padahal kita hanya ingin membuat sebuah website untuk catatan pribadi aja. Tapi, mengapa bahkan data-data milik kita sendiri aja bisa dipermainkan oleh orang lain?
+
+		Belum lagi serangan dari luar. Serangan dari para peretas yang bisa saja menyerang blog kita yang berbasis WordPress itu hanya karena iseng. Atau, mungkin saja WordPress kita itu memiliki domain authority yang tinggi sehingga banyak orang yang iri pada keberhasilan kita.
+
+		Ditambah lagi, WordPressnya nggak diupdate dan keamanan servernya nggak diperbaiki, serta nggak pakai SSL. Hebat kalau kita bisa merasa aman dengan berbagai celah yang terbuka ini.
+
+		Lalu, apa solusinya? Solusinya adalah tidak menggunakan server. Jadi, hanya HTML. Lah, bukannya nanti akan terjadi yang namanya tidak DRY (don't repeat yourself)? Oh, sabar dulu. Sini aku jelaskan.
+
+		Kalau HTML biasa, memang kita akan terus mengulang-ngulang kode seperti di bawah ini:
+
+		`index.html`:
+
+		```html
+		<h1>Ini Judul</h1>
+		<p>Ini adalah beranda</p>
+		```
+
+		`about.html`:
+
+		```html
+		<h1>Ini Judul</h1>
+		<p>Ini adalah about</p>
+		```
+
+		Lihat, pada dua file HTML di atas, kita mengulang-ngulang tulisan `Ini Judul`. Kan, harusnya bisa dibuat `base.html` sehingga nggak ngulang-ngulang? Tapi, sebagaimana penjelasanku di atas tadi, itu nggak bisa dilakukan.
+
+		Solusinya adalah menggunakan HTML Template Engine seperti Twig, Pug, Nunjucks, Liquid dan segala macamnya sehingga kita nggak ngulang-ngulang kodenya.
+
+		Kalau menggunakan Nunjucks, jadinya akan seperti ini:
+
+		`base.html`:
+
+		```html
+		<h1>Ini Judul</h1>
+		```
+
+		`index.html`:
+
+		```html
+		{% raw %}{% include './base.html' %}{% endraw %}
+		<p>Ini adalah beranda</p>
+		```
+
+		`about.html`:
+
+		```html
+		{% raw %}{% include './base.html' %}{% endraw %}
+		<p>Ini adalah about</p>
+		```
+
+		Nah, coba lihat, kita bisa melakukan seperti yang dilakukan PHP. Tapi, ini aman karena dia hanya berurusan dengan file-file HTML. Nggak berurusan dengan database maupun file-file di server. Jadi, 100% aman.
+
+		Tapi, HTML Template Engine ini nggak bisa berjalan dengan sendirinya. Dia harus bernaung sama suatu wadah supaya bisa jalan. Wadah itu bernama Static Site Generator. Ada banyak Static Site Generator, di antaranya adalah Jekyll, Hugo, Eleventy, hingga Mini SSG Zen.
+
+		![Maskot Mini SSG Zen](https://raw.githubusercontent.com/mzaini30/mini-SSG/HEAD/tsukuyomi-komoe.png)
+
+		Aku sebelumnya pakai Mini SSG Zen untuk develop file-file HTML, termasuk develop website ini. Namun, suatu masalah muncul. Kalau yang namanya Static Site Generator itu, dia generate semua file template dulu menjadi HTML, baru kemudian reload.
+
+		Misalnya, aku punya 5 file Nunjucks seperti ini:
+
+		```
+		base.html
+		index.html
+		about.html
+		galeri.html
+		portfolio.html
+		```
+
+		Maka, SSG (static site generator) akan mengolah sintaks-sintaks Nunjuck di dalam `base.html`, lalu di `index.html`, kemudian di `about.html`, lalu di `galeri.html`, dan `portfolio.html`, baru kemudian `localhost` akan reload. Kalau cuma 5 sih nggak masalah. Waktu generatenya nggak terlalu lama. Nah, gimana kalau 100 file?
+
+		Itulah masalahnya. Kalau misalnya SSG memerlukan waktu 1 detik untuk generate 1 file Nunjucks. Maka, SSG memerlukan waktu 1 menit dan 40 detik untuk generate 100 file, baru kemudian `localhost` reload. Itu kalau misalnya file-file Nunjucks di dalamnya nggak saling import. Kalau misalnya saling import, maka 1 file aja bisa makan waktu 3 detik. Kalau 100 file, maka kita perlu waktu 300 detik (5 menit) untuk generate semuanya, baru `localhost` reload.
+
+		Bayangkan deh, kamu cuma nambahin titik di `index.html`, lalu kamu perlu nunggu 5 menit untuk melihat hasilnya di `localhost`. Bayangkan... Itu Indomie sepiring udah habis dah, plus bisa nambah lagi.
+
+		Di sinilah yang mengganjel benakku. Kalau misalnya aku menggunakan SSG, maka perlu waktu lama untuk melihat hasil modify tiap file template yang aku buat. Maka, aku pun memiliki konsep seperti ini untuk tools yang akan aku buat:
+
+		> Generate semua file hanya saat `build`. Maka, saat `dev`, aku nggak boleh nunggu semua generate.
+
+		Nah, lalu gimana caranya? Aku bingung. Akhirnya, aku pun nemu solusinya, yaitu saat mode `dev`, maka dia akan menjalankan server Express.
+
+		Mantap...
+
+		Untungnya kan, Nunjucks itu kompatible dengan server Express. Kurancanglah toolsnya hingga akhirnya terbentuklah Unmei...
+
+		![Fotonya Unmei](https://raw.githubusercontent.com/mzaini30/unmei/HEAD/unmei.jpeg)
+
+		Seperti yang aku bilang di atas bahwa dengan Unmei, saat `dev`, dia menggunakan server Express. Jadi, reloadnya ya nunggu generate satu file itu aja, misalnya `index.html`, nggak perlu nunggu generate 100 file template yang kita miliki. Nah, lalu pas `build`, dia akan generate semuanya, tapi nggak masalah buat kita karena proses build itu kan dilakukan di servernya Github dengan [Github Action](/post/auto-deploy-astro-di-github-pages.html) atau di Vercel maupun Netlify.
+
+		Buat kamu yang ingin mencoba Unmei, langsung aja kunjungi [npm.im/unmei](https://npm.im/unmei).
+	@endmarkdown
+{% endblock %}
