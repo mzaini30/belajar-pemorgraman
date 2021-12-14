@@ -1,0 +1,68 @@
+{% extends './layouts/default.html' %}
+
+{% block head %}
+	{% from './components/meta.html' import meta %}
+	{$ meta('Login', 'Halaman login') $}
+{% endblock %}
+
+{% block body %}
+	<main class="wadah" v-cloak>
+		<section class="tempat-login">
+			<h1>Login</h1>
+			<form action="" @submit.prevent='login'>
+				<label for="username"></label>
+				<input type="text" v-model='username' id="username" required />
+				<label for="password"></label>
+				<input type="password" v-model='password' id="password" required />
+				<input type="submit" value="Login" />
+			</form>
+		</section>
+	</main>
+
+	<script type="module">
+		import excalibur from '/excalibur.js'
+		import {auth, sql} from '/data/api.js'
+
+		PetiteVue.createApp({
+			username: '',
+			password: '',
+			async login(){
+				let cek = await excalibur(sql, {
+					id: auth,
+					kunci: 'cek',
+					username: this.username,
+					password: this.password
+				})
+				cek = await cek.json()
+				if (cek[0].banyak > 0) {
+					localStorage.username = this.username
+					localStorage.password = this.password
+					location.href = '/'
+				} else {
+					alert('Username dan password salah')
+				}
+			}
+		}).mount('.wadah')
+	</script>
+
+	<style lang="windi">
+		.wadah {
+			@apply bg-blue-200 min-h-screen p-10
+		}
+		.tempat-login {
+			@apply bg-white w-min mx-auto p-5
+		}
+		input {
+			@apply mt-3 focus:outline-none
+		}
+		[type='submit'] {
+			@apply bg-green-500 py-1 px-3 text-white cursor-pointer
+		}
+		input:not([type='submit']) {
+			@apply bg-blue-100 px-2 py-1
+		}
+		h1 {
+			@apply text-center
+		}
+	</style>
+{% endblock %}
