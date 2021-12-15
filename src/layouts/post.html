@@ -68,7 +68,7 @@
 						kelas = `{% block kelas %} {% endblock %}`.trim()
 					</script>
 
-					<nav class="list-kelas" v-cloak>
+					<nav class="list-kelas list-kelas-spesifik" v-cloak>
 						<h2>Main {{ kelas }}</h2>
 						<ol>
 							<li v-for='x in post'>
@@ -84,7 +84,23 @@
 							post: post.filter(x => x.kelas == kelas).sort((a, b) => (a.judul > b.judul) ? 1 : -1),
 							lokasiSekarang: location.pathname.replace('/post/', '').replace('.html', ''),
 							kelas
-						}).mount('.wadah-post .list-kelas')
+						}).mount('.list-kelas-spesifik')
+					</script>
+
+					<nav class="list-kelas link-lainnya mt-5" v-cloak>
+						<h2>Link Lainnya</h2>
+						<ol>
+							<li v-for='x in linkLainnya'>
+								<a :href="x.link" :class='x.link == lokasiSekarang ? "uppercase" : ""'>{{x.nama}}</a>
+							</li>
+						</ol>
+					</nav>
+
+					<script>
+						PetiteVue.createApp({
+							linkLainnya,
+							lokasiSekarang: location.pathname
+						}).mount('.link-lainnya')
 					</script>
 
 					<nav class="gadget">
