@@ -21,9 +21,10 @@
 			{{ jawabanAdmin.filter(y => y.idTarget == x.id)[0]?.komentar }}
 		</section>
 
-		<!-- <form action="" v-if='isAdmin'>
-			<textarea name="" id="" cols="30" rows="10"></textarea>
-		</form> -->
+		<form action="" @submit.prevent='menjawab(x.id)' v-if='isAdmin && jawabanAdmin.filter(y => y.idTarget == x.id).length < 1'>
+			<textarea name="" id="" cols="30" placeholder="Admin menjawab" class="admin-menjawab" v-model='jawabannya' rows="5" required></textarea>
+			<input type="submit" value="Kirim" class="kirim-jawaban" />
+		</form>
 
 	</section>
 
@@ -32,6 +33,15 @@
 <style lang="windi">
 	.jawaban-admin {
 		@apply bg-yellow-200 text-sm p-3 mt-3
+	}
+	* {
+		@apply focus:outline-none;
+	}
+	.admin-menjawab {
+		@apply border border-yellow-300 px-2 py-1 w-full mt-2 text-sm
+	}
+	.kirim-jawaban {
+		@apply bg-green-500 text-white cursor-pointer px-3 py-1 focus:bg-green-800;
 	}
 </style>
 
@@ -43,6 +53,7 @@
 		nama: '',
 		link: '',
 		komentar: '',
+		jawabannya: '',
 		isAdmin: false,
 		semuaKomentar: [],
 		jawabanAdmin: [],
@@ -83,6 +94,19 @@
 			})
 			jawabanAdmin = await jawabanAdmin.json()
 			this.jawabanAdmin = jawabanAdmin
+		},
+		async menjawab(id){
+			const kirimJawaban = await excalibur(sql, {
+				id: jawaban,
+				kunci: 'tambahkan',
+				komentar: this.jawabannya,
+				idTarget: id,
+				slug: this.slug
+			})
+			if (kirimJawaban) {
+				this.ambilData()
+				this.jawabannya = ''
+			}
 		},
 		async tambah(){
 			const proses = await excalibur(sql, {
