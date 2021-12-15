@@ -20,6 +20,10 @@
 
 	<script type="text/javascript">
 		document.title = document.querySelector('[property="twitter:title"]').content
+
+    const linkLainnya = [
+      {nama: "Profil", link: "/cv.html"}
+    ]
 	</script>
 {% endblock %}
 
@@ -110,6 +114,13 @@
 					</li>
 				</ol>
 
+        <h2 class='mt-5'>Link Lainnya</h2>
+        <ol>
+          <li v-for='x in linkLainnya'>
+            <a :href='x.link'>{{ x.nama }}</a>
+          </li>
+        </ol>
+
 				<nav class="gadget-mobile">
 					{% include '../imports/gadget.html' %}
 				</nav>
@@ -128,7 +139,8 @@
 			post: post.filter(x => x.kelas == kelas).sort((a, b) => (a.judul > b.judul) ? 1 : -1),
 			lokasiSekarang: location.pathname.replace('/post/', '').replace('.html', ''),
 			tampilMenu: false,
-			kelas
+			kelas,
+      linkLainnya
 		}).mount('.khusus-mobile')
 	</script>	
 
