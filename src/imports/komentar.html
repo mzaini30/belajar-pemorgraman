@@ -21,7 +21,7 @@
 			{{ jawabanAdmin.filter(y => y.idTarget == x.id)[0]?.komentar }}
 		</section>
 
-		<form action="" @submit.prevent='menjawab(x.id)' v-if='isAdmin && jawabanAdmin.filter(y => y.idTarget == x.id).length < 1'>
+		<form action="" @submit.prevent='menjawab(x.id)' v-if='isAdmin && (jawabanAdmin ? jawabanAdmin.filter(y => y.idTarget == x.id).length < 1  : true)'>
 			<textarea name="" id="" cols="30" placeholder="Admin menjawab" class="admin-menjawab" v-model='jawabannya' rows="5" required></textarea>
 			<input type="submit" value="Kirim" class="kirim-jawaban" />
 		</form>
