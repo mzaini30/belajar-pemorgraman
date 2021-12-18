@@ -1,0 +1,118 @@
+{% extends '../layouts/post.html' %}
+
+{% block judul %}
+	Menggunakan Git dengan SSH
+{% endblock %}
+
+{% block kelas %}
+	Git
+{% endblock %}
+
+{% block isi %}
+	@markdown
+		Ada dua cara dalam menggunakan Git. Yang pertama adalah dengan https, yang kedua adalah dengan SSH. Apa perbedaan di antara keduanya? Kalau dengan https, cara clonenya seperti ini: 
+
+		```bash
+		git clone https://github.com/mzaini30/mainkode.git
+		```
+
+		Kalau dengan SSH, cara clonenya seperti ini:
+
+		```bash
+		git clone git@github.com:mzaini30/mainkode.git
+		```
+
+		Untuk bagian clone, sebenarnya nggak ada masalah. Yang menjadi masalah adalah ketika kita ingin push ke Github. Kalau menggunakan https, kita akan diminta username dan password setiap kali kita ingin push. Kalau kita nggak ingin dimintai terus, maka ketika clone, harusnya seperti ini:
+
+		```bash
+		git clone https://username:password@github.com/mzaini30/mainkode.git
+		```		
+
+		Dulu sih cara itu masih bisa. Tapi, kalau sekarang, udah nggak bisa clone dengan menyebutkan username dan password. Melainkan dengan username dan token:
+
+		```bash
+		git clone https://username:token@github.com/mzaini30/mainkode.git
+		```
+
+		Untuk mendapatkan tokennya, kita generate di halaman Githubnya.
+
+		Kemudian, aku pun kepikiran: 
+
+		> Kenapa nggak sekalian SSH aja ya?
+
+		Kan, kalau SSH itu, kita cukup **sekali aja** menghubungkan antara Github dengan laptop. Setelah terhubung, kita nggak perlu menyebutkan password setiap kali kita ingin push ke Github.
+
+		Oke, jadi kia langsung aja tutorial generate SSH dan menghubungkannya ke Github.
+
+		Pertama, kita buka Terminal atau Command Prompt jika menggunakan Windows. Kemudian, kita ketikkan perintah:
+
+		```bash
+		ssh-keygen
+		```
+
+		Maka, akan muncul tulisan **Generating public/private rsa key pair.** dan pertanyaan **Enter file in which to save the key (/home/zen/.ssh/id_rsa):** Itu langsung enter aja.
+
+		Kemudian, muncul pertanyaan **Enter passphrase (empty for no passphrase):** Itu enter aja.
+
+		Muncul pertanyaan lagi **Enter same passphrase again:** Enter aja.
+
+		Maka, akan muncul:
+
+		```
+		Your identification has been saved in /home/zen/.ssh/id_rsa.
+		Your public key has been saved in /home/zen/.ssh/id_rsa.pub.
+		The key fingerprint is:
+		SHA256:XJJTdqzQZ2rp19ygMgZaytIso4VoPlunXy7ZkpUG0Ek zen@zen-HP-14-Notebook-PC
+		The key's randomart image is:
+		+---[RSA 2048]----+
+		|      oE..oo     |
+		|     . o.+. =    |
+		| . . +. +..=     |
+		|... = Do.++ .    |
+		|. .o B oSo.+ o   |
+		|  .o.. .=+- o .  |
+		|    + o.*=       |
+		|   . . =o.       |
+		|      ..o.       |
+		+----[SHA256]-----+
+		```
+
+		Itu artinya, public key berada di `/home/zen/.ssh/id_rsa.pub`.
+
+		Sekarang, kita buka file itu di teks editor kesayanganmu. Kalau aku, perintahnya adalah:
+
+		```bash
+		subl /home/zen/.ssh/id_rsa.pub
+		```
+
+		Karena, lokasinya tadi berada di `/home/zen/.ssh/id_rsa.pub`.
+
+		Maka, akan muncul _kuncinya_:
+
+		```
+		ssh-rsa AAAAB3NzaC1yc2EAAAWDAQABPAABAQDifcCwRHuWdIOpRnAkyIn2W7C87ksYJURGhOD669fU0N+S9o1xdsazAIxmnLY/8NsaKDAMZ7ZS6rY9tmiacn4ACYPd+Mel5cPWeeOPCPl3RafIyyKdAtcJg4OcaoxbMiKH/u7D9z6AkjnuHmpMK9V8ICJjFE4IcuRiGqsIvIsoQtGIIPEEWuabSnTK2vtPeNlD7kF4FoJQ1KFI6jDY8Tyy3QwtCFkk5W0PE2kCYwNEpnpm8OBcVIclrTo4632wFofeY4fP3uTwQpGcdza7mqHXWcarGKxEb98ImqfHAgR141s1oKoDmkjHtSAaxGx6qYW5O4gV3JL2QE+Ab3eAslCx zen@zen-HP-14-Notebook-PC
+		```
+
+		Sekarang, kita akan coba pasang SSH itu di Github. Jadi, buka github.com
+
+		Kemudian, perhatikan pada icon profil yang berada di kanan atas, itu dipencet.
+
+		![Icon di Github](https://i.ibb.co/fCmMcsz/icon-di-github.webp =124x46)
+
+		Kemudian, akan muncul menu Github. Pilih **Settings**:
+
+		![Menu di Github](https://i.ibb.co/tJwqgjp/menu-di-github.webp =207x590)
+
+		Lalu, cari menu `SSH and GPG keys`. Kalau ketemu, klik:
+
+		![Menu SSH](https://i.ibb.co/4NjYmKP/menu-ssh.webp =231x429)
+
+		Kemudian, klik tombol `New SSH key`.
+
+		Nah, masukkan kode SSHnya. Untuk judul, bebas aja sih:
+
+		![Tambah SSH](https://i.ibb.co/cy1f865/tambah-ssh.webp =770x371)
+
+		Selesai...
+	@endmarkdown
+{% endblock %}

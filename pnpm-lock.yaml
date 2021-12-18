@@ -2,11 +2,11 @@ lockfileVersion: 5.3
 
 specifiers:
   recursive-readdir-sync: ^1.0.6
-  unmei: ^2.1.0
+  unmei: ^2.2.0
 
 dependencies:
   recursive-readdir-sync: 1.0.6
-  unmei: 2.1.0
+  unmei: 2.2.0
 
 packages:
 
@@ -938,6 +938,10 @@ packages:
     resolution: {integrity: sha1-miyr0bno4K6ZOkv31YdcOcQujqw=}
     dev: false
 
+  /markdown-it-imsize/2.0.1:
+    resolution: {integrity: sha1-zKBCeQXQUziiR8ucqdloxc3dUXA=}
+    dev: false
+
   /markdown-it-shiki/0.3.0:
     resolution: {integrity: sha512-oV7vKW3Ao/M1VOe1yI/zBaBWEA9uLZfMoUHuF5MX1J9T/eh9casf/dr6jj1FBsz16mcRmiSw/NKMyXkRQ3iGPQ==}
     dependencies:
@@ -1555,8 +1559,8 @@ packages:
     engines: {node: '>= 10.0.0'}
     dev: false
 
-  /unmei/2.1.0:
-    resolution: {integrity: sha512-RzSnj+9Gpr+UuXXLVAQGLfAlAfoGTKWbJfttN2Q2HL6OYG8jMZQ0f6QXefogi03C0a9RAfURiioVHgVx3jPh7A==}
+  /unmei/2.2.0:
+    resolution: {integrity: sha512-57rQPhJEKnB9Rr9TNIR8v1A8RcoBoMZxAkWjhEcUIXsRnK/fe9l2ISklaMxMwqlsLfd8H7/0adLtkKgDmWB5Tw==}
     hasBin: true
     dependencies:
       browser-sync: 2.27.7
@@ -1568,6 +1572,7 @@ packages:
       glob: 7.2.0
       html-minifier: 4.0.0
       markdown-it: 12.3.0
+      markdown-it-imsize: 2.0.1
       markdown-it-shiki: 0.3.0
       mkdirp: 1.0.4
       nunjucks: 3.2.3_chokidar@3.5.2

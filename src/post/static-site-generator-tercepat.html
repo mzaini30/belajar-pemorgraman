@@ -120,7 +120,7 @@
 
 		Tapi, HTML Template Engine ini nggak bisa berjalan dengan sendirinya. Dia harus bernaung sama suatu wadah supaya bisa jalan. Wadah itu bernama Static Site Generator. Ada banyak Static Site Generator, di antaranya adalah Jekyll, Hugo, Eleventy, hingga Mini SSG Zen.
 
-		![Maskot Mini SSG Zen](https://raw.githubusercontent.com/mzaini30/mini-SSG/HEAD/tsukuyomi-komoe.png)
+		![Maskot Mini SSG Zen](https://raw.githubusercontent.com/mzaini30/mini-SSG/HEAD/tsukuyomi-komoe.png =200x246)
 
 		Aku sebelumnya pakai Mini SSG Zen untuk develop file-file HTML, termasuk develop website ini. Namun, suatu masalah muncul. Kalau yang namanya Static Site Generator itu, dia generate semua file template dulu menjadi HTML, baru kemudian reload.
 
@@ -150,7 +150,7 @@
 
 		Untungnya kan, Nunjucks itu kompatible dengan server Express. Kurancanglah toolsnya hingga akhirnya terbentuklah Unmei...
 
-		![Fotonya Unmei](https://raw.githubusercontent.com/mzaini30/unmei/HEAD/unmei.jpeg)
+		![Fotonya Unmei](https://raw.githubusercontent.com/mzaini30/unmei/HEAD/unmei.jpeg =400x224)
 
 		Seperti yang aku bilang di atas bahwa dengan Unmei, saat `dev`, dia menggunakan server Express. Jadi, reloadnya ya nunggu generate satu file itu aja, misalnya `index.html`, nggak perlu nunggu generate 100 file template yang kita miliki. Nah, lalu pas `build`, dia akan generate semuanya, tapi nggak masalah buat kita karena proses build itu kan dilakukan di servernya Github dengan [Github Action](/post/auto-deploy-astro-di-github-pages.html) atau di Vercel maupun Netlify.
 
