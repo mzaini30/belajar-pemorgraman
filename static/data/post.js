@@ -39,4 +39,5 @@ export default [
 	{judul: 'Manipulasi Gambar dengan Blogspot', slug: 'manipulasi-gambar-dengan-blogspot', kelas: 'Blogspot'},
 	{judul: 'Unmei: Solusi Bagi Lambatnya Proses Developing Static Site Generator', slug: 'static-site-generator-tercepat', kelas: 'JavaScript'},
 	{judul: 'Menggunakan Git dengan SSH', slug: 'git-dengan-ssh', kelas: 'Git'},
+	{judul: 'Yuk Kenalan Dulu Sama Unmei', slug: 'perkenalan-unmei', kelas: 'Unmei'},
 ]

@@ -1,0 +1,161 @@
+{% extends '../layouts/post.html' %}
+
+{% block judul %}
+	Yuk Kenalan Dulu Sama Unmei
+{% endblock %}
+
+{% block kelas %}
+	Unmei
+{% endblock %}
+
+{% block isi %}
+	@markdown
+		Unmei adalah salah satu static site generator sebagaimana Jekyll, Hugo, Eleventy, Pelican, Astro, dan Iles. Apa perbedaan antara Unmei dengan static site generator lainnya? Kalau static site generator pada umumnya hanya sebagai generator situs statis. Sedangkan, kalau Unmei, dia generate hanya saat build. Ketika mode development, dia menjalankan server Express.
+
+		Sebenarnya, sudah aku jelaskan sih di postingan sebelumnya tentang [apa itu Unmei](/post/static-site-generator-tercepat.html). Bahkan, dengan perbandingan antara static site generator dan PHP. Jadi, mungkin di postingan ini akan lebih ke contoh-contoh.
+
+		## Persiapan
+
+		Pastikan dulu kalau kamu memiliki Node JS. Apa itu Node JS? Node JS adalah tools untuk menjalankan JavaScript di luar lingkungan browser. Maksudnya? Kan, biasanya itu JavaScript hanya bisa jalan jika menggunakan browser, maka dengan Node JS, kita bisa menjalankannya di luar browser. Misalnya aja, di Terminal/Command Prompt.
+
+		Kenapa harus pakai Node JS? Nggak Python aja atau Ruby? Ya karena aku membuat Unmei itu dengan JavaScript, bukan Python atau Ruby. Hehehehe... Kenapa pakai JavaScript? Menurutku sih karena JavaScript itu mudah dan banyak tools tersedia.
+
+		Kalau belum punya Node JS, install dulu dengan googling "download Node JS". Setelah itu, ikuti aja instruksinya, dan akhirnya Node JS terpasang.
+
+		Kemudian, jika sudah punya Node JS, pastikan kamu sudah install Unmei. Kalau belum punya, install dengan mengetikkan perintah berikut ke Terminal/Command Prompt:
+
+		```bash
+		npm i -g unmei
+		```
+
+		## Mempersiapkan Project
+
+		Jadi, kita siapkan dulu folder yang akan kita olah. Misalnya aja, aku menggunakan folder `/home/zen/latihan/latihan-unmei/`:
+
+		![Folder untuk Unmei](https://i.ibb.co/LJ9cHxP/folder-untuk-unmei.png =597x341)
+
+		Kenapa kok masih kosong? Soalnya kan ini folder baru. Belum diapa-apain.
+
+		Terus, kita buka deh itu folder di Sublime atau VS Code. Tergantung sih kamu pakai apa. Kalau aku kan pakai Sublime. Maka, perintah untuk membuka folder itu di Sublime adalah:
+
+		```bash
+		subl . -a
+		```
+
+		Kalau kamu menggunakan VS Code, maka perintahnya adalah:
+
+		```bash
+		code .
+		```
+
+		Tapi, bisa juga sih habis buka Sublime, kita seret aja foldernya ke Sublime. Tergantung kamu lebih nyaman pakai cara apa. Kalau aku sih, karena di Linux terbiasa untuk memakai ketik-ketik untuk segala hal, jadinya ya lebih nyaman main ketik-ketik.
+
+		Lalu, kita buat folder `src`. Soalnya, Unmei hanya akan melihat dua folder, yaitu folder `src` dan folder `static`. Folder `src` berisi dengan file-file Nunjucks yang berekstensi `html`, sedangkan folder `static` berisi dengan file-file yang nggak diiolah sama Unmei. Jadi, tinggal tampil aja gitu, tanpa perlu diolah. Biasanya sih folder ini berisi dengan aset-aset seperti gambar, font, script, dan style.
+
+		![Folder src di Unmei](https://i.ibb.co/QvqZxRv/folder-src-di-unmei.png =157x54)
+
+		Sekarang, kita buat dua file di folder `src` tadi, yaitu file `index.html` dan `base.html`:
+
+		![Index dan base di Unmei](https://i.ibb.co/thr1312/index-dan-base-di-unmei.png =197x104)
+
+		Nah, sekarang, di `base.html`, kita isi dengan:
+
+		```html
+		{% raw %}<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+			<title>Document</title>
+		</head>
+		<body>
+			{% block body %} {% endblock %}
+		</body>
+		</html>{% endraw %}
+		```
+
+		Sedangkan, di `index.html`, isinya adalah:
+
+		```html
+		{% raw %}{% extends './base.html' %}
+
+		{% block body %}
+			<h1>Hello World...</h1>
+		{% endblock %}{% endraw %}
+		```
+
+		Untuk menjalankannya, kita kembali ke Terminal/Command Prompt/Git Bash tadi, kemudian ketikkan perintah:
+
+		```bash
+		unmei dev
+		```
+
+		Maka, di Terminal akan muncul tulisan:
+
+		![Tampilan Terminal saat unmei dev](https://i.ibb.co/1TbVDK7/di-terminal-saat-unmei-dev.png =436x204)
+
+		Sedangkan, yang tampil di browser adalah:
+
+		![Hello World saat unmei dev di browser](https://i.ibb.co/xfpgsz9/hello-world-saat-unmei-dev.png =344x214)
+
+		Di sini terlihat bahwa hanya muncul tulisan `Hello World` tanpa adanya style apapun. Lalu, bagaimana caranya kita menambahkan style?
+
+		## Menambahkan Style di Unmei
+
+		Unmei sudah include dengan Windi. Maka, jika ingin menambahkan style di Unmei, kita harus mengikuti aturan Windi. Nah, di Windi ini ada dua cara menambahkan style, yaitu dengan inline class dan style tag.
+
+		Pertama adalah inline class. Langsung aja kita coba:
+
+		```diff
+		{% raw %}{% extends './base.html' %}
+
+		{% block body %}
+		!	<h1 class="text-violet-700 p-4">Hello World...</h1>
+		{% endblock %}{% endraw %}
+		```
+
+		Hasilnya:
+
+		![Unmei dengan inline class](https://i.ibb.co/Ycy4Qty/unmei-dengan-inline-class.png =283x161)
+
+		Lalu, kalau kita ingin menggunakan tag style, jadinya seperti ini:
+
+		```diff
+		{% raw %}{% extends './base.html' %}
+
+		{% block body %}
+			<h1 class="text-violet-700 p-4">Hello World...</h1>
+
+		+	<style lang="windi">
+		+		h1 {
+		+			@apply uppercase italic
+		+		}
+		+	</style>
+		{% endblock %}{% endraw %}
+		```
+
+		Jadinya:
+
+		![Unmei dengan tag style Windi](https://i.ibb.co/1MxkQw8/unmei-style-windi.png =321x198)
+
+		## Build
+
+		Untuk build, jalankan perintah: `unmei build`. Maka, jadinya adalah sebuah folder `public` yang berisi hasil build:
+
+		![Unmei hasil build](https://i.ibb.co/FsdQRYq/unmei-hasil-build.png =215x159)
+
+		Hasilnya itu udah minified.
+
+		`base.html`:
+
+		```html
+		<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Document</title><style>*,::after,::before{-webkit-box-sizing:border-box;box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}*{--tw-ring-inset:var(--tw-empty, );/*!*//*!*/--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59, 130, 246, 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000}:root{-moz-tab-size:4;-o-tab-size:4;tab-size:4}:-moz-focusring{outline:1px dotted ButtonText}:-moz-ui-invalid{box-shadow:none}::moz-focus-inner{border-style:none;padding:0}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}abbr[title]{-webkit-text-decoration:underline dotted;text-decoration:underline dotted}body{margin:0;font-family:inherit;line-height:inherit}html{-webkit-text-size-adjust:100%;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";line-height:1.5}</style></head><body></body></html>
+		```
+
+		`index.html`:
+
+		```html
+		<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Document</title><style>*,::after,::before{-webkit-box-sizing:border-box;box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}*{--tw-ring-inset:var(--tw-empty, );/*!*//*!*/--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59, 130, 246, 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000}:root{-moz-tab-size:4;-o-tab-size:4;tab-size:4}:-moz-focusring{outline:1px dotted ButtonText}:-moz-ui-invalid{box-shadow:none}::moz-focus-inner{border-style:none;padding:0}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}abbr[title]{-webkit-text-decoration:underline dotted;text-decoration:underline dotted}body{margin:0;font-family:inherit;line-height:inherit}html{-webkit-text-size-adjust:100%;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";line-height:1.5}h1{margin:0;font-size:inherit;font-weight:inherit}.p-4{padding:1rem}.text-violet-700{--tw-text-opacity:1;color:rgba(109,40,217,var(--tw-text-opacity))}h1{font-style:italic;text-transform:uppercase}</style></head><body><h1 class="text-violet-700 p-4">Hello World...</h1></body></html>
+		```
+	@endmarkdown
+{% endblock %}
