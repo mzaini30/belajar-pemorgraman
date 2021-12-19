@@ -27,62 +27,72 @@
 				</script>
 			</nav>
 
-			<section class="tengah">
-
-				<nav class="kategorisasi" v-cloak v-for='x in kategorisasiData'>
+			<section class="tengah semua-postingan" v-cloak @mounted='kategorisasiData'>
+				<nav class="kategorisasi" v-for='x in semuaArtikel'>
 					<h2>Main {{x.kelas}}</h2>
 					<ol>
 						<li v-for='y in acak(x.postingan).slice(0, 3)'><a :href="'/post/' + y.slug + '.html'">{{y.judul}}</a></li>
 					</ol>
 				</nav>
 
-				<script type='module'>
-					import data from '/data/post.js'
-					import acak from '/acak.js'
-
-					PetiteVue.createApp({
-						data,
-						acak(x){
-							return acak(x)
-						},
-						get kategorisasiData(){
-							let semuaKelas = []
-							for (let x of this.data){
-								if (!semuaKelas.includes(x.kelas)) {
-									semuaKelas = [...semuaKelas, x.kelas]
-								}
-							}
-							semuaKelas.sort()
-
-							let kategorisasi = []
-							for (let x of semuaKelas){
-								kategorisasi = [...kategorisasi, {
-									kelas: x,
-									postingan: []
-								}]
-							}
-
-							for (let x of this.data){
-								for (let y of kategorisasi){
-									if (x.kelas == y.kelas) {
-										y.postingan = [...y.postingan, {
-											judul: x.judul,
-											slug: x.slug
-										}]
-									}
-								}
-							}
-							return kategorisasi
-						}
-					}).mount('.kategorisasi')
-				</script>
-
+				<section class="tombol-acak" @click='kategorisasiData'>
+					{% include './imports/tombol-acak.html' %}
+				</section>
 			</section>
+
+			<script type='module'>
+				import data from '/data/post.js'
+				import acak from '/acak.js'
+
+				PetiteVue.createApp({
+					data,
+					semuaArtikel: [],
+					acak(x){
+						return acak(x)
+					},
+					kategorisasiData(){
+						let semuaKelas = []
+						for (let x of this.data){
+							if (!semuaKelas.includes(x.kelas)) {
+								semuaKelas = [...semuaKelas, x.kelas]
+							}
+						}
+						semuaKelas.sort()
+
+						let kategorisasi = []
+						for (let x of semuaKelas){
+							kategorisasi = [...kategorisasi, {
+								kelas: x,
+								postingan: []
+							}]
+						}
+
+						for (let x of this.data){
+							for (let y of kategorisasi){
+								if (x.kelas == y.kelas) {
+									y.postingan = [...y.postingan, {
+										judul: x.judul,
+										slug: x.slug
+									}]
+								}
+							}
+						}
+						// return kategorisasi
+						this.semuaArtikel = kategorisasi
+					}
+				}).mount('.semua-postingan')
+			</script>
 
 			{% include './imports/footer.html' %}
 
 		</section>
 	</section>
+
+	<style lang="windi">
+		.tombol-acak {
+			@apply fixed bottom-0 right-0 cursor-pointer p-3
+		}
+	</style>
 
 	
 {% endblock %}
