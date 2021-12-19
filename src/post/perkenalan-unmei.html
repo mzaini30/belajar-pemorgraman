@@ -10,13 +10,13 @@
 
 {% block isi %}
 	@markdown
-		Unmei adalah salah satu static site generator sebagaimana Jekyll, Hugo, Eleventy, Pelican, Astro, dan Iles. Apa perbedaan antara Unmei dengan static site generator lainnya? Kalau static site generator pada umumnya hanya sebagai generator situs statis. Sedangkan, kalau Unmei, dia generate hanya saat build. Ketika mode development, dia menjalankan server Express.
+		Unmei adalah salah satu static site generator sebagaimana Jekyll, Hugo, Eleventy, Pelican, [Astro](/post/belajar-astro-dari-dasar.html), dan Iles. Apa perbedaan antara Unmei dengan static site generator lainnya? Kalau static site generator pada umumnya hanya sebagai generator situs statis. Sedangkan, kalau Unmei, dia generate hanya saat build. Ketika mode development, dia menjalankan server Express.
 
 		Sebenarnya, sudah aku jelaskan sih di postingan sebelumnya tentang [apa itu Unmei](/post/static-site-generator-tercepat.html). Bahkan, dengan perbandingan antara static site generator dan PHP. Jadi, mungkin di postingan ini akan lebih ke contoh-contoh.
 
 		## Persiapan
 
-		Pastikan dulu kalau kamu memiliki Node JS. Apa itu Node JS? Node JS adalah tools untuk menjalankan JavaScript di luar lingkungan browser. Maksudnya? Kan, biasanya itu JavaScript hanya bisa jalan jika menggunakan browser, maka dengan Node JS, kita bisa menjalankannya di luar browser. Misalnya aja, di Terminal/Command Prompt.
+		Pastikan dulu kalau kamu memiliki Node JS. Apa itu [Node JS](/post/menggunakan-node-js-dengan-es-module.html)? Node JS adalah tools untuk menjalankan JavaScript di luar lingkungan browser. Maksudnya? Kan, biasanya itu JavaScript hanya bisa jalan jika menggunakan browser, maka dengan Node JS, kita bisa menjalankannya di luar browser. Misalnya aja, di Terminal/Command Prompt.
 
 		Kenapa harus pakai Node JS? Nggak Python aja atau Ruby? Ya karena aku membuat Unmei itu dengan JavaScript, bukan Python atau Ruby. Hehehehe... Kenapa pakai JavaScript? Menurutku sih karena JavaScript itu mudah dan banyak tools tersedia.
 
@@ -36,7 +36,7 @@
 
 		Kenapa kok masih kosong? Soalnya kan ini folder baru. Belum diapa-apain.
 
-		Terus, kita buka deh itu folder di Sublime atau VS Code. Tergantung sih kamu pakai apa. Kalau aku kan pakai Sublime. Maka, perintah untuk membuka folder itu di Sublime adalah:
+		Terus, kita buka deh itu folder di [Sublime](/post/syntax-highlighting-astro-di-sublime.html) atau VS Code. Tergantung sih kamu pakai apa. Kalau aku kan pakai Sublime. Maka, perintah untuk membuka folder itu di Sublime adalah:
 
 		```bash
 		subl . -a
@@ -48,7 +48,7 @@
 		code .
 		```
 
-		Tapi, bisa juga sih habis buka Sublime, kita seret aja foldernya ke Sublime. Tergantung kamu lebih nyaman pakai cara apa. Kalau aku sih, karena di Linux terbiasa untuk memakai ketik-ketik untuk segala hal, jadinya ya lebih nyaman main ketik-ketik.
+		Tapi, bisa juga sih habis buka Sublime, kita seret aja foldernya ke Sublime. Tergantung kamu lebih nyaman pakai cara apa. Kalau aku sih, karena di [Linux](/post/mengapa-menggunakan-linux.html) terbiasa untuk memakai ketik-ketik untuk segala hal, jadinya ya lebih nyaman main ketik-ketik.
 
 		Lalu, kita buat folder `src`. Soalnya, Unmei hanya akan melihat dua folder, yaitu folder `src` dan folder `static`. Folder `src` berisi dengan file-file Nunjucks yang berekstensi `html`, sedangkan folder `static` berisi dengan file-file yang nggak diiolah sama Unmei. Jadi, tinggal tampil aja gitu, tanpa perlu diolah. Biasanya sih folder ini berisi dengan aset-aset seperti gambar, font, script, dan style.
 
