@@ -27,11 +27,11 @@
 				</script>
 			</nav>
 
-			<section class="tengah semua-postingan" v-cloak @mounted='kategorisasiData'>
+			<section class="tengah semua-postingan" @mounted='kategorisasiData'>
 				<nav class="kategorisasi" v-for='x in semuaArtikel'>
-					<h2>Main {{x.kelas}}</h2>
+          <h2 v-cloak>Main {{x.kelas}}</h2>
 					<ol>
-						<li v-for='y in acak(x.postingan).slice(0, 3)'><a :href="'/post/' + y.slug + '.html'">{{y.judul}}</a></li>
+            <li v-for='y in acak(x.postingan).slice(0, 3)'><a :href="'/post/' + y.slug + '.html'" v-cloak>{{y.judul}}</a></li>
 					</ol>
 				</nav>
 
