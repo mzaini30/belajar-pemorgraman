@@ -122,6 +122,7 @@
 
 		<section class="menunya-mobile" v-if='tampilMenu'>
 			<section class="isi">
+				<h2 class="ke-beranda"><a href="/">Main Kode</a></h2>
 
 				<h2>Main {{ kelas }}</h2>
 				<ol>
@@ -159,5 +160,72 @@
       linkLainnya
 		}).mount('.khusus-mobile')
 	</script>	
+
+	<nav class="melayang">
+		<span class="berikutnya">Berikutnya</span>		
+		<a :href="data[0].slug" class="link" v-cloak>{{ data[0].judul }}</a>
+	</nav>
+
+	<script type="module">
+		import data from '/data/post.js'
+		import acak from '/acak.js'
+
+		PetiteVue.createApp({
+			data: acak(data)
+		}).mount('.melayang .link')
+	</script>
+
+	<style lang="windi">
+		.ke-beranda {
+			@apply !text-5xl text-center pt-6 pb-3 -m-3 mb-3
+		}
+		.menunya-mobile h2:not(.ke-beranda) {
+			@apply !font-sans !text-base font-bold
+		}
+		.menunya-mobile li {
+			@apply ml-3
+		}
+
+		.melayang {
+			@apply sticky bottom-0 left-0 border-t border-blue-500 w-full flex text-sm
+		}
+		.melayang :where(.berikutnya, .link){
+			@apply px-2 py-1;
+			white-space: nowrap;
+		}
+		.melayang .berikutnya {
+			@apply bg-blue-500 text-white
+		}
+		.melayang .link {
+			@apply bg-white w-full underline;
+			/*min-width: 0;*/
+			text-overflow: ellipsis;
+			overflow: hidden;
+		}
+
+		.menu-melayang {
+			@apply bottom-7 left-0 p-2 fixed text-blue-500 cursor-pointer;
+			user-select: none;
+		}
+		.menunya-mobile {
+			@apply min-h-screen w-full bg-black/50 top-0 left-0 fixed;
+			z-index: 3;
+		}
+		.menunya-mobile .isi {
+			@apply bg-white w-[70%] p-3 h-screen overflow-auto;
+			/*z-index: 3;*/
+		}
+		.menunya-mobile .isi h2 {
+			font-family: 'Sacramento', cursive;
+			@apply text-2xl
+		}
+		.menunya-mobile .isi li {
+			@apply text-sm pt-3
+		}
+		.tutup {
+			@apply fixed top-0 right-0 p-3 text-white cursor-pointer;
+			z-index: 3;
+		}
+	</style>
 
 {% endblock %}
