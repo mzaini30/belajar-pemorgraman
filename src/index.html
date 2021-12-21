@@ -27,7 +27,7 @@
 				</script>
 			</nav>
 
-			<section class="tengah semua-postingan" @mounted='kategorisasiData'>
+			<section class="tengah semua-postingan" @vue:mounted='kategorisasiData'>
 				<nav class="kategorisasi" v-for='x in semuaArtikel'>
           <h2 v-cloak>Main {{x.kelas}}</h2>
 					<ol>

@@ -10,9 +10,9 @@
 
 {% block isi %}
 	@markdown
-		Kita bisa menggunakan berbagai framework JavaScript untuk memunculkan interaktivitas pada suatu halaman website. Kita bisa menggunakan Vue, Svelte, maupun React. Tetapi, bagaimana jika kita memiliki suatu halaman website yang tidak memerlukan interaktivitas?
+		Kita bisa menggunakan berbagai framework [JavaScript](/post/berbagai-bentuk-pengulangan-di-javascript.html) untuk memunculkan interaktivitas pada suatu halaman website. Kita bisa menggunakan [Vue](/post/import-vue-svelte-dan-react-di-astro.html), Svelte, maupun React. Tetapi, bagaimana jika kita memiliki suatu halaman website yang tidak memerlukan interaktivitas?
 
-		Contoh dari beberapa halaman yang tidak memerlukan JavaScript adalah halaman about, landing page, bahkan blog.
+		Contoh dari beberapa halaman yang tidak memerlukan JavaScript adalah halaman about, [landing page](/post/membuat-landing-page-di-blogspot.html), bahkan blog.
 
 		Kalau kita menggunakan framework JavaScript, mau nggak mau ya semua halaman akan menggunakan JavaScript. Kok bisa? Sekarang, ini adalah contoh jika kita menggunakan framework JavaScript:
 
@@ -29,6 +29,260 @@
 
 		Kalau SSR, saat load awal, dia menampilkan hasil rendering dari server. Namun, ketika kita interaksi pada halaman tersebut, yang akan dilakukan berikutnya adalah sama seperti SPA yaitu full hydration.
 
-		Hidrasi atau hydration adalah 
+		Hidrasi atau hydration adalah fleksibilitas elemen HTML. Jadi, istilahnya itu, elemen HTML itu fleksibel, bisa ganti-ganti isi, ganti-ganti teks contohnya. Kalau pada framework JS, dia itu kan full hydration. Berarti, hanya ada satu div root yang nanti isinya akan berubah-ubah jika terjadi interaksi di elemen-elemennya.
+
+		Kalau kita ingin 0 kb JS, maka kita nggak menggunakan full hydration melainkan partial hydration untuk meminimalisir file JS yang digunakan. Contoh dari partial hydration adalah Astro, Iles, Petite Vue, dan Alpine JS.
+
+		Kalau [Astro](/post/belajar-astro-dari-dasar.html) dan [Iles](/post/mencoba-iles.html) itu tetap membawa framework JS mainstream seperti Vue, Svelte, dan [React](/post/import-vue-svelte-dan-react-di-astro.html). Tapi, kalau Petite Vue dan Alpine JS, dia menggunakan aturan-aturan dari Vue.
+
+		Kelebihan Petite Vue dan Alpine JS adalah file HTML yang kita buat bisa dijalankan pada protocol selain http, yaitu protocol file. Kalau menggunakan Astro dan Iles, hasil buildnya itu seperti ini:
+
+		```html
+		<script src="/sidebar-82jf8.js"></script>
+		```
+
+		Kalau protocol file, dia nggak paham maksud dari `/` di awalan URL yang di atribut `src` itu. Nah, kalau menggunakan Petite Vue maupun Alpine JS, kita nggak perlu pakai proses build sehingga isi dari atribut src bisa kita atur sesuka kita.
+
+		Jadi, kita mulai aja menggunakan Petite Vue.
+
+		Secara ringkas, cara menggunakan Petite Vue itu kodenya seperti ini:
+
+		```html
+		<!-- Untuk berikutnya, script pemanggilan nggak kutuliskan -->
+		<script src="https://unpkg.com/petite-vue"></script> 
+
+		<script>
+		  PetiteVue.createApp().mount()
+		</script>
+		```
+
+		Contohnya aja, kita ingin menampilkan data:
+
+		```html
+		<p class="panggil" v-cloak>Hello {{ nama }}</p>
+
+		<script>
+			PetiteVue.createApp({
+				nama: 'World'
+			}).mount('.panggil')
+		</script>
+
+		<!-- Untuk berikutnya, style v-cloak nggak kutampilkan -->
+		<style>
+			[v-cloak] {
+				display: none;
+			}
+		</style>
+		```
+
+		Hasilnya seperti ini:
+	@endmarkdown
+
+	<p class="panggil contoh" v-cloak>Hello {{ nama }}</p>
+
+	<script>
+		PetiteVue.createApp({
+			nama: 'World'
+		}).mount('.panggil')
+	</script>
+
+	@markdown
+		Mudah banget kan?
+
+		Oke, kita bahas dulu sedikit.
+
+		Tadi kan kodenya seperti ini:
+
+		```html
+		<p class="panggil" v-cloak>Hello {{ nama }}</p>
+
+		<script>
+			PetiteVue.createApp({
+				nama: 'World'
+			}).mount('.panggil')
+		</script>
+		```
+
+		> Untuk script pemanggilan Petite Vue dan style v-cloak, nggak aku tuliskan ya di sini. Soalnya bakal panjang kalau ditulis ulang. Jadi, lihat contoh-contoh sebelumnya untuk cara pemanggilan Petite Vue dan style v-cloak
+
+		Nah, di contoh di atas kan, ada dua elemen di situ: HTML dan script.
+
+		Untuk yang HTML:
+
+		```html
+		<p class="panggil" v-cloak>Hello {{ nama }}</p>
+		```
+
+		Untuk yang script:
+
+		```javascript
+		PetiteVue.createApp({
+			nama: 'World'
+		}).mount('.panggil')
+		```
+
+		Yang HTML itu, dia sebagai **templatenya**. Sedangkan, yang script itu, untuk **menampung data** dan **pengolahan data**.
+
+		Kalau kamu terbiasa memakai Vue atau setidaknya menggunakan Svelte, insya Allah akan paham sih sama yang namanya fitur templating seperti ini. Tapi kalau belum pernah, ya nggak masalah sih. Di sini akan aku jelaskan pelan-pelan.
+
+		Sekarang kita lihat yang script. Di situ, ada tiga bagian:
+
+		- PetiteVue
+		- createApp
+		- mount
+
+		Pertama, pasti diawali dengan `PetiteVue`. Kenapa? Karena memang nama variablenya itu PetiteVue. Jadi ya pasti diawali dengan itu.
+
+		Kemudian, ada method `createApp`. Nah, di sinilah kita menampung data-data dan behavior.
+
+		Lalu, ada `mount`. Itu untuk menentukan elemen yang akan dilakukan partial hydration. Di sini, mountnya adalah `.panggil`. Maka, elemen yang akan menerima hydration adalah class panggil.
+
+		Oh iya, tadi kan aku pakai atribut v-cloak di HTMLnya. Terus, atribut v-cloak itu dikasih style display none. Itu artinya, elemen tersebut akan dihilangkan. Tapi, kok bisa tampil? Itu karena awalnya dihilangkan, lalu setelah elemen tersebut dimount oleh PetiteVue, makanya jadi muncul lagi.
+
+		Alurnya seperti ini:
+
+		1. Elemen dihilangkan
+		2. PetiteVue termuat
+		3. Ada script PetiteVue yang mengatakan bahwa elemen `.panggil` adalah sebuah template dan datanya sudah disediakan. Maka, elemen `.panggil` akan muncul kembali sekaligus berisi data yang sudah disiapkan
+
+		Apakah tanpa v-cloak bisa? Ya bisa aja sih. Cuma kan, nanti awalnya akan muncul `Hello {{ nama }}`. Nah, karena kurang indah, makanya disembunyikan dulu aja jika belum dimount.
+
+		Oke, kita tuliskan lagi kode di atas supaya nggak lupa:
+
+		```html
+		<p class="panggil" v-cloak>Hello {{ nama }}</p>
+
+		<script>
+			PetiteVue.createApp({
+				nama: 'World'
+			}).mount('.panggil')
+		</script>
+		```
+
+		Sekarang, bagaimana caranya untuk membuat `if`? Nah, contohnya seperti ini:
+
+		```html
+		<section class="kasih-if" v-cloak>
+			<p v-if='tampil'>Tulisan ini ditampilkan</p>
+			<p v-if='!tampil'>Tulisan ini disembunyikan</p>
+		</section>
+
+		<script>
+			PetiteVue.createApp({
+				tampil: true
+			}).mount('.kasih-if')
+		</script>
+		```	
+
+		Hasilnya:
+	@endmarkdown
+
+	<section class="kasih-if contoh" v-cloak>
+		<p v-if='tampil'>Tulisan ini ditampilkan</p>
+		<p v-if='!tampil'>Tulisan ini disembunyikan</p>
+	</section>
+
+	<script>
+		PetiteVue.createApp({
+			tampil: true
+		}).mount('.kasih-if')
+	</script>
+
+	@markdown
+		Sekarang, supaya interaktif, kita coba deh pakai tombol. Ketika tombol dipencet, dia akan generate angka acak:
+
+		```html
+		<section class="acak" @vue:mounted='acak' v-cloak>
+			<p>Angka: {{ angka }}</p>
+			<button @click='acak'>Acak</button>
+		</section>
+
+		<script>
+			PetiteVue.createApp({
+				angka: '',
+				acak(){
+					this.angka = Math.random()
+				}
+			}).mount('.acak')
+		</script>
+		```
+
+		Jadinya:
+	@endmarkdown
+
+	<section class="contoh acak" @vue:mounted='acak' v-cloak>
+		<p>Angka: {{ angka }}</p>
+		<button @click='acak'>Acak</button>
+	</section>
+
+	<script>
+		PetiteVue.createApp({
+			angka: '',
+			acak(){
+				this.angka = Math.random()
+			}
+		}).mount('.acak')
+	</script>
+
+	@markdown
+		Seru banget kan...
+
+		Sekarang kita coba apa lagi ya.. Oh iya, kita coba main API, biar ada JAMStacknya:
+
+		```html
+		<section class="main-api" v-cloak @vue:mounted='dapatkanData'>
+			<p class="text-center text-3xl" style="font-family: 'Comic Sans MS', sans-serif;">Anime Terbaik Musim Ini</p>
+			<ol>
+				<li v-for='x in data.data' class="clear-both">
+					<p><strong>{{ x.attributes.titles.en_jp }} ({{ x.attributes.titles.ja_jp }})</strong></p>
+
+					<img class="float-left !mr-3 !mb-3" :src="x.attributes.posterImage.tiny" :alt="x.attributes.titles.en_jp" width="110" height="156" />
+					<p v-html='x.attributes.synopsis.replace(/\n/g, "<br>")'></p>
+				</li>
+			</ol>
+		</section>
+
+		<script type="module">
+			PetiteVue.createApp({
+				data: {},
+				async dapatkanData(){
+					let datanya = await fetch('https://kitsu.io/api/edge/anime')
+					datanya = await datanya.json()
+					this.data = datanya
+				}
+			}).mount('.main-api')
+		</script>
+		```
+
+		Jadinya:
+	@endmarkdown
+
+	<section class="main-api contoh" v-cloak @vue:mounted='dapatkanData'>
+		<p class="text-center text-3xl" style="font-family: 'Comic Sans MS', sans-serif;">Anime Terbaik Musim Ini</p>
+		<ol>
+			<li v-for='x in data.data' class="clear-both">
+				<p><strong>{{ x.attributes.titles.en_jp }} ({{ x.attributes.titles.ja_jp }})</strong></p>
+
+				<img class="float-left !mr-3 !mb-3" :src="x.attributes.posterImage.tiny" :alt="x.attributes.titles.en_jp" width="110" height="156" />
+				<p v-html='x.attributes.synopsis.replace(/\n/g, "<br>")'></p>
+			</li>
+		</ol>
+	</section>
+
+	<script type="module">
+		PetiteVue.createApp({
+			data: {},
+			async dapatkanData(){
+				let datanya = await fetch('https://kitsu.io/api/edge/anime')
+				datanya = await datanya.json()
+				this.data = datanya
+			}
+		}).mount('.main-api')
+	</script>
+
+	@markdown
+		Bagus kan ya?
+
+		Gimana? Seru kan bermain JAMStack dengan PetiteVue?
 	@endmarkdown
 {% endblock %}
