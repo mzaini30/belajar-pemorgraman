@@ -40,4 +40,5 @@ export default [
 	{judul: 'Unmei: Solusi Bagi Lambatnya Proses Developing Static Site Generator', slug: 'static-site-generator-tercepat', kelas: 'JavaScript'},
 	{judul: 'Menggunakan Git dengan SSH', slug: 'git-dengan-ssh', kelas: 'Git'},
 	{judul: 'Yuk Kenalan Dulu Sama Unmei', slug: 'perkenalan-unmei', kelas: 'Unmei'},
+	{judul: 'Belajar Menggunakan Petite Vue', slug: 'petite-vue', kelas: 'JavaScript'},
 ]

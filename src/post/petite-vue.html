@@ -1,0 +1,34 @@
+{% extends "../layouts/post.html" %}
+
+{% block judul %}
+	Belajar Menggunakan Petite Vue
+{% endblock %}
+
+{% block kelas %}
+	JavaScript
+{% endblock %}
+
+{% block isi %}
+	@markdown
+		Kita bisa menggunakan berbagai framework JavaScript untuk memunculkan interaktivitas pada suatu halaman website. Kita bisa menggunakan Vue, Svelte, maupun React. Tetapi, bagaimana jika kita memiliki suatu halaman website yang tidak memerlukan interaktivitas?
+
+		Contoh dari beberapa halaman yang tidak memerlukan JavaScript adalah halaman about, landing page, bahkan blog.
+
+		Kalau kita menggunakan framework JavaScript, mau nggak mau ya semua halaman akan menggunakan JavaScript. Kok bisa? Sekarang, ini adalah contoh jika kita menggunakan framework JavaScript:
+
+		```html
+		<div class="app"></div>
+
+		<script src="vendor.js"></script>
+		<script src="bundle.js"></script>
+		```
+
+		Jadi, dia itu bentuknya cuma sebongkah div yang diikuti dengan dua script. Script yang pertama untuk memanggil framework JavaScript. Script kedua untuk memanggil sintaks-sintaks JavaScript yang sesuai dengan aturan-aturan framework.
+
+		Bagaimana dengan SSR (Server Side Rendering)? Sebenarnya sih SSR dan SPA (Single Page Application) itu sama aja. Yang membedakan hanyalah saat load awal.
+
+		Kalau SSR, saat load awal, dia menampilkan hasil rendering dari server. Namun, ketika kita interaksi pada halaman tersebut, yang akan dilakukan berikutnya adalah sama seperti SPA yaitu full hydration.
+
+		Hidrasi atau hydration adalah 
+	@endmarkdown
+{% endblock %}
