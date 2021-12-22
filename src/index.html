@@ -15,7 +15,7 @@
 
 			<nav class="terbaru">
 				<section class="tulisan-terbaru">Terbaru</section> 
-				<section class="link-terbaru">
+				<section class="link-terbaru link-linknya">
 					<a :href="'/post/' + data.slug + '.html'" v-cloak>{{data.judul}}</a>
 				</section>
 				<script type="module">
@@ -23,9 +23,25 @@
 
 					PetiteVue.createApp({
 						data: data.reverse()[0]
-					}).mount('.link-terbaru a')
+					}).mount('.link-linknya a')
 				</script>
 			</nav>
+
+			<!-- <nav class="terbaru">
+				<section class="link-terbaru dapatkan-komentar" v-cloak @vue:mounted='dapatkanKomentar'>
+					<a href="/" class="komentar-terbaru">Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Sit voluptatum exercitationem itaque, sed totam deserunt animi dolores beatae ducimus molestiae numquam officia nulla incidunt, quis, nemo, nihil facere magnam vitae.</a>
+				</section>
+				<script type="module">
+					import {komentar, jawaban, sql} from '/data/api.js'
+
+					PetiteVue.createApp({
+						semuaKomentar: [],
+						async dapatkanKomentar(){
+							
+						}
+					}).mount('.dapatkan-komentar')
+				</script>
+			</nav> -->
 
 			<section class="tengah semua-postingan" @vue:mounted='kategorisasiData'>
 				<nav class="kategorisasi" v-for='x in semuaArtikel'>
@@ -92,6 +108,12 @@
 		.tombol-acak {
 			@apply fixed bottom-0 right-0 cursor-pointer p-3;
 			user-select: none;
+		}
+		.komentar-terbaru {
+			overflow: hidden;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 3;
 		}
 	</style>
 
