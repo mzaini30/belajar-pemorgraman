@@ -1,3 +1,4 @@
+<section id="komentar"></section>
 <section class="komentar" v-cloak @vue:mounted='cekMeta(); ambilData(); cekAdmin()'>
 
 	<section class="tambah-komentar">
@@ -12,9 +13,7 @@
 	</section>
 
 	<section class="komentarnya" v-for='x in semuaKomentar'>
-		<h3>
-			<a :href="x.link" rel="nofollow">{{x.nama}}</a>
-		</h3>
+		<h3><a :href="x.link" rel="nofollow">{{x.nama}}</a></h3>
 		<p>{{x.komentar}}</p>
 
 		<section class="jawaban-admin" v-if='jawabanAdmin.filter(y => y.idTarget == x.id)[0]'>

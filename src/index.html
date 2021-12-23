@@ -27,21 +27,28 @@
 				</script>
 			</nav>
 
-			<!-- <nav class="terbaru">
+			<nav class="terbaru">
 				<section class="link-terbaru dapatkan-komentar" v-cloak @vue:mounted='dapatkanKomentar'>
-					<a href="/" class="komentar-terbaru">Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Sit voluptatum exercitationem itaque, sed totam deserunt animi dolores beatae ducimus molestiae numquam officia nulla incidunt, quis, nemo, nihil facere magnam vitae.</a>
+					<a :href="komentarBelumTerjawab.slug + '.html#komentar'" class="komentar-terbaru"><strong>{{ komentarBelumTerjawab.nama }}</strong>: "{{ komentarBelumTerjawab.komentar }}"</a>
 				</section>
 				<script type="module">
 					import {komentar, jawaban, sql} from '/data/api.js'
+					import excalibur from '/excalibur.js'
+					import acak from '/acak.js'
 
 					PetiteVue.createApp({
-						semuaKomentar: [],
+						komentarBelumTerjawab: {},
 						async dapatkanKomentar(){
-							
+							let komentarnya = await excalibur(sql, {
+								id: komentar,
+								kunci: 'belumTerjawab'
+							})
+							komentarnya = await komentarnya.json()
+							this.komentarBelumTerjawab = acak(komentarnya)[0]
 						}
 					}).mount('.dapatkan-komentar')
 				</script>
-			</nav> -->
+			</nav>
 
 			<section class="tengah semua-postingan" @vue:mounted='kategorisasiData'>
 				<nav class="kategorisasi" v-for='x in semuaArtikel'>
@@ -114,6 +121,7 @@
 			display: -webkit-box;
 			-webkit-box-orient: vertical;
 			-webkit-line-clamp: 3;
+			@apply text-sm hover:!no-underline;
 		}
 	</style>
 
