@@ -21,6 +21,6 @@
   "homepage": "https://github.com/mzaini30/unmei-mainkode#readme",
   "dependencies": {
     "recursive-readdir-sync": "^1.0.6",
-    "unmei": "^2.3.1"
+    "unmei": "^2.4.1"
   }
 }

@@ -2,11 +2,11 @@ lockfileVersion: 5.3
 
 specifiers:
   recursive-readdir-sync: ^1.0.6
-  unmei: ^2.3.1
+  unmei: ^2.4.1
 
 dependencies:
   recursive-readdir-sync: 1.0.6
-  unmei: 2.3.1
+  unmei: 2.4.1
 
 packages:
 
@@ -1559,8 +1559,8 @@ packages:
     engines: {node: '>= 10.0.0'}
     dev: false
 
-  /unmei/2.3.1:
-    resolution: {integrity: sha512-Hggn1D/c3Ca4vBGpF6+9K8lgVM/ar7nD4ZH7XyNGI14yXGiWZ9JpnKUeizFkmcYoZ2ykdRigKChY9ap9KKyaZw==}
+  /unmei/2.4.1:
+    resolution: {integrity: sha512-5nu+T1R1EhjLCtoXohrqmtAWcjMlFTX7AHwGIkUUvY/gMhRiac0eNZ5vPbl+9g/SzqFdjv/AGPhychGyMzVSFw==}
     hasBin: true
     dependencies:
       browser-sync: 2.27.7
