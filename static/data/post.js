@@ -41,4 +41,5 @@ export default [
 	{judul: 'Menggunakan Git dengan SSH', slug: 'git-dengan-ssh', kelas: 'Git'},
 	{judul: 'Yuk Kenalan Dulu Sama Unmei', slug: 'perkenalan-unmei', kelas: 'Unmei'},
 	{judul: 'Belajar Menggunakan Petite Vue', slug: 'petite-vue', kelas: 'JavaScript'},
+	{judul: 'Mengapa Ngeblog?', slug: 'mengapa-ngeblog', kelas: 'JavaScript'},
 ]
